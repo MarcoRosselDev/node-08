@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const connect = require('./db.js');
 
-const {registrarUsuario} = require('./controllers/crear-usuario.js')
+const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js')
 
 app.use(express.json())
 
@@ -11,7 +11,7 @@ app.get('/', (req, res)=>{
 })
 
 app.get('/registrar', registrarUsuario)
-
+app.post('/login', loginUsuario)
 
 
 

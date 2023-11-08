@@ -45,6 +45,31 @@ const registrarUsuario = async (req, res) =>{
 }
   } */
 
+const loginUsuario = async (req, res) => {
+  try {
+    //const {email, password} = req.body;
+    const user = await NuevoUsuario.find({email: req.body.email})
+    if (!user) return res.status(404).json({msj: 'No se encontraros usuarios registardos!'})
+    // comparar pass crypt
+    const salt = bcrypt.genSaltSync(10);
+    const comprobacion = bcrypt.compare(req.body.password, user.password, salt)
+    console.log("comprobacion: ", comprobacion);
+    if (!comprobacion) return res.status(401).json({mensaje: "No estas autorizado, pass incorrecta!"})
+
+    res.status(200).json({
+      userInfo: {
+        _id: user._id,
+        nombre: user.nombre,
+        email: user.email
+      },
+      token: 'aksdjfal123'
+    })
+  } catch (error) {
+    res.status(400).send(`error en login Usuario: ${error}`);
+  }
+}
+
 module.exports = {
-  registrarUsuario
+  registrarUsuario,
+  loginUsuario
 };
