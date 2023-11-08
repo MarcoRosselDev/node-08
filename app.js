@@ -2,11 +2,15 @@ const express = require('express');
 const app = express();
 const connect = require('./db.js');
 
+const {registrarUsuario} = require('./controllers/crear-usuario.js')
+
+app.use(express.json())
+
 app.get('/', (req, res)=>{
   res.send('Hola mundo !')
 })
 
-
+app.get('/registrar', registrarUsuario)
 
 
 
