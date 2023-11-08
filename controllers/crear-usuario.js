@@ -1,5 +1,8 @@
 const NuevoUsuario = require('../models/modelo-usuario.js');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
+const key_jwt = process.env.JWT_KEY;
 
 const registrarUsuario = async (req, res) =>{
   try {
@@ -27,42 +30,27 @@ const registrarUsuario = async (req, res) =>{
   }
 }
 
-/* output:
-{
-    "nombre": "marco",
-    "email": "marco@gmail.com",
-    "password": "qwe",
-    "_id": "654bd45848b4e6b239da7df3",
-    "__v": 0
-
-    nuevo output con password encryptado:
-    {
-    "nombre": "marco",
-    "email": "example@gmail.com",
-    "password": "$2a$10$h705v.XUd07CwWgppGOQ7.Sd0NyzjVCNA/6kzxVxvCy6ZWrRdfwBu",
-    "_id": "654bd7aad86f68328fdd8820",
-    "__v": 0
-}
-  } */
-
 const loginUsuario = async (req, res) => {
   try {
     //const {email, password} = req.body;
-    const user = await NuevoUsuario.find({email: req.body.email})
+    const user = await NuevoUsuario.findOne({email: req.body.email})
     if (!user) return res.status(404).json({msj: 'No se encontraros usuarios registardos!'})
     // comparar pass crypt
-    const salt = bcrypt.genSaltSync(10);
-    const comprobacion = bcrypt.compare(req.body.password, user.password, salt)
+    const comprobacion = await bcrypt.compare(req.body.password, user.password)
     console.log("comprobacion: ", comprobacion);
     if (!comprobacion) return res.status(401).json({mensaje: "No estas autorizado, pass incorrecta!"})
 
+    const jwt_user = jwt.sign({
+      nombre: user.nombre,
+      id: user._id
+    }, key_jwt) 
     res.status(200).json({
       userInfo: {
         _id: user._id,
         nombre: user.nombre,
         email: user.email
       },
-      token: 'aksdjfal123'
+      token: jwt_user
     })
   } catch (error) {
     res.status(400).send(`error en login Usuario: ${error}`);
