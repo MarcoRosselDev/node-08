@@ -6,6 +6,22 @@ app.get('/', (req, res)=>{
   res.send('Hola mundo !')
 })
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 require('dotenv').config();
 const url = process.env.MONGO_URL;
 
