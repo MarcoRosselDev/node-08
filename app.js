@@ -6,10 +6,14 @@ const path = require('path');
 
 const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js')
 
+// pages
 app.use(express.json())
-app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use('/', express.static(path.join(__dirname, 'public')))
+app.use('/login', express.static(path.join(__dirname, 'pages', 'login')))
+app.use('/registrar', express.static(path.join(__dirname, 'pages', 'registrar')))
 app.use('/tareas', express.static(path.join(__dirname, 'pages', 'tareas')))
 
+// api
 app.get('/registrar', registrarUsuario)
 app.post('/login', loginUsuario)
 
