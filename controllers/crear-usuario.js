@@ -37,7 +37,7 @@ const loginUsuario = async (req, res) => {
     if (!user) return res.status(404).json({msj: 'No se encontraros usuarios registardos!'})
     // comparar pass crypt
     const comprobacion = await bcrypt.compare(req.body.password, user.password)
-    console.log("comprobacion: ", comprobacion);
+    
     if (!comprobacion) return res.status(401).json({mensaje: "No estas autorizado, pass incorrecta!"})
 
     const jwt_user = jwt.sign({

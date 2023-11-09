@@ -1,0 +1,15 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --main-bg: black;
+  --main-color: pink;
+}
+
+body{
+  color: var(--main-color);
+  background-color: var(--main-bg);
+}

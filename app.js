@@ -1,14 +1,13 @@
 const express = require('express');
 const app = express();
 const connect = require('./db.js');
+const path = require('path');
+
 
 const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js')
 
 app.use(express.json())
-
-app.get('/', (req, res)=>{
-  res.send('Hola mundo !')
-})
+app.use('/static', express.static(path.join(__dirname, 'public')))
 
 app.get('/registrar', registrarUsuario)
 app.post('/login', loginUsuario)
