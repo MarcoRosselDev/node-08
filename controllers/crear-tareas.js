@@ -2,6 +2,7 @@ const Tarea = require('../models/modelo-tarea.js');
 
 const postTarea = async (req, res) =>{
   try {
+    console.log(req.authorizartion);
     console.log('post tarea');
   } catch (error) {
     console.log(error);
