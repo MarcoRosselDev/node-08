@@ -8,6 +8,7 @@ const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js
 
 app.use(express.json())
 app.use('/static', express.static(path.join(__dirname, 'public')))
+app.use('/tareas', express.static(path.join(__dirname, 'pages', 'tareas')))
 
 app.get('/registrar', registrarUsuario)
 app.post('/login', loginUsuario)

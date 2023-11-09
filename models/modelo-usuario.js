@@ -14,5 +14,6 @@ const nuevoUsuario = new mongoose.Schema({
     type: String,
     require: true
   }
-})
+},
+{timestamps: true})
 module.exports = mongoose.model('NuevoUsuario', nuevoUsuario);
