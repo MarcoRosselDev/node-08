@@ -6,13 +6,14 @@ const key_jwt = process.env.JWT_KEY;
 const postTarea = async (req, res) =>{
   try {
     // sacar jwt del header
-    const bearer = req.rawHeaders[1];
+    const bearer = req.rawHeaders[3];
     const jwt_header = bearer.split(' ')[1];
+    console.log(jwt_header);
     // verificar y sacar la info del jwt
     const jwt_info = jwt.verify(jwt_header, key_jwt);
     const {nombre:nombre_jwt, id:id_jwt} = jwt_info;
     // crear tarea con esta info
-    const nuevaTarea = await new Tarea({
+    const nuevaTarea = new Tarea({
       user_id: id_jwt,
       user_name: nombre_jwt,
       titulo: req.body.titulo,
