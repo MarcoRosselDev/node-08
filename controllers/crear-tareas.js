@@ -41,9 +41,14 @@ const getTarea = async (req, res) =>{
     if (!tareas) return res.status(404).json({msj: "no se encontraron tareas"})
     res.status(200).json(tareas)
   } catch (error) {
-    //JsonWebTokenError: invalid token
-    console.log(error.JsonWebTokenError);
-    res.status(400).json({errorMsj: `${error}`})
+    console.log(error.message);
+    if (error.message === "invalid token") return res.status(401).json({msj:"token invalido, por favor logeate denuevo."})
+    // redireccionar al login puede ser?
+    res.status(400).json({errorMsj: error})
+    // para trabajar con el objecto error tenemos a disposicion >
+    //  error.name --> JwtMessajeError, o algo por el estilo
+    //  error.message --> invalid token, 
+    //  error.stack---> todo junto,
   }
 }
 
