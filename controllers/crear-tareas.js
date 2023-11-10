@@ -28,11 +28,21 @@ const postTarea = async (req, res) =>{
 
 const getTarea = async (req, res) =>{
   try {
-    console.log(req.params);
+    // comprobar la auth jwt
+    //console.log(req.rawHeaders[1]);
+    const bearer = req.rawHeaders[1];
+    const jwt_header = bearer.split(' ')[1];
+    const auth = jwt.verify(jwt_header, key_jwt);
+    console.log('auth jwt',auth);
+    // si el token es invalido se lase al catch
+
+    // req.params = { id: '654bd7aad86f68328fdd8820' } from /api/v1/tarea/:id
     const tareas = await Tarea.find({user_id: req.params.id})
     if (!tareas) return res.status(404).json({msj: "no se encontraron tareas"})
     res.status(200).json(tareas)
   } catch (error) {
+    //JsonWebTokenError: invalid token
+    console.log(error.JsonWebTokenError);
     res.status(400).json({errorMsj: `${error}`})
   }
 }
