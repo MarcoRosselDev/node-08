@@ -4,6 +4,10 @@ const connect = require('./db.js');
 const path = require('path');
 const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js');
 const {getTarea, postTarea} = require('./controllers/crear-tareas.js');
+const cookieParser = require('cookie-parser');
+
+// cookies
+app.use(cookieParser())
 
 // pages
 app.use(express.json());
@@ -18,6 +22,18 @@ app.post('/api/login', loginUsuario);
 // api tareas
 app.post('/api/tarea', postTarea);
 app.get('/api/tarea/:id', getTarea);
+
+// cookie api
+app.get('/api/set-cookie', (req, res) =>{
+  // res.cookie('clave', 'valor', {opciones})
+  res.cookie()
+})
+app.get('/api/get-cookie', (req, res) => {
+  res.cookie()
+})
+app.get('/api/del-cookie', (req, res) =>{
+  res.cookie()
+})
 
 
 
