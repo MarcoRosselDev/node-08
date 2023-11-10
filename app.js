@@ -17,7 +17,7 @@ app.get('/api/registrar', registrarUsuario);
 app.post('/api/login', loginUsuario);
 // api tareas
 app.post('/api/tarea', postTarea);
-app.get('/api/tarea', getTarea);
+app.get('/api/tarea/:id', getTarea);
 
 
 

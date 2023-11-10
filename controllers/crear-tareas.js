@@ -8,7 +8,6 @@ const postTarea = async (req, res) =>{
     // sacar jwt del header
     const bearer = req.rawHeaders[3];
     const jwt_header = bearer.split(' ')[1];
-    console.log(jwt_header);
     // verificar y sacar la info del jwt
     const jwt_info = jwt.verify(jwt_header, key_jwt);
     const {nombre:nombre_jwt, id:id_jwt} = jwt_info;
@@ -21,7 +20,7 @@ const postTarea = async (req, res) =>{
     });
     await nuevaTarea.save();
 
-    res.status(201).json({msj: nuevaTarea})
+    res.status(201).json(nuevaTarea)
   } catch (error) {
     res.status(401).json({errorMesaje: `${error}`})
   }
@@ -29,9 +28,12 @@ const postTarea = async (req, res) =>{
 
 const getTarea = async (req, res) =>{
   try {
-    console.log('get Tarea');
+    console.log(req.params);
+    const tareas = await Tarea.find({user_id: req.params.id})
+    if (!tareas) return res.status(404).json({msj: "no se encontraron tareas"})
+    res.status(200).json(tareas)
   } catch (error) {
-    console.log(error);
+    res.status(400).json({errorMsj: `${error}`})
   }
 }
 
