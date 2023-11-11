@@ -24,15 +24,18 @@ app.post('/api/tarea', postTarea);
 app.get('/api/tarea/:id', getTarea);
 
 // cookie api
-app.get('/api/set-cookie', (req, res) =>{
+app.post('/api/crear-cookie', (req, res) =>{
   // res.cookie('clave', 'valor', {opciones})
-  res.cookie()
+  const {clave, valor} = req.body;
+  res.cookie(clave, valor).json({msj: `cookie: ${clave} ${valor} creada`})
 })
 app.get('/api/get-cookie', (req, res) => {
-  res.cookie()
+  const cookie = req.cookies;
+  res.cookie().json({msj: `cookie: ${cookie}`})
 })
 app.get('/api/del-cookie', (req, res) =>{
-  res.cookie()
+  // res.clearCookie( <clave de la cookie> )
+  res.clearCookie("jwt").json({msj: `cookie eliminada`})
 })
 
 
