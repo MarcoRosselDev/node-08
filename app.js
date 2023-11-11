@@ -5,7 +5,7 @@ const path = require('path');
 const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js');
 const {getTarea, postTarea} = require('./controllers/crear-tareas.js');
 const cookieParser = require('cookie-parser');
-
+const {crearCookie, eliminarCookie, obtenerCookie} = require('./controllers/cookies.js')
 // cookies
 app.use(cookieParser())
 
@@ -24,19 +24,9 @@ app.post('/api/tarea', postTarea);
 app.get('/api/tarea/:id', getTarea);
 
 // cookie api
-app.post('/api/crear-cookie', (req, res) =>{
-  // res.cookie('clave', 'valor', {opciones})
-  const {clave, valor} = req.body;
-  res.cookie(clave, valor).json({msj: `cookie: ${clave} ${valor} creada`})
-})
-app.get('/api/get-cookie', (req, res) => {
-  const cookie = req.cookies;
-  res.cookie().json({msj: `cookie: ${cookie}`})
-})
-app.get('/api/del-cookie', (req, res) =>{
-  // res.clearCookie( <clave de la cookie> )
-  res.clearCookie("jwt").json({msj: `cookie eliminada`})
-})
+app.post('/api/crear-cookie', crearCookie)
+app.get('/api/get-cookie', obtenerCookie)
+app.get('/api/del-cookie', eliminarCookie)
 
 
 
