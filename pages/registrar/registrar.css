@@ -2,11 +2,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 :root{
-  --main-bg: black;
-  --main-color: pink;
+  --main-bg: rgb(29, 28, 28);
+  --main-color: rgb(90, 151, 255);
 }
 
 body{
@@ -18,4 +19,10 @@ body{
   height: 100vh;
   color: var(--main-color);
   background-color: var(--main-bg);
+}
+
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
