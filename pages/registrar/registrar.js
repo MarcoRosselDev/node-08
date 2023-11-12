@@ -3,6 +3,7 @@ const email = document.getElementById('email');
 const password = document.getElementById('password');
 const password_rep = document.getElementById('password-rep');
 const enviar = document.querySelector('.enviar')
+const alert = document.querySelector('.alert');
 
 enviar.addEventListener('click', async function (e) {
   e.preventDefault();
@@ -23,6 +24,15 @@ enviar.addEventListener('click', async function (e) {
       if (respuesta.status === 201) {
         const prom = respuesta.json();
         prom.then(data =>{
+          nombre.value = '';
+          email.value = '';
+          password.value = '';
+          password_rep.value = '';
+          // add msj
+          setTimeout(()=>{
+            // cargar mensaje en div = successufl
+            // eliminarlo autmaticamente
+          }, 5000)
           console.log(data);
           return 1234
         })
