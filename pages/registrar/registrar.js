@@ -15,15 +15,26 @@ enviar.addEventListener('click', async function (e) {
           // 'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: JSON.stringify({
-          "nombre": nombre.value,
-          "email": email.value,
-          "password": password.value
+          nombre: nombre.value,
+          email: email.value,
+          password: password.value
         })
       })
-      
-      console.log(respuesta.json());
+      await console.log(respuesta);
+      if (respuesta.status === 201) {
+        respuesta.json()
+        console.log('respuesta .json :' ,respuesta);
+      }
+      // div alert msj
+      console.log('status from respuesta : ',respuesta.status);
+      //await respuesta.json();
+      //console.log(respuesta.json());
+      //return respuesta.json()
     } catch (error) {
       console.log(error);
     }
+  } else{
+    // appEnd msj en el div alert
+    console.log("los passwords no coinsiden");
   }
 })

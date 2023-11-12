@@ -17,7 +17,7 @@ app.use('/registrar', express.static(path.join(__dirname, 'pages', 'registrar'))
 app.use('/tareas', express.static(path.join(__dirname, 'pages', 'tareas')));
 
 // api usuario
-app.get('/api/registrar', registrarUsuario);
+app.post('/api/registrar', registrarUsuario);
 app.post('/api/login', loginUsuario);
 // api tareas
 app.post('/api/tarea', postTarea);
