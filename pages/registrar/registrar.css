@@ -26,3 +26,13 @@ body{
   flex-direction: column;
   gap: 8px;
 }
+
+button{
+  border-radius: 5px;
+  background-color: var(--main-color);
+  height: 30px;
+}
+
+button:hover{
+  background-color: rgb(110, 160, 247);
+}
