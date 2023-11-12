@@ -20,10 +20,15 @@ enviar.addEventListener('click', async function (e) {
           password: password.value
         })
       })
-      await console.log(respuesta);
       if (respuesta.status === 201) {
-        respuesta.json()
-        console.log('respuesta .json :' ,respuesta);
+        const prom = respuesta.json();
+        prom.then(data =>{
+          console.log(data);
+          return 1234
+        })
+        .then((data) =>{
+          console.log('data from then: ', data);
+        })
       }
       // div alert msj
       console.log('status from respuesta : ',respuesta.status);
