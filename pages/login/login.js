@@ -38,6 +38,9 @@ login.addEventListener('click', async function (e) {
           console.log(cookie, 'cookie despues del fetch');
           if (cookie.status === 200) {
             // redireccionar a las tareas de este usuario
+            
+            //window.location.href = `http://localhost:3000/tarea/${data.userInfo._id}`
+            window.location.href = `http://localhost:3000/tareas/`
           }
 
         } catch (error) {
