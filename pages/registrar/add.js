@@ -8,17 +8,10 @@ const x = document.querySelector('.x');
 
 enviar.addEventListener('click', function (e) {
   e.preventDefault();
-  console.log(alert.classList);
+  /* console.log(alert.classList);
   alert.classList.add('good')
   alert.innerText = 'Cuenta creada'
-  console.log(alert.innerText);
+  console.log(alert.innerText); */
 
-  /* setTimeout(()=>{
-    alert.classList.remove('good');
-    alert.innerText = '';
-    // aplicar un boton para ir a login
-    //user esto con el login...
-    //window.location = 'http://localhost:5500/pages/tareas/'
-  },2000) */
 
 })
