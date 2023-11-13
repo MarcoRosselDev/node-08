@@ -36,9 +36,10 @@ main{
   border: 1px solid red;
 }
 
-footer{
+footer {
   height: 50px;
   border-top: 1px solid var(--main-color);
+  width: 100%;
 }
 
 .contenedor{

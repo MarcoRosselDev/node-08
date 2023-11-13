@@ -1,3 +1,7 @@
+const jwt = require('jsonwebtoken');
+require('dotenv').config()
+const JWT_KEY = process.env.JWT_KEY;
+
 const crearCookie = (req, res) =>{
   // res.cookie('clave', 'valor', {opciones})
   const {clave, valor} = req.body;
@@ -6,8 +10,13 @@ const crearCookie = (req, res) =>{
 
 const obtenerCookie = (req, res) => {
   const cookie = req.cookies;
-  console.log('cookie req : ', cookie);
-  res.cookie().json({cookie})
+  const info = jwt.verify(cookie.jwt, JWT_KEY)
+  const {nombre, id} = info
+  res.cookie().json({
+    nombre: nombre,
+    id: id,
+    cookie: cookie
+  })
 }
 
 const eliminarCookie = (req, res) => {
