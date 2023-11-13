@@ -4,6 +4,7 @@ const password = document.getElementById('password');
 const password_rep = document.getElementById('password-rep');
 const enviar = document.querySelector('.enviar')
 const alert = document.querySelector('.alert');
+const x = document.querySelector('.x');
 
 enviar.addEventListener('click', function (e) {
   e.preventDefault();
@@ -11,7 +12,7 @@ enviar.addEventListener('click', function (e) {
   alert.classList.add('good')
   alert.innerText = 'Cuenta creada'
   console.log(alert.innerText);
-  
+
   /* setTimeout(()=>{
     alert.classList.remove('good');
     alert.innerText = '';
