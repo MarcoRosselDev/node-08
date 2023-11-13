@@ -81,3 +81,11 @@ button:hover{
 .hiden{
   display: none;
 }
+
+/* header */
+header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
