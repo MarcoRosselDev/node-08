@@ -5,7 +5,7 @@ const path = require('path');
 const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js');
 const {getTarea, postTarea} = require('./controllers/crear-tareas.js');
 const cookieParser = require('cookie-parser');
-const {crearCookie, eliminarCookie, obtenerCookie} = require('./controllers/cookies.js')
+const {crearCookie, eliminarCookie, obtenerCookie} = require('./controllers/cookies.js');
 // cookies
 app.use(cookieParser())
 

@@ -11,7 +11,6 @@ enviar.addEventListener('click', function (e) {
   alert.classList.add('good')
   alert.innerText = 'Cuenta creada'
   console.log(alert.innerText); */
-  console.log(msjContenedor.classList);
   msjContenedor.classList.add('good')
   msjContenedor.innerHTML = `
   <p>usuario creado, <a href="http://127.0.0.1:5500/pages/login/index.html">ir a login</a></p>
@@ -25,9 +24,8 @@ enviar.addEventListener('click', function (e) {
     e.preventDefault();
     console.log('x clicked');
 
-    console.log(this.parentNode.parentNode.children[0]);
-    console.log(this.parentNode.parentNode.children[1]);
-
-    //console.log(this.parentNode.parentNode.classList.remove('good'));
+    msjContenedor.removeChild(this.parentNode.parentNode.children[0]);
+    this.parentNode.parentNode.classList.remove('good')
+    this.parentElement.children[0].classList.add('hiden');
   })
 })
