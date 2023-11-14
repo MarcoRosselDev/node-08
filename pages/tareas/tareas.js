@@ -53,17 +53,12 @@ const cargarCookie = async () =>{
                 contenido: contenidoV.value
               })
             })
-
-            if (resp.status === 200) {
-              const promesa = resp.json();
-              promesa.then((data) =>{
+            console.log(resp);
+            if (resp.status === 201) {
+              const promess = resp.json();
+              promess.then((data) =>{
                 console.log(data);
-                contenedorTareas.innerHTML = `
-                <div class="singleTask">
-                  <p>${data[0]}</p>
-                  <p>${data[1]}</p>
-                </div>
-                `
+                // print dom data
               })
             } else{
 
