@@ -28,11 +28,9 @@ const postTarea = async (req, res) =>{
 
 const getTarea = async (req, res) =>{
   try {
-    // comprobar la auth jwt
-    //console.log(req.rawHeaders[1]);
-    const bearer = req.rawHeaders[1];
-    const jwt_header = bearer.split(' ')[1];
-    const auth = jwt.verify(jwt_header, key_jwt);
+    const token = req.cookies.jwt;
+    //const jwt_header = bearer.split(' ')[1];
+    const auth = jwt.verify(token, key_jwt);
     console.log('auth jwt',auth);
     // si el token es invalido se lase al catch
 

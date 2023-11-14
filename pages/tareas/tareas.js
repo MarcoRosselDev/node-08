@@ -1,4 +1,5 @@
 const main = document.querySelector('main');
+const header = document.querySelector('header');
 
 const cargarCookie = async () =>{
   try {
@@ -19,15 +20,26 @@ const cargarCookie = async () =>{
           <input type="text" id="tarea" placeholder="algo por hacer...">
           <button id="tareaBTN">guardar</button>
         </div>
+        <div class="contenedor-tareas">
+        </div>
       </div>
       `;
       // desde aqui se pueden cargar los elementos para manipular
       const prom = getCookie.json();
-      prom.then(async data => {
+      prom.then(async (data) => {
+        // para innerHtml dom manipulation
+        const conenedorTareas = document.querySelector('contenedor-tareas');
+
         console.log('data ---> ', data);
         const jwt = data.cookie.jwt;
         const id = data.id;
         const nombre = data.nombre
+
+        header.innerHTML = `
+          <p>header</p>
+          <p>Welcome ${nombre}</p>
+          <p>logout</p>`;
+
         console.log(jwt);
         console.log(`buenos dias ${nombre}`);
         const getTarea = await fetch(`/api/tarea/${id}`, {
@@ -41,6 +53,8 @@ const cargarCookie = async () =>{
         if (getTarea.status === 200) {
           const proms = getTarea.json();
           proms.then(data => console.log(data))
+        } else {
+          console.log('');
         }
       })
     } else {
