@@ -33,6 +33,9 @@ const cargarCookie = async () =>{
           proms.then(data => console.log(data))
         }
       })
+    } else {
+      // print : tu no estas logeado
+      // plase login --->
     }
   } catch (error) {
     console.log(error);
