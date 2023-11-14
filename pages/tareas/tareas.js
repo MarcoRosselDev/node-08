@@ -1,4 +1,4 @@
-console.log('tareas');
+const main = document.querySelector('main');
 
 const cargarCookie = async () =>{
   try {
@@ -12,6 +12,16 @@ const cargarCookie = async () =>{
 
     console.log(getCookie, 'get cookie log');
     if (getCookie.status === 200) {
+      main.innerHTML = `
+      <div class="contenedor">
+        <div class="form-tarea">
+          <p>nueva tarea</p>
+          <input type="text" id="tarea" placeholder="algo por hacer...">
+          <button id="tareaBTN">guardar</button>
+        </div>
+      </div>
+      `;
+      // desde aqui se pueden cargar los elementos para manipular
       const prom = getCookie.json();
       prom.then(async data => {
         console.log('data ---> ', data);
@@ -34,8 +44,12 @@ const cargarCookie = async () =>{
         }
       })
     } else {
-      // print : tu no estas logeado
-      // plase login --->
+      main.innerHTML = `
+      <div class="contenedor">
+        <p>No estas logeado!</p>
+        <a href="http://localhost:3000/login">ir a login</a>
+      </div>
+      `
     }
   } catch (error) {
     console.log(error);

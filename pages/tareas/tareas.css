@@ -114,3 +114,11 @@ header{
   justify-content: space-between;
   width: 100%;
 }
+
+.form-tarea{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  height: 100%;
+}
