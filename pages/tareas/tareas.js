@@ -17,7 +17,10 @@ const cargarCookie = async () =>{
       <div class="contenedor">
         <div class="form-tarea">
           <p>nueva tarea</p>
-          <input type="text" id="tarea" placeholder="algo por hacer...">
+          <p>titulo</p>
+          <input type="text" id="titulo" placeholder="algo por hacer...">
+          <p>contenido</p>
+          <input type="text" id="contenido" placeholder="algo por hacer...">
           <button id="tareaBTN">guardar</button>
         </div>
         <div class="contenedor-tareas">
@@ -28,10 +31,50 @@ const cargarCookie = async () =>{
       const prom = getCookie.json();
       prom.then(async (data) => {
         // para innerHtml dom manipulation
-        const conenedorTareas = document.querySelector('contenedor-tareas');
+        const tituloV = document.getElementById('titulo');
+        const contenidoV = document.getElementById('contenido');
+        const contenedorTareas = document.querySelector('contenedor-tareas');
+        const guardar = document.getElementById('tareaBTN');
+        const jwtCookie = data.cookie.jwt;
+
+        guardar.addEventListener('click',async function (e) {
+          e.preventDefault();
+          try {
+
+            const resp = await fetch('/api/tarea', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwtCookie}`,
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+              },
+              body:JSON.stringify({
+                titulo: tituloV.value,
+                contenido: contenidoV.value
+              })
+            })
+
+            if (resp.status === 200) {
+              const promesa = resp.json();
+              promesa.then((data) =>{
+                console.log(data);
+                contenedorTareas.innerHTML = `
+                <div class="singleTask">
+                  <p>${data[0]}</p>
+                  <p>${data[1]}</p>
+                </div>
+                `
+              })
+            } else{
+
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        })
 
         console.log('data ---> ', data);
-        const jwt = data.cookie.jwt;
+        //const jwt = data.cookie.jwt;
         const id = data.id;
         const nombre = data.nombre
 
@@ -40,12 +83,11 @@ const cargarCookie = async () =>{
           <p>Welcome ${nombre}</p>
           <p>logout</p>`;
 
-        console.log(jwt);
-        console.log(`buenos dias ${nombre}`);
+        //console.log(jwt);
         const getTarea = await fetch(`/api/tarea/${id}`, {
           method: 'GET',
           headers:{
-            'Authorization': `Bearer ${jwt}`,
+            'Authorization': `Bearer ${jwtCookie}`,
             'Content-Type': 'application/json'
           }
         })

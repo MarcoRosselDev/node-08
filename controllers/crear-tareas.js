@@ -6,10 +6,10 @@ const key_jwt = process.env.JWT_KEY;
 const postTarea = async (req, res) =>{
   try {
     // sacar jwt del header
-    const bearer = req.rawHeaders[3];
-    const jwt_header = bearer.split(' ')[1];
+    //console.log(req);
+    const token = req.cookies.jwt;
     // verificar y sacar la info del jwt
-    const jwt_info = jwt.verify(jwt_header, key_jwt);
+    const jwt_info = jwt.verify(token, key_jwt);
     const {nombre:nombre_jwt, id:id_jwt} = jwt_info;
     // crear tarea con esta info
     const nuevaTarea = new Tarea({
@@ -29,7 +29,6 @@ const postTarea = async (req, res) =>{
 const getTarea = async (req, res) =>{
   try {
     const token = req.cookies.jwt;
-    //const jwt_header = bearer.split(' ')[1];
     const auth = jwt.verify(token, key_jwt);
     console.log('auth jwt',auth);
     // si el token es invalido se lase al catch
