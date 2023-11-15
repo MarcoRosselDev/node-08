@@ -33,7 +33,7 @@ const cargarCookie = async () =>{
         // para innerHtml dom manipulation
         const tituloV = document.getElementById('titulo');
         const contenidoV = document.getElementById('contenido');
-        const contenedorTareas = document.querySelector('contenedor-tareas');
+        const contenedorTareas = document.querySelector('.contenedor-tareas');
         const guardar = document.getElementById('tareaBTN');
         const jwtCookie = data.cookie.jwt;
 
@@ -57,11 +57,20 @@ const cargarCookie = async () =>{
             if (resp.status === 201) {
               const promess = resp.json();
               promess.then((data) =>{
+                //const contenedorTareas = document.querySelector('contenedor-tareas');
                 console.log(data);
+                console.log(contenedorTareas);
                 // print dom data
+                const div = document.createElement('div');
+                div.classList.add('single-list')
+                div.innerHTML = `
+                <p>${tituloV.value}</p>
+                <p>${contenidoV.value}</p>
+                `;
+                contenedorTareas.appendChild(div);
               })
             } else{
-
+              console.log('no se guardo la tarea correctamente');
             }
           } catch (error) {
             console.log(error);
