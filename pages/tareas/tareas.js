@@ -63,10 +63,16 @@ const cargarCookie = async () =>{
                 const div = document.createElement('div');
                 div.classList.add('single-list')
                 div.innerHTML = `
-                <p>${tituloV.value}</p>
-                <p>${contenidoV.value}</p>
-                <p class="hiden">${data.user_id}</p>
-                <p class="hiden">${data._id}</p>
+                <div>
+                  <p>${tituloV.value}</p>
+                  <p>${contenidoV.value}</p>
+                  <p class="hiden">${data.user_id}</p>
+                  <p class="hiden">${data._id}</p>
+                </div>
+                <div class="btn-edit">
+                  <button id="editar">editar</button>
+                  <button id="borrar">borrar</button>
+                </div>
                 `;
                 contenedorTareas.appendChild(div);
               })
@@ -106,8 +112,16 @@ const cargarCookie = async () =>{
             data.map(i => {
               print += `
               <div class="single-list">
-                <p>${i.titulo}</p>
-                <p>${i.contenido}</p>
+                <div class="info-task">
+                  <p>${i.titulo}</p>
+                  <p>${i.contenido}</p>
+                  <p class="hiden">${i.user_id}</p>
+                  <p class="hiden">${i._id}</p>
+                </div>
+                <div class="btn-edit">
+                  <button id="editar">editar</button>
+                  <button id="borrar">borrar</button>
+                </div>
               </div>
               
               `
@@ -132,11 +146,3 @@ const cargarCookie = async () =>{
 }
 
 cargarCookie();
-
-// extraer la informacion de la cookie para saludar
-// hola... username
-
-// cargar input y button de nueva tarea
-
-// realizar un fetch GET  de las tareas del usuario
-// cargar en el dom
