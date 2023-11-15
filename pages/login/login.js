@@ -1,6 +1,7 @@
 const password = document.getElementById('password');
 const email = document.getElementById('email');
 const login = document.getElementById('login');
+const msjContenedor = document.querySelector('.msj-contenedor');
 
 login.addEventListener('click', async function (e) {
   e.preventDefault();
@@ -49,7 +50,17 @@ login.addEventListener('click', async function (e) {
         console.log(data)
       })
     } else {
-      // print a msj error credentials
+      msjContenedor.classList.add('mistake');
+      msjContenedor.innerHTML = `
+      <p>algun error</p>
+      <button class="x">X</button>`;
+      const x = document.querySelector('.x');
+      x.addEventListener('click', function (e) {
+        e.preventDefault();
+        msjContenedor.classList.remove('mistake');
+        msjContenedor.innerHTML = ''
+      })
+      
     }
   } catch (error) {
     console.log(error);
