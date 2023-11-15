@@ -5,7 +5,7 @@ const JWT_KEY = process.env.JWT_KEY;
 const crearCookie = (req, res) =>{
   // res.cookie('clave', 'valor', {opciones})
   const {clave, valor} = req.body;
-  res.cookie(clave, valor).json({msj: `cookie: ${clave} ${valor} creada`})
+  res.cookie(clave, valor, {expire : new Date() + 9999}).json({msj: `cookie: ${clave} ${valor} creada`})
 }
 
 const obtenerCookie = (req, res) => {
