@@ -43,7 +43,7 @@ const loginUsuario = async (req, res) => {
     const jwt_user = jwt.sign({
       nombre: user.nombre,
       id: user._id
-    }, key_jwt, { expiresIn: '2 days' }) 
+    }, key_jwt) 
     res.status(200).json({
       userInfo: {
         _id: user._id,
