@@ -59,13 +59,14 @@ const cargarCookie = async () =>{
               promess.then((data) =>{
                 //const contenedorTareas = document.querySelector('contenedor-tareas');
                 console.log(data);
-                console.log(contenedorTareas);
                 // print dom data
                 const div = document.createElement('div');
                 div.classList.add('single-list')
                 div.innerHTML = `
                 <p>${tituloV.value}</p>
                 <p>${contenidoV.value}</p>
+                <p class="hiden">${data.user_id}</p>
+                <p class="hiden">${data._id}</p>
                 `;
                 contenedorTareas.appendChild(div);
               })
@@ -98,7 +99,21 @@ const cargarCookie = async () =>{
         console.log(getTarea);
         if (getTarea.status === 200) {
           const proms = getTarea.json();
-          proms.then(data => console.log(data))
+          proms.then(data => {
+            console.log('we are in get tareas', contenedorTareas);
+            let print = "";
+            console.log('data:--->', data);
+            data.map(i => {
+              print += `
+              <div class="single-list">
+                <p>${i.titulo}</p>
+                <p>${i.contenido}</p>
+              </div>
+              
+              `
+            });
+            contenedorTareas.innerHTML = print;
+          })
         } else {
           console.log('');
         }
