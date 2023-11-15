@@ -92,7 +92,7 @@ const cargarCookie = async () =>{
         header.innerHTML = `
           <p>header</p>
           <p>Welcome ${nombre}</p>
-          <p>logout</p>`;
+          <p><a href="http://localhost:3000/login/">logout</a></p>`;
 
         //console.log(jwt);
         const getTarea = await fetch(`/api/tarea/${id}`, {

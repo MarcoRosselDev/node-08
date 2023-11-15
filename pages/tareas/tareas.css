@@ -21,11 +21,6 @@ body{
   background-color: var(--main-bg);
 }
 
-header{
-  height: 50px;
-  border-bottom: 1px solid var(--main-color);
-}
-
 main{
   display: flex;
   flex-direction: column;
@@ -111,9 +106,12 @@ button:hover{
 
 /* header */
 header{
+  border-bottom: 1px solid var(--main-color);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-left: 30px;
+  padding-right: 30px;
   width: 100%;
 }
 
