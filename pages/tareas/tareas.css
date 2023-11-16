@@ -60,6 +60,7 @@ button{
   border-radius: 5px;
   background-color: var(--main-color);
   height: 30px;
+  width: 100px;
 }
 
 button:hover{
@@ -133,7 +134,23 @@ header{
 }
 
 .single-list{
+  display: flex;
+  flex-direction: row;
   border-bottom: 1px solid pink;
   width: 100%;
   height: 100%;
+}
+
+.task-info{
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid lightgreen;
+  padding-right: 10px;
+  margin-left: 10px;
+}
+
+.btns-edit{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
 }

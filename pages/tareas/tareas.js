@@ -132,8 +132,14 @@ const cargarCookie = async () =>{
             data.map(i => {
               print += `
               <div class="single-list">
-                <p>${i.titulo}</p>
-                <p>${i.contenido}</p>
+                <div class="task-info">              
+                  <p>${i.titulo}</p>
+                  <p>${i.contenido}</p>
+                </div>
+                <div class="btns-edit">
+                  <button class="editar">editar</button>
+                  <button class="eliminar">eliminar</button>
+                </div>
               </div>
               
               `

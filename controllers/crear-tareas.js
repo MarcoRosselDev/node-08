@@ -30,7 +30,6 @@ const getTarea = async (req, res) =>{
   try {
     const token = req.cookies.jwt;
     const auth = jwt.verify(token, key_jwt);
-    console.log('auth jwt',auth);
     // si el token es invalido se lase al catch
 
     // req.params = { id: '654bd7aad86f68328fdd8820' } from /api/v1/tarea/:id
