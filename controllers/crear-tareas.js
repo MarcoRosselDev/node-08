@@ -32,6 +32,7 @@ const getTarea = async (req, res) =>{
     const auth = jwt.verify(token, key_jwt);
     // si el token es invalido se lase al catch
 
+    // podrimaos aplicar un if del auth token
     // req.params = { id: '654bd7aad86f68328fdd8820' } from /api/v1/tarea/:id
     const tareas = await Tarea.find({user_id: req.params.id})
     if (!tareas) return res.status(404).json({msj: "no se encontraron tareas"})
@@ -48,7 +49,25 @@ const getTarea = async (req, res) =>{
   }
 }
 
+const deleteTarea = async (req, res) => {
+  try {
+    const token = req.cookies.jwt;
+    const auth = jwt.verify(token, key_jwt);
+
+    const {id_task} = req.body;
+    // consultar mongoose para ver como eliminar un id
+    const query = {_id:id_task, user_id: req.params.id}
+    const del = await Tarea.findOneAndDelete(query);
+
+    if (!del) return res.status(404).json({msj: 'tarea no encontrada, no se elimino nada'})
+    res.status(200).json({msj: 'eliminacion exitosa'})
+  } catch (error) {
+    console.log('error en el catch de deleteTarea fn -->' , error);
+  }
+}
+
 module.exports = {
   postTarea,
-  getTarea
+  getTarea,
+  deleteTarea
 }

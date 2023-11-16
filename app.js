@@ -3,7 +3,7 @@ const app = express();
 const connect = require('./db.js');
 const path = require('path');
 const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js');
-const {getTarea, postTarea} = require('./controllers/crear-tareas.js');
+const {getTarea, postTarea, deleteTarea} = require('./controllers/crear-tareas.js');
 const cookieParser = require('cookie-parser');
 const {crearCookie, eliminarCookie, obtenerCookie} = require('./controllers/cookies.js');
 // cookies
@@ -22,6 +22,7 @@ app.post('/api/login', loginUsuario);
 // api tareas
 app.post('/api/tarea', postTarea);
 app.get('/api/tarea/:id', getTarea);
+app.delete('/api/tarea/:id', deleteTarea);
 
 // cookie api
 app.post('/api/crear-cookie', crearCookie)
