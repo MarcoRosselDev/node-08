@@ -146,7 +146,7 @@ const cargarCookie = async () =>{
             contenedorTareas.innerHTML = print;
 
             // ahora podemos trabajar con la edicion  y eliminacion de tareas
-            eliminar();
+            eliminar(jwtCookie);
 
           })
         } else {
