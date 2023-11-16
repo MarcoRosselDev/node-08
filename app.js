@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express();
 const connect = require('./db.js');
+
+require('dotenv').config();
+const url = process.env.MONGO_URL;
+const URL_PROD = process.env.URL_PROD;
+
 const path = require('path');
 const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js');
 const {getTarea, postTarea, deleteTarea} = require('./controllers/crear-tareas.js');
@@ -49,8 +54,7 @@ app.get('/api/del-cookie', eliminarCookie)
 
 
 
-require('dotenv').config();
-const url = process.env.MONGO_URL;
+
 
 const start = async () =>{
   try {
