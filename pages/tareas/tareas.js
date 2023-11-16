@@ -1,9 +1,6 @@
 import { editar } from "./editar.js"; // ojo, si no aplico el .js no se cargan los modulos
 import {eliminar} from "./eliminar.js";
 
-editar()
-eliminar()
-
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 
@@ -135,6 +132,8 @@ const cargarCookie = async () =>{
                 <div class="task-info">              
                   <p>${i.titulo}</p>
                   <p>${i.contenido}</p>
+                  <p class="hiden user_id">${i.user_id}</p>
+                  <p class="hiden _id">${i._id}</p>
                 </div>
                 <div class="btns-edit">
                   <button class="editar">editar</button>
@@ -145,6 +144,10 @@ const cargarCookie = async () =>{
               `
             });
             contenedorTareas.innerHTML = print;
+
+            // ahora podemos trabajar con la edicion  y eliminacion de tareas
+            eliminar();
+
           })
         } else {
           // podriamos trabajar como elnviar un msj al user de el error al cargar las tareas
