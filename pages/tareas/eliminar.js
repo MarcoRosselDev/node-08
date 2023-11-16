@@ -6,11 +6,13 @@ export function eliminar(jwtoken) {
       e.preventDefault();
       // con esto deveria poder acceder a la id del usuario y del item
       // crear una ruta api/deleteTask para eliminar la tarea con un fetch()
-      console.log(this.parentElement.parentElement.children[0].children);
+      //console.log(this.parentElement.parentElement.children[0].children);
       const user_id = this.parentElement.parentElement.children[0].children[2].textContent;
       const id_tarea = this.parentElement.parentElement.children[0].children[3].textContent;
       console.log('user_id', user_id);
       console.log('id_tarea', id_tarea);
+      const div = document.querySelector('.contenedor-tareas')
+      const removeDom = this.parentElement.parentElement
       try {
         const response = await fetch(`/api/tarea/${user_id}`, {
           method: "DELETE",
@@ -24,7 +26,10 @@ export function eliminar(jwtoken) {
           })
         })
 
-        console.log(response);
+        if (response.status === 200) {
+          div.removeChild(removeDom);
+          console.log('status 200');
+        }
         // aplicar un if.status
         // then .json() --> y manipular el dom para sacar la tarea
       } catch (error) {

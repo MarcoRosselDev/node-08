@@ -69,13 +69,20 @@ const cargarCookie = async () =>{
                 const div = document.createElement('div');
                 div.classList.add('single-list')
                 div.innerHTML = `
-                <p>${tituloV.value}</p>
-                <p>${contenidoV.value}</p>
-                <p class="hiden">${data.user_id}</p>
-                <p class="hiden">${data._id}</p>
+                <div class="task-info">
+                  <p>${tituloV.value}</p>
+                  <p>${contenidoV.value}</p>
+                  <p class="hiden">${data.user_id}</p>
+                  <p class="hiden">${data._id}</p>
+                </div>
+                <div class="btns-edit">
+                  <button class="editar">editar</button>
+                  <button class="eliminar">eliminar</button>
+                </div>
                 `;
                 // ocultamos el id de usuario e id para la manipulacion de estas tareas
                 contenedorTareas.appendChild(div); // lo agregamos al final del contenedor de tareas
+                // los botones nuevos no tendran el addEventListener
               })
             } else{
               // posdriamos imprimir algo en el dom en el futuro
@@ -147,7 +154,6 @@ const cargarCookie = async () =>{
 
             // ahora podemos trabajar con la edicion  y eliminacion de tareas
             eliminar(jwtCookie);
-
           })
         } else {
           // podriamos trabajar como elnviar un msj al user de el error al cargar las tareas
