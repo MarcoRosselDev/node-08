@@ -55,11 +55,12 @@ app.get('/api/del-cookie', eliminarCookie)
 
 
 
+const PORT = process.env.PORT || 3000;
 
 const start = async () =>{
   try {
     await connect(url);
-    app.listen(3000, ()=> console.log('Escuchando en el puerto 3000!'));
+    app.listen(PORT, ()=> console.log(`Escuchando en el puerto ${PORT}`));
   } catch (error) {
     console.log(error);
   }
