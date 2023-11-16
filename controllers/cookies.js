@@ -1,17 +1,17 @@
 const jwt = require('jsonwebtoken');
-require('dotenv').config()
+require('dotenv').config();
 const JWT_KEY = process.env.JWT_KEY;
 
 const crearCookie = (req, res) =>{
   // res.cookie('clave', 'valor', {opciones})
   const {clave, valor} = req.body;
-  res.cookie(clave, valor, { maxAge: 900000, httpOnly: true }).json({msj: `cookie: ${clave} ${valor} creada`})
+  res.cookie(clave, valor, { maxAge: 43200000, httpOnly: true });
 }
 
 const obtenerCookie = (req, res) => {
   const cookie = req.cookies;
-  const info = jwt.verify(cookie.jwt, JWT_KEY)
-  const {nombre, id} = info
+  const info = jwt.verify(cookie.jwt, JWT_KEY);
+  const {nombre, id} = info;
   res.cookie().json({
     nombre: nombre,
     id: id,

@@ -1,3 +1,9 @@
+import { editar } from "./editar.js"; // ojo, si no aplico el .js no se cargan los modulos
+import {eliminar} from "./eliminar.js";
+
+editar()
+eliminar()
+
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 
