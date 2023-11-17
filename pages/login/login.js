@@ -1,13 +1,17 @@
 const password = document.getElementById('password');
 const email = document.getElementById('email');
 const login = document.getElementById('login');
+import {msjError} from "./msjError.js";
+const msjContenedor = document.querySelector('.msj-contenedor')
 
 login.addEventListener('click', async function (e) {
   e.preventDefault();
 
   try {
+    console.log(email.value.length);
+    console.log(password.value.length);
     // comprobacion que no esten vacios
-    if (email.value.length > 1 && password.value.length > 1) {
+    if (email.value.length === 0 || password.value.length == 0) return msjError('Ingresa las credenciales porfavor', msjContenedor)
       const respuesta = await fetch('/api/login', {
         method: 'POST',
         headers: {
@@ -19,6 +23,7 @@ login.addEventListener('click', async function (e) {
           password: password.value
         })
       })
+      console.log(respuesta);
       if (respuesta.status === 200) {
         const prom = respuesta.json()
         prom.then(async data => {
@@ -53,12 +58,10 @@ login.addEventListener('click', async function (e) {
           }
           console.log(data)
         })
-      } else {
-        // print a msj error credentials
+      } else if (respuesta.status === 404) {
+        // usuario no encontrado
+        msjError('Credenciales invalidas', msjContenedor);
       }
-  } else{
-    // no rellenaste los campos
-  }
   } catch (error) {
     console.log(error);
   }
