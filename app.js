@@ -27,7 +27,7 @@ app.get('/api/tarea/:id', getTarea);
 // cookie api
 app.post('/api/crear-cookie', crearCookie)
 app.get('/api/get-cookie', obtenerCookie)
-app.get('/api/del-cookie', eliminarCookie)
+app.get('/api/delcookie', eliminarCookie)
 
 
 

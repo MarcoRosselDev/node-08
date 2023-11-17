@@ -96,8 +96,8 @@ const cargarCookie = async () =>{
           <p>Welcome ${nombre}</p>
           <button class="logoutBtn">logout</button>`;
           const logoutBtn = document.querySelector('.logoutBtn');
-          logoutBtn.addEventListener('click', function (e) {
-            e.preventDefault()
+          logoutBtn.addEventListener('click', function () {
+            console.log('click logout btn');
             logout();
           });
 

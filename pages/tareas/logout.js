@@ -1,24 +1,24 @@
-import { response } from "express";
-
 export async function logout () {
 
   // 1--- borrar las cookies relacionadas a este usuario especialmente la jwt
   // 2--- redireccionarlo a /login
   // 3--- 
 
+  console.log('antes del try catch en login');
   try {
-    const response = await fetch('/api/del-cookie', {
+    const resp = await fetch('/api/delcookie', {
       method: 'GET',
       headers:{
         'Content-Type': 'application/json'
       }
     })
 
-
-    console.log(response);
-    if (response.status(200)) {
+    console.log(resp);
+    if (resp.status === 200) {
       console.log('cookies eliminadas- ---> manipular dom y redicc');
       window.location.href = `http://localhost:3000/login/`;
+    } else{
+      console.log(response);
     }
   } catch (error) {
     console.log(error);
