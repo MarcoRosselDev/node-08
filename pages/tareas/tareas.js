@@ -1,6 +1,7 @@
 const main = document.querySelector('main');
 const header = document.querySelector('header');
 import { getTarea } from "./getTareas.js";
+import { logout } from "./logout.js"
 
 const cargarCookie = async () =>{
   try {
@@ -87,11 +88,18 @@ const cargarCookie = async () =>{
         const id = data.id; //id user de cookie
         const nombre = data.nombre // nombre de cookie
 
+        // saludamos al usuario logeado...
         header.innerHTML = `
           <p>header</p>
           <p>Welcome ${nombre}</p>
-          <p>logout</p>`;
+          <button class="logoutBtn">logout</button>`;
+          const logoutBtn = document.querySelector('.logoutBtn');
+          logoutBtn.addEventListener('click', function (e) {
+            e.preventDefault()
+            logout();
+          });
 
+        // esperamos para invocar getTareas por que puede tardar un poco.
         getTarea(jwtCookie, id, contenedorTareas);
       })
     } else {
