@@ -39,8 +39,10 @@ login.addEventListener('click', async function (e) {
           if (cookie.status === 200) {
             // redireccionar a las tareas de este usuario
             
-            //window.location.href = `http://localhost:3000/tarea/${data.userInfo._id}`
-            window.location.href = `https://node-08-portfolio.onrender.com/login//tareas/`
+            // window.location.href = `http://localhost:3000/tarea/${data.userInfo._id}`
+            // este es para trabajo local 
+            // window.location.href = `http://localhost:3000/tareas/`
+            window.location.href = `https://node-08-portfolio.onrender.com//tareas/`
           }
 
         } catch (error) {
