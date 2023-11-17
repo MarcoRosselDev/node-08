@@ -41,8 +41,8 @@ login.addEventListener('click', async function (e) {
             
             // window.location.href = `http://localhost:3000/tarea/${data.userInfo._id}`
             // este es para trabajo local 
-            // window.location.href = `http://localhost:3000/tareas/`
-            window.location.href = `https://node-08-portfolio.onrender.com//tareas/`
+            window.location.href = `http://localhost:3000/tareas/`
+            //window.location.href = `https://node-08-portfolio.onrender.com/tareas/`
           }
 
         } catch (error) {

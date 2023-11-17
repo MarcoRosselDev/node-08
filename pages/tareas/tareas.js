@@ -1,5 +1,6 @@
 const main = document.querySelector('main');
 const header = document.querySelector('header');
+import { getTarea } from "./getTareas.js";
 
 const cargarCookie = async () =>{
   try {
@@ -10,9 +11,9 @@ const cargarCookie = async () =>{
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }
     })
-
-    console.log(getCookie, 'get cookie log');
     if (getCookie.status === 200) {
+      // cargamos el formulario de nueva tarea antes del fetch 'GET' tareas
+      // por que no sabemos cuanto tardara, asi almenos el usuario ve algo.
       main.innerHTML = `
       <div class="contenedor">
         <div class="form-tarea">
@@ -83,54 +84,15 @@ const cargarCookie = async () =>{
             console.log(error);
           }
         })
-
-        console.log('data ---> ', data);
-        //const jwt = data.cookie.jwt;
-        const id = data.id;
-        const nombre = data.nombre
+        const id = data.id; //id user de cookie
+        const nombre = data.nombre // nombre de cookie
 
         header.innerHTML = `
           <p>header</p>
           <p>Welcome ${nombre}</p>
           <p>logout</p>`;
 
-        //console.log(jwt);
-        const getTarea = await fetch(`/api/tarea/${id}`, {
-          method: 'GET',
-          headers:{
-            'Authorization': `Bearer ${jwtCookie}`,
-            'Content-Type': 'application/json'
-          }
-        })
-        console.log(getTarea);
-        if (getTarea.status === 200) {
-          const proms = getTarea.json();
-          proms.then(data => {
-            console.log('we are in get tareas', contenedorTareas);
-            let print = "";
-            console.log('data:--->', data);
-            data.map(i => {
-              print += `
-              <div class="single-list">
-                <div class="info-task">
-                  <p>${i.titulo}</p>
-                  <p>${i.contenido}</p>
-                  <p class="hiden">${i.user_id}</p>
-                  <p class="hiden">${i._id}</p>
-                </div>
-                <div class="btn-edit">
-                  <button id="editar">editar</button>
-                  <button id="borrar">borrar</button>
-                </div>
-              </div>
-              
-              `
-            });
-            contenedorTareas.innerHTML = print;
-          })
-        } else {
-          console.log('');
-        }
+        getTarea(jwtCookie, id, contenedorTareas);
       })
     } else {
       main.innerHTML = `
