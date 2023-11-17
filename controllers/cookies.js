@@ -21,7 +21,7 @@ const obtenerCookie = (req, res) => {
 
 const eliminarCookie = (req, res) => {
   // res.clearCookie( <clave de la cookie> )
-  res.clearCookie("jwt").json({msj: `cookie eliminada`})
+  res.clearCookie("jwt")
 }
 
 

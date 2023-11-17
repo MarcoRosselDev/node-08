@@ -39,6 +39,8 @@ const cargarCookie = async () =>{
         const guardar = document.getElementById('tareaBTN');
         const jwtCookie = data.cookie.jwt;
 
+// primero comprobar que los campos no esten vacios
+// para no crear una tarea solo con botones
         guardar.addEventListener('click',async function (e) {
           e.preventDefault();
           try {
