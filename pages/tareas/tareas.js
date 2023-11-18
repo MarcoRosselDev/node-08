@@ -2,6 +2,7 @@ const main = document.querySelector('main');
 const header = document.querySelector('header');
 import { getTarea } from "./getTareas.js";
 import { logout } from "./logout.js"
+import { msjErrorTareas} from "./msjErrorTareas.js"
 
 const cargarCookie = async () =>{
   try {
@@ -42,10 +43,11 @@ const cargarCookie = async () =>{
 // primero comprobar que los campos no esten vacios
 // para no crear una tarea solo con botones
         guardar.addEventListener('click',async function (e) {
-          e.preventDefault();
-          try {
+        if (tituloV.value.length === 0 || contenidoV.value.length === 0) return msjErrorTareas('rellena los campos po concha de tu ...', contenedorTareas);
+        e.preventDefault();
+        try {
 
-            const resp = await fetch('/api/tarea', {
+          const resp = await fetch('/api/tarea', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -57,12 +59,10 @@ const cargarCookie = async () =>{
                 contenido: contenidoV.value
               })
             })
-            console.log(resp);
             if (resp.status === 201) {
               const promess = resp.json();
               promess.then((data) =>{
                 //const contenedorTareas = document.querySelector('contenedor-tareas');
-                console.log(data);
                 // print dom data
                 const div = document.createElement('div');
                 div.classList.add('single-list')
@@ -97,7 +97,6 @@ const cargarCookie = async () =>{
           <button class="logoutBtn">logout</button>`;
           const logoutBtn = document.querySelector('.logoutBtn');
           logoutBtn.addEventListener('click', function () {
-            console.log('click logout btn');
             logout();
           });
 
