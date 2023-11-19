@@ -47,7 +47,16 @@ header nav{
 
   width: 100%;
   top: 40px;
-  padding: 10px;
+}
+
+.styleMode{
+  width: 100%;
+  text-align: center;
+  height: 30px;
+}
+
+.styleMode:hover{
+  background-color: white;
 }
 
 
@@ -72,6 +81,18 @@ header nav{
   display: none;
 }
 
+svg{
+  width: 20px;
+  height: 20px;
+  fill: var(--main-color);
+  fill-opacity: 1.2;
+}
+
+.toogleBtn{
+  background-color: transparent;
+  border: 1px solid pink;
+  padding: 5px;
+}
 
 
 
@@ -83,15 +104,13 @@ header nav{
 
 
 
+/* parte del logo */
 
-
-
-
-
-
-
-
-
+.logo-div{
+  display: flex;
+  gap: 5px;
+  margin-left: 5px;
+}
 
 
 

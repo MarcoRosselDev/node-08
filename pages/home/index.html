@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="favicon.png" type="image/png">
+  <link rel="shortcut icon" href="logo.svg" type="svg">
   <link rel="stylesheet" href="home.css">
   <script type="module" src="home.js" defer></script>
   <title>home</title>
@@ -11,14 +11,28 @@
 <body>
   <header>
     <nav>
+      <div class="logo-div">
+
+        <?xml version="1.0" standalone="no"?>
+        <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="118" height="118" viewBox="0 0 118 118" preserveAspectRatio="xMidYMid meet">
+          <g transform="translate(0,118) scale(0.1,-0.1)"
+          stroke="none">
+          <path d="M160 589 l0 -440 33 6 c17 3 106 18 197 33 l165 28 0 329 0 329 -155
+          61 c-85 33 -174 68 -197 78 l-43 17 0 -441z"/>
+          <path d="M830 951 l-195 -77 0 -329 0 -329 195 -33 c107 -18 196 -31 197 -29
+          2 2 2 199 1 438 l-3 435 -195 -76z"/>
+        </g>
+      </svg>
       <p>marco rossel</p>
-      <div class="navList ">
-        <div class="styleMode"><p>ligth mode</p></div>
-        <div class="frontEnd"><p>front end</p></div>
-        <div class="backEnd"><p>back end</p></div>
-        <div class="aboutMe"><p>about me</p></div>
+    </div>
+      <div class="navList">
+        <p class="styleMode">style mode</p>
+        <p class="frontEnd">front end</p>
+        <p class="backEnd">back end</p>
       </div>
-      <button class="toogleBtn">toggle</button>
+      <button class="toogleBtn">
+        <svg id="Outline" viewBox="0 0 24 24" width="512" height="512"><rect y="11" width="24" height="2" rx="1"/><rect y="4" width="24" height="2" rx="1"/><rect y="18" width="24" height="2" rx="1"/></svg>
+      </button>
     </nav>
   </header>
   <main>home</main>
