@@ -7,7 +7,8 @@
 
 :root{
   --main-color:rgb(189, 192, 34);
-  --main-bg-color: rgb(25, 25, 41);
+  --main-bg-color: rgb(155,151,231):
+  --main-bg-line-gradient: linear-gradient(45deg, rgba(155,151,231,1) 17%, rgba(111,33,217,1) 33%, rgba(104,44,219,1) 40%, rgba(6,179,227,1) 87%);
 }
 
 body{
