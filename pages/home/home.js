@@ -6,6 +6,7 @@ console.log(styleMode);
 styleMode.addEventListener('click', function (e) {
   e.preventDefault();
   console.log('light mode');
+  console.log(this.parentElement);
   // crear una cookie con el key=style, value=dark|light 
 })
 

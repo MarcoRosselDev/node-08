@@ -37,16 +37,20 @@ header nav{
 
 .navList {
   display: flex;
+
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   border: 1px solid greenyellow;
+  background-color: var(--main-bg-color);
   position: absolute;/* ----------------- */
   z-index: 1;
 
   width: 100%;
   top: 40px;
+  
+  transition: all 5s ease-in;
 }
 
 .styleMode{
@@ -90,7 +94,7 @@ svg{
 
 .toogleBtn{
   background-color: transparent;
-  border: 1px solid pink;
+  border: none;
   padding: 5px;
 }
 
@@ -111,6 +115,54 @@ svg{
   gap: 5px;
   margin-left: 5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* main */
+main{
+  display: flex;
+  flex-flow: column wrap;
+  border: 1px solid pink;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
