@@ -1,5 +1,5 @@
 const toggleBtn = document.querySelector('.toogleBtn');
-const navList = document.querySelector('.navList');
+const divNav = document.querySelector('.divNav');
 const styleMode = document.querySelector('.styleMode');
 
 console.log(styleMode);
@@ -12,10 +12,12 @@ styleMode.addEventListener('click', function (e) {
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  if (navList.classList.contains('hide')) {
-    navList.classList.remove('hide')
+  if (divNav.classList.contains('hide')) {
+    divNav.classList.remove('hide');
+    divNav.classList.add('navList');
   } else{
-    navList.classList.add('hide')
+    divNav.classList.add('hide');
+    divNav.classList.remove('navList');
   }
 })
 
