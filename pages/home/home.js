@@ -1,33 +1,19 @@
 import { actualizarStyleMode } from "./mode.js";
+import { obtenerStyleMode } from "./obtenerStyleMode.js";
 const toggleBtn = document.querySelector('.toogleBtn');
 const divNav = document.querySelector('.divNav');
-const styleMode = document.querySelector('.styleMode');
 const modeBtn = document.querySelector('.light-mode');
 const over = document.querySelector('.over')
+const head = document.querySelector('head');
 
-const obtenerStyleMode = async () =>{
-  try {
-    const response = await fetch('/api/getStylecookie', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      }
-    });
 
-    console.log(response);
-    if (response.status === 200) {
-      return response.json()
-    } else{
-      console.log('no existe la cookie mode');
-    }
-  } catch (error) {
-    console.log('error en tratar de obtener la cookie de mode si es que existe-->', error);
-  }
-}
+obtenerStyleMode(head);
 
-const d = obtenerStyleMode();
-d.then(data => console.log(data.mode))
+modeBtn.addEventListener('click',function (e) {
+  e.preventDefault();
+  console.log('you are clicked light mode');
+  actualizarStyleMode('light') //<------------------------light or dark | aplicar toggle fn
+})
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
@@ -42,12 +28,6 @@ toggleBtn.addEventListener('click', function (e) {
     over.classList.remove('over-lide');
     //main.classList.remove('another')
   }
-})
-
-modeBtn.addEventListener('click',async function (e) {
-  e.preventDefault();
-  console.log('you are clicked light mode');
-  actualizarStyleMode('light') //<------------------------light or dark | aplicar toggle fn
 })
 
 over.addEventListener('click', function (e) {
