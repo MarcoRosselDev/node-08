@@ -3,19 +3,13 @@ require('dotenv').config()
 const JWT_KEY = process.env.JWT_KEY;
 
 const crearCookie = (req, res) =>{
-  // res.cookie('clave', 'valor', {opciones})
   const {clave, valor} = req.body;
-  console.log(clave, valor);
-  //const miliseconds = 1000 * 60 * 24 * time;
-  // maxAge: milliseconds si existe o 2 dias si es que no
-  // en tiempo pasamos los dias que queremos que viva la cookie
-  // el maximos de dias que se puede habilitar es de 400 dias.
+  //console.log(clave, valor);
   res.cookie(clave, valor, { maxAge: 172800000 * 15, httpOnly: true }).json({msj: `cookie: ${clave} ${valor} creada`})
   // maxAge equivale a 48 horas = 2 dias.
-  // 1 --- me gustaria guardar una cookie sobre las preferencias de usuario como idioma y modo nocturno
 }
 
-const obtenerCookie = (req, res) => {
+const obtenerJwtCookie = (req, res) => {
   const cookie = req.cookies;
   const info = jwt.verify(cookie.jwt, JWT_KEY)
   const {nombre, id} = info
@@ -41,6 +35,6 @@ const eliminarCookie = (req, res) => {
 
 module.exports = {
   crearCookie,
-  obtenerCookie,
+  obtenerJwtCookie,
   eliminarCookie
 }

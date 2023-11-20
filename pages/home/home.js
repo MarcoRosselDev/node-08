@@ -37,7 +37,7 @@ toggleBtn.addEventListener('click', function (e) {
 lightMode.addEventListener('click',async function (e) {
   e.preventDefault();
   console.log('you are clicked light mode');
-  actualizarStyleMode('light')
+  actualizarStyleMode('light') //<------------------------light or dark | aplicar toggle fn
 })
 
 over.addEventListener('click', function (e) {

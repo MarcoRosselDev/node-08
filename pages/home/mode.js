@@ -1,6 +1,6 @@
 export const actualizarStyleMode = async (mode) =>{
   try {
-    const respone = await fetch('/api/crear-cookie', {
+    const respone = await fetch('/api/crearCookie', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

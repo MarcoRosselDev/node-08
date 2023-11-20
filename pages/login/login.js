@@ -26,7 +26,7 @@ login.addEventListener('click', async function (e) {
     prom.then(async data => { //-----------------------------------------------inicio then
       try {
         const jwtFetch = data.token;
-        const cookie = await fetch('/api/crear-cookie', {
+        const cookie = await fetch('/api/crearCookie', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'

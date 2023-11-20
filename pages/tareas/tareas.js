@@ -6,7 +6,7 @@ import { msjErrorTareas} from "./msjErrorTareas.js"
 
 const cargarCookie = async () =>{
   try {
-    const getCookie = await fetch('/api/get-cookie', {
+    const getCookie = await fetch('/api/getJwtcookie', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
