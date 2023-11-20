@@ -19,9 +19,28 @@ toggleBtn.addEventListener('click', function (e) {
   }
 })
 
-lightMode.addEventListener('click', function (e) {
+lightMode.addEventListener('click',async function (e) {
   e.preventDefault();
   console.log('you are clicked light mode');
+  try {
+    const response = await fetch('/api/crear-cookie', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify({
+        clave: "mode",
+        valor: "light",
+        time: 15
+      })
+    })
+
+    console.log(response);
+    if (response.status === 200) console.log('successful feth cookie');
+  } catch (error) {
+    console.log('error en el catch del fetch crear cookie ---> :', error);
+  }
   // ahora crear una cookie con la clave valor:
   // mode = night|light
 })
