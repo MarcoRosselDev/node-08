@@ -1,4 +1,4 @@
-export const obtenerStyleMode = async (head) =>{
+export const obtenerStyleMode = async (head, div) =>{
   try {
     const response = await fetch('/api/getStylecookie', {
       method: 'GET',
@@ -12,8 +12,9 @@ export const obtenerStyleMode = async (head) =>{
     const a = response.json();
     a.then(data => {
       console.log(data.mode);
-      head.children[3].href = `http://localhost:3000/home/home-${data.mode}.css`
-      //div.classList.add(data.mode)
+      head.children[3].href = `http://localhost:3000/home/home-${data.mode}.css`;
+      div.classList.add(data.mode);
+      console.log(div.classList);
     })
     } else{
       console.log('no existe la cookie mode');

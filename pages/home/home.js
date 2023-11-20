@@ -5,9 +5,14 @@ const divNav = document.querySelector('.divNav');
 const modeBtn = document.querySelector('.light-mode');
 const over = document.querySelector('.over')
 const head = document.querySelector('head');
+//Esme_KD
 
+obtenerStyleMode(head, divNav); // esto se ejecuta el paralelo, por lo que al querer 
+// acceder al classList del divNav no podemos ver 'light'
+// como podemos solucionar esto?
 
-obtenerStyleMode(head);
+console.log(divNav.classList, 'hi'); // 
+//header.classList.forEach(a => console.log(a))
 
 modeBtn.addEventListener('click',function (e) {
   e.preventDefault();
