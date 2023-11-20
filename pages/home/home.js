@@ -4,6 +4,20 @@ const styleMode = document.querySelector('.styleMode');
 const lightMode = document.querySelector('.light-mode');
 const over = document.querySelector('.over')
 
+const obtenerStyleMode = async () =>{
+  try {
+    const response = await fetch('get-cookie', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    });
+  } catch (error) {
+    console.log('error en tratar de obtener la cookie de mode si es que existe-->', error);
+  }
+}
+
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
   if (divNav.classList.contains('hide')) {
@@ -31,13 +45,13 @@ lightMode.addEventListener('click',async function (e) {
       },
       body: JSON.stringify({
         clave: "mode",
-        valor: "light",
-        time: 15
+        valor: "light"
       })
     })
 
     console.log(response);
     if (response.status === 200) console.log('successful feth cookie');
+    // if === 200 cambiar los estilos a modo claro
   } catch (error) {
     console.log('error en el catch del fetch crear cookie ---> :', error);
   }
