@@ -36,5 +36,6 @@ const eliminarCookie = (req, res) => {
 module.exports = {
   crearCookie,
   obtenerJwtCookie,
-  eliminarCookie
+  eliminarCookie,
+  cookieStyleMode
 }

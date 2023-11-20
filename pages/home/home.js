@@ -2,22 +2,32 @@ import { actualizarStyleMode } from "./mode.js";
 const toggleBtn = document.querySelector('.toogleBtn');
 const divNav = document.querySelector('.divNav');
 const styleMode = document.querySelector('.styleMode');
-const lightMode = document.querySelector('.light-mode');
+const modeBtn = document.querySelector('.light-mode');
 const over = document.querySelector('.over')
 
 const obtenerStyleMode = async () =>{
   try {
-    const response = await fetch('get-cookie', {
+    const response = await fetch('/api/getStylecookie', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }
     });
+
+    console.log(response);
+    if (response.status === 200) {
+      return response.json()
+    } else{
+      console.log('no existe la cookie mode');
+    }
   } catch (error) {
     console.log('error en tratar de obtener la cookie de mode si es que existe-->', error);
   }
 }
+
+const d = obtenerStyleMode();
+d.then(data => console.log(data.mode))
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
@@ -34,7 +44,7 @@ toggleBtn.addEventListener('click', function (e) {
   }
 })
 
-lightMode.addEventListener('click',async function (e) {
+modeBtn.addEventListener('click',async function (e) {
   e.preventDefault();
   console.log('you are clicked light mode');
   actualizarStyleMode('light') //<------------------------light or dark | aplicar toggle fn
