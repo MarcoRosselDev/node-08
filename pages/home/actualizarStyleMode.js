@@ -12,7 +12,6 @@ export const actualizarStyleMode = async (mode) =>{
       })
     })
 
-    console.log(respone);
     if (respone.status === 200) return true;
     return false
   } catch (error) {

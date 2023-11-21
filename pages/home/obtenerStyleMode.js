@@ -3,7 +3,6 @@ import {actualizarStyleMode} from './actualizarStyleMode.js';
 const div = document.querySelector('.divNav');
 const modeBtn = document.querySelector('.light-mode');
 
-console.log(head, 'we are in src');
 const obtenerStyleMode = async () =>{
   try {
     const response = await fetch('/api/getStylecookie', {
@@ -13,7 +12,6 @@ const obtenerStyleMode = async () =>{
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }
     });
-
     if (response.status === 200) {
     const a = response.json();
     a.then(data => {
@@ -41,7 +39,8 @@ const obtenerStyleMode = async () =>{
 
     })
     } else{
-      console.log('no existe la cookie mode');
+      console.log('no existe la cookie mode, la crearemos en dark por defecto para ti.');
+      actualizarStyleMode('dark');
     }
   } catch (error) {
     console.log('error en tratar de obtener la cookie de mode si es que existe-->', error);

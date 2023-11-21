@@ -1,23 +1,8 @@
-import { actualizarStyleMode } from "./actualizarStyleMode.js";
 const toggleBtn = document.querySelector('.toogleBtn');
 const divNav = document.querySelector('.divNav');
-const modeBtn = document.querySelector('.light-mode');
 const over = document.querySelector('.over')
 const head = document.querySelector('head');
 //Esme_KD
-
-//obtenerStyleMode(head, divNav); // esto se ejecuta el paralelo, por lo que al querer 
-// acceder al classList del divNav no podemos ver 'light'
-// como podemos solucionar esto?
-
-console.log(divNav.classList, 'hi'); // 
-//header.classList.forEach(a => console.log(a))
-
-modeBtn.addEventListener('click',function (e) {
-  e.preventDefault();
-  console.log('you are clicked light mode');
-  actualizarStyleMode('light') //<------------------------light or dark | aplicar toggle fn
-})
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
@@ -39,5 +24,4 @@ over.addEventListener('click', function (e) {
   divNav.classList.remove('navList')
   divNav.classList.add('hide');
   over.classList.remove('over-lide')
-  console.log('click main');
 })

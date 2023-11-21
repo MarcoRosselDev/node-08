@@ -22,7 +22,8 @@ const obtenerJwtCookie = (req, res) => {
 
 const cookieStyleMode = (req, res) =>{
   const lightDark = req.cookies.mode;
-  res.cookie().json({
+  if (req.cookies.mode === undefined) return res.status(404).json({msj : 'No se encuentra la cookie mode'})
+  res.status(200).cookie().json({
     mode: lightDark
   })
 }
