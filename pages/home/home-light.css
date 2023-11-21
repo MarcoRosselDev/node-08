@@ -24,6 +24,12 @@ p{
   color: var(--color-3);
 }
 
+a{
+  list-style: none;
+  color: var(--main-color);
+  text-decoration: none;
+}
+
 body{
   display: flex;
   flex-direction: column;
