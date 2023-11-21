@@ -1,5 +1,4 @@
-import { actualizarStyleMode } from "./mode.js";
-import { obtenerStyleMode } from "./obtenerStyleMode.js";
+import { actualizarStyleMode } from "./actualizarStyleMode.js";
 const toggleBtn = document.querySelector('.toogleBtn');
 const divNav = document.querySelector('.divNav');
 const modeBtn = document.querySelector('.light-mode');
@@ -7,7 +6,7 @@ const over = document.querySelector('.over')
 const head = document.querySelector('head');
 //Esme_KD
 
-obtenerStyleMode(head, divNav); // esto se ejecuta el paralelo, por lo que al querer 
+//obtenerStyleMode(head, divNav); // esto se ejecuta el paralelo, por lo que al querer 
 // acceder al classList del divNav no podemos ver 'light'
 // como podemos solucionar esto?
 
