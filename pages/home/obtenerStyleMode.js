@@ -17,7 +17,11 @@ const obtenerStyleMode = async () =>{
     a.then(data => {
       head.children[3].href = `http://localhost:3000/home/home-${data.mode}.css`;
       div.classList.add(data.mode);
-      console.log(div.classList);
+      if (data.mode === 'light') {
+        modeBtn.innerText = 'dark mode';
+      } else{
+        modeBtn.innerText = 'light mode';
+      }
 
       modeBtn.addEventListener('click',function (e) {
         e.preventDefault();
@@ -26,13 +30,13 @@ const obtenerStyleMode = async () =>{
           head.children[3].href = `http://localhost:3000/home/home-dark.css`;
           div.classList.add('dark');
           actualizarStyleMode('dark'); //<------------------------light or dark | aplicar toggle fn
-          console.log('now is dark');
+          modeBtn.innerText = 'light mode';
         } else{
           div.classList.remove('dark');
           head.children[3].href = `http://localhost:3000/home/home-light.css`;
           div.classList.add('light');
           actualizarStyleMode('light');
-          console.log('now is light');
+          modeBtn.innerText = 'dark mode';
         }
       })
 
