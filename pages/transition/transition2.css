@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root{
+  --main-color:rgb(205 217 229);
+  --color-2:rgb(205 217 229);
+  --color-3:rgb(99 110 123);
+  --main-bg-color: rgb(45 51 59);
+  --bg-color-header:rgb(28 33 40);
+  --green-color:rgb(81 157 85);
+  --blue-text:rgb(83 155 245);
+  --blue-text-2:rgb(79 146 228);
+  --bg-color-hover:rgba(99, 110, 123, 0.384);
+  --border: rgba(247, 247, 247, 0.205);
+  --transition: all 0.3s linear;
+}
+h1,h2,h3,h4{
+  color: var(--main-color);
+}
+p{
+  color: var(--color-3);
+}
+a{
+  list-style: none;
+  color: var(--main-color);
+  text-decoration: none;
+}
