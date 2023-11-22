@@ -46,6 +46,7 @@ body{
 header{
   width: 100%;
   background-color: var(--bg-color-header);
+  z-index: 5;
 }
 
 header nav{
@@ -55,10 +56,12 @@ header nav{
   align-items: center;
   width: 100%;
   height: 40px;
+
   border-bottom: 1px solid var(--border);
+  z-index: 5;
 }
 
-.navList {
+/* .navList {
   display: flex;
 
   flex-direction: column;
@@ -70,19 +73,22 @@ header nav{
   z-index: 2;
 
   width: 100%;
+  height: 200px;
 
   top: 40px;
   gap: 10px;
 
   padding: 20px;
   border-radius: 0 0 10px 10px;
-  transition: all 0.3s linear;
-
+  
   box-shadow: 20px 20px 20px 10px rgba(0, 0, 0, 0.4);
+  transition: height 1.5s;
 }
 
 
+ */
 
+/* estela translusida para el evento click over  */
 .over-lide{
   display: flex;
   width: 100%;
@@ -91,26 +97,40 @@ header nav{
   position: fixed;
   top: 40px;
   background-color: var(--bg-color-hover);
+
   z-index: 1;
 }
 
-.another{
+/* .another{
   background-color: var(--bg-color-hover);
+  border: 1px solid rgb(0, 38, 255);
   width: 100%;
   height: 100%;
-}
+} */
 
 .divp{
+/*   overflow: hidden; */
   width: 90%;
+
   padding: 5px;
   border-radius: 5px;
   text-align: center;
   color: var(--main-color);
+
+
+  transition: height 1.5s;
 }
 
-.divp:hover{
+.divpToggle{
+  display: flex;
+
+  height: 40px;
+  transition: all 0.3s;
+}
+
+/* .divp:hover{
   background-color: var(--bg-color-hover);
-}
+} */
 
 
 
@@ -129,10 +149,11 @@ header nav{
 
 
 
-.hide{
+/* .hide{
   display: none;
-  height: 1px;
-}
+  overflow: hidden;
+  height: 0;
+} */
 
 svg{
   width: 20px;
@@ -147,9 +168,49 @@ svg{
   padding: 5px;
 }
 
+.divNav{
+  height: 0;
+  width: 0;
+  overflow: hidden;
+}
 
+.divNavToggle{
+  overflow: visible;
+/* ----------- */
+  display: flex;
 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  background-color: var(--main-bg-color);
+  position: fixed;
+  z-index: 2;
+
+  width: 100%;
+  height: 300px;
+
+  top: 40px;
+  gap: 10px;
+
+  padding: 20px;
+  border-radius: 0 0 10px 10px;
+
+  box-shadow: 20px 20px 20px 10px rgba(0, 0, 0, 0.4);
+/* ----------- */
+  transition: all 0.3s linear;
+/*   transition: width 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+  transform-origin: ;
+}
+
+/* example */
+/* .links{
+  height: 0;
+  overflow: hidden;
+  transition: all o.3s;
+}
+
+ */
 
 
 
@@ -201,14 +262,14 @@ svg{
 
 
 /* light mode */
-.light-mode {
+/* .light-mode {
   display: flex;
   justify-content: center;
   border: 1px soild pink;
   gap: 20px;
   border-bottom: 1px solid var(--color-3);
 }
-
+ */
 
 
 
