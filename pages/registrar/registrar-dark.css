@@ -84,7 +84,7 @@ header nav{
 
   position: fixed;
   top: 40px;
-  background-color: var(--bg-color-hover);
+  background-color: rgba(107, 109, 112, 0.486);
   z-index: 1;
 }
 
