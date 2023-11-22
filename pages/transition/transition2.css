@@ -66,9 +66,9 @@ header nav{
 }
 
 .links{
-  overflow: hidden;
   height: 0;
-  transition: height 0.3s;
+  overflow: hidden;
+/*   transition: height 0.3s; */
 }
 
 .linksTgl{
@@ -80,7 +80,7 @@ header nav{
   border-radius: 5px;
   padding: 4px;
 
-  transition: height 0.3s;
+/*   transition: height 0.3s; */
 }
 
 .linksTgl:hover{
@@ -108,7 +108,7 @@ header nav{
   align-items: center;
   z-index: 4;
 
-  height: auto;
+  height: 180px;
   transition: height 0.3s;
 }
 
