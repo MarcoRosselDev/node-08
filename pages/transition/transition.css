@@ -1,0 +1,36 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+
+  background-color: black;
+  color: wheat;
+  height: 100vh;
+}
+
+.contenedor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+
+/*   width: 100%;
+  height: 200px; */
+}
+
+.clicked{
+  height: 300px;
+  width: 100%;
+  transition: width 4s, height 4s;
+}
+
+.show{
+  width: 100%;
+  height: 200px;
+  display: flex;
+}
