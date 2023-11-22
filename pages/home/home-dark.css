@@ -16,6 +16,7 @@
   --blue-text-2:rgb(79 146 228);
   --bg-color-hover:rgba(99, 110, 123, 0.384);
   --border: rgba(247, 247, 247, 0.205);
+  --transition: all 0.3s linear;
 }
 h1,h2,h3,h4{
   color: var(--main-color);
@@ -65,18 +66,22 @@ header nav{
   align-items: center;
 
   background-color: var(--main-bg-color);
-  position: absolute;/* ----------------- */
+  position: absolute;
   z-index: 2;
 
   width: 100%;
+
   top: 40px;
   gap: 10px;
 
   padding: 20px;
-/*   transition: all 5s ease-out; */
+  border-radius: 0 0 10px 10px;
+  transition: all 0.3s linear;
 
   box-shadow: 20px 20px 20px 10px rgba(0, 0, 0, 0.4);
 }
+
+
 
 .over-lide{
   display: flex;
@@ -126,6 +131,7 @@ header nav{
 
 .hide{
   display: none;
+  height: 1px;
 }
 
 svg{
