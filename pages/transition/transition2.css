@@ -29,3 +29,142 @@ a{
   color: var(--main-color);
   text-decoration: none;
 }
+
+body{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: var(--main-bg-color);
+
+  width: 100vw;
+  height: 100vh;
+}
+
+header{
+  display: flex;
+  align-items: center;
+
+  background-color: var(--bg-color-header);
+  width: 100%;
+  height: 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+header nav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.logo-div{
+  display: flex;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+.links{
+  overflow: hidden;
+  height: 0;
+  transition: height 0.3s;
+}
+
+.linksTgl{
+  height: 30px;
+  display: flex;
+  transition: height 0.3s;
+}
+
+.directorio{
+  overflow: hidden;
+  height: 0;
+  
+  position: fixed;
+  top: 40px;
+  width: 100%;
+
+  background-color: var(--bg-color-header);
+  transition: height 0.3s;
+}
+
+.directorioTgl{
+  height: auto;
+  transition: height 0.3s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* toggle btn */
+svg{
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  fill: var(--main-color);
+}
+
+.toggleBtn{
+  background-color: transparent;
+  border: transparent;
+  margin-right: 10px;
+}
+/* toggle btn */
