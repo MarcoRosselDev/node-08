@@ -6,23 +6,23 @@
 }
 
 :root{
-  --main-color:#1f2328;
-  --color-2:#6e767e;
-  --color-3:#80868e;
-  --main-bg-color: #ffffff;
-  --bg-color-header:#f6f8fa;
+  --main-color:rgb(205 217 229);
+  --color-2:rgb(205 217 229);
+  --color-3:rgb(99 110 123);
+  --main-bg-color: rgb(45 51 59);
+  --bg-color-header:rgb(28 33 40);
   --green-color:rgb(81 157 85);
   --blue-text:rgb(83 155 245);
   --blue-text-2:rgb(79 146 228);
-  --bg-color-hover:#6d6d6d1e;
-  --border: rgba(107, 107, 107, 0.281);
+  --bg-color-hover:rgba(99, 110, 123, 0.384);
+  --border: rgba(247, 247, 247, 0.205);
+  --transition: all 0.3s linear;
 }
-
 h1,h2,h3,h4{
   color: var(--main-color);
 }
 p{
-  color: var(--color-3);
+  color: var(--color-2);
 }
 a{
   list-style: none;
@@ -127,7 +127,6 @@ svg{
   
   height: 180px;
   border-radius: 0px 0px 10px 10px;
-  border: 1px solid var(--border);
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.473);
   transition: height 0.3s;
 }
@@ -135,12 +134,50 @@ svg{
 
 /* main ---------------------------- */
 main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
   height: 100%;
+  width: 100%;
+}
+
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+input{
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  color: var(--main-bg-color);
+}
+
+input::placeholder{
+  color: rgba(0, 0, 0, 0.363);
+}
+
+.buttonRegistrar{
+  margin-top: 10px;
+  padding: 5px;
+  background-color: var(--bg-color-header);
+  color: var(--main-color);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+}
+
+.buttonRegistrar:hover{
+  background-color: var(--bg-color-hover);
 }
 
 .estela{
   overflow: hidden;
   height: 0;
+  top: 60px;
 }
 
 .estelaTgl{
@@ -148,11 +185,10 @@ main{
   margin-top: 5px;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.103);
+  background-color: var(--bg-color-hover);
   z-index: 2;
 }
 /* main ---------------------------- */
-
 @media screen and (min-width: 600px) {
   /* solo como ejemplo momentaneo */
   .directorio{
@@ -184,7 +220,8 @@ main{
     flex-direction: wrap;
     gap: 5px;
     margin-left: 10px;
-    width: 200px;
+    width: 300px;
   }
 
 }
+
