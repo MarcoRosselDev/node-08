@@ -1,6 +1,6 @@
 const head = document.querySelector('head');
 import {actualizarStyleMode} from './actualizarStyleMode.js';
-const div = document.querySelector('.divNav');
+const div = document.querySelector('.directorio');
 const modeBtn = document.querySelector('.light-mode');
 
 const obtenerStyleMode = async () =>{
