@@ -152,3 +152,39 @@ main{
   z-index: 2;
 }
 /* main ---------------------------- */
+
+@media screen and (min-width: 600px) {
+  /* solo como ejemplo momentaneo */
+  .directorio{
+    overflow: visible;
+    display: flex;
+    position: inherit;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+  }
+  .links{
+    overflow: visible;
+    height: auto;
+    padding: 3px 10px 3px 10px;
+    border-radius: 5px;
+  }
+  .links:hover{
+    background-color: var(--bg-color-hover);
+  }
+
+  .toggleBtn{
+    display: none;
+  }
+
+  .logo-div{
+    display: flex;
+    flex-direction: wrap;
+    gap: 5px;
+    margin-left: 10px;
+    width: 200px;
+  }
+
+}
