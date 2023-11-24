@@ -1,3 +1,4 @@
+/* menu var con toggle button funtionality------------------------------------------ */
 const toggleBtn = document.querySelector('.toggleBtn');
 const links = document.querySelectorAll('.links');
 const directorio = document.querySelector('.directorio');
@@ -7,7 +8,7 @@ const event = document.querySelector('.event');
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
-
+  // forEach para la funcionalidad de transition en css 
   links.forEach(i => i.classList.toggle('linksTgl'));
   directorio.classList.toggle('directorioTgl');
   estela.classList.toggle('estelaTgl');
@@ -15,11 +16,13 @@ toggleBtn.addEventListener('click', function (e) {
 
 event.addEventListener('click', function (e) {
   e.preventDefault();
-  
+  // activa sacar el menu desplegable si clickeamos en cualquier parte fuera de el menu
   links.forEach(i => i.classList.toggle('linksTgl'));
   directorio.classList.toggle('directorioTgl');
   estela.classList.toggle('estelaTgl');
 })
+/* -----------end menu var con toggle button funtionality---------------------------- */
+/* -----------fn new user------------------------------------------------------------ */
 
 const nombre = document.getElementById('nombre');
 const email = document.getElementById('email');

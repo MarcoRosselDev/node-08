@@ -188,6 +188,45 @@ input::placeholder{
   background-color: var(--bg-color-hover);
   z-index: 2;
 }
+
+/* mensaje error style */
+.msj-contenedor{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+
+  height: 100px;
+  background-color: rgb(255, 167, 183);
+  border-radius: 0 0 5px 5px;
+}
+
+.p-mensaje{
+  color: black;
+}
+
+.msj-contenedor a{
+  color: black;
+}
+
+.x{
+  position: absolute;
+  background-color: var(--bg-color-header);
+  color: white;
+
+  padding: 3px;
+  top: 0;
+  right: 0;
+}
+
+.x:hover{
+  background-color: var(--bg-color-hover);
+}
+
+/* mensaje error style */
+
 /* main ---------------------------- */
 @media screen and (min-width: 600px) {
   /* solo como ejemplo momentaneo */
