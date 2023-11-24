@@ -191,15 +191,37 @@ input::placeholder{
 
 /* mensaje error style */
 .msj-contenedor{
+  position: relative;
+
+  width: 270px;
+  border: 1px solid pink;
+}
+
+.msj-contenedor-error{
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
   position: relative;
+  padding: 0 20px 0 20px;
 
-
-  height: 100px;
+  height: 60px;
+  width: 270px;
   background-color: rgb(255, 167, 183);
+  border-radius: 0 0 5px 5px;
+}
+
+.msj-contenedor-exitoso{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 0 20px 0 20px;
+
+  height: 60px;
+  width: 270px;
+  background-color: rgb(167, 234, 255);
   border-radius: 0 0 5px 5px;
 }
 
@@ -217,8 +239,8 @@ input::placeholder{
   color: white;
 
   padding: 3px;
-  top: 0;
-  right: 0;
+  top: 2px;
+  right: 2px;
 }
 
 .x:hover{

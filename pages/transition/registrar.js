@@ -4,7 +4,6 @@ const directorio = document.querySelector('.directorio');
 const estela = document.querySelector('.estela');
 const event = document.querySelector('.event');
 
-
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -94,37 +93,18 @@ enviar.addEventListener('click', async function (e) {
       console.log(error);
     }
   } else{
-    //---
+    console.log(msjContenedor);
+    const p = document.createElement('p');
+    const b = document.createElement('button');
+    msjContenedor.classList.add('msj-contenedor-error');
+    p.innerText = 'no coinsiden las contrasegnias';
+    p.classList.add('p-mensaje')
+    b.innerText = 'X'
+    b.classList.add('x')
 
-    msjContenedor.classList.add('mistake')
-    msjContenedor.innerHTML = `
-    <p>Error 001, los passwords no coinsiden</p>
-    <div>
-      <button class="x">X</button>
-    </div>
-    `;
-    const x = document.querySelector('.x');
-    try {
-      setTimeout(()=>{
-        console.log('borrado automatico');
-        x.parentNode.parentNode.classList.remove('mistake')
-        x.parentElement.children[0].classList.add('hiden');
-        msjContenedor.removeChild(x.parentNode.parentNode.children[0]);
-      }, 4000)
-    } catch (error) {
-      console.log(error);
-    }
-    x.addEventListener('click', function (e) {
-      e.preventDefault();
-      console.log('x clicked');
-  
-      this.parentNode.parentNode.classList.remove('mistake')
-      this.parentElement.children[0].classList.add('hiden');
-      msjContenedor.removeChild(this.parentNode.parentNode.children[0]);
-    })
+    msjContenedor.append(p);
+    msjContenedor.append(b);
 
-    //---
-    // appEnd msj en el div alert
     console.log("los passwords no coinsiden");
   }
 })
