@@ -6,8 +6,7 @@ const key_jwt = process.env.JWT_KEY;
 
 const registrarUsuario = async (req, res) =>{
   try {
-    const {nombre, email, password} = req.body; 
-    console.log('req body: ', nombre, email, password);
+    const {nombre, email, password} = req.body;
     // antes de guardar necesitamos enctyptar la contrase;a
     const passwordCrypt = bcrypt.hashSync(password, bcrypt.genSaltSync(10))
     const obj = {

@@ -29,6 +29,14 @@ const msjContenedor = document.querySelector('.msj-contenedor');
 
 // status ---> exitoso | error ---> determinan el color de fondo "rojo o verde"
 const msj = (texto, status) => {
+
+  if (msjContenedor.children.length > 1) {
+    //console.log(msjContenedor.classList);
+    msjContenedor.classList.remove('msj-contenedor-error')
+    msjContenedor.classList.remove('msj-contenedor-exitoso')
+    msjContenedor.innerHTML = '';
+  }
+
   const p = document.createElement('p');
   const b = document.createElement('button');
   msjContenedor.classList.add(`msj-contenedor-${status}`);
@@ -46,7 +54,6 @@ const msj = (texto, status) => {
 enviar.addEventListener('click', async function (e) {
   e.preventDefault();
 
-  console.log(nombre.value.length);
   if (nombre.value.length === 0) {
     msj('el campo nombre esta vacio !', 'error')
   } else if (email.value.length ===  0) {
@@ -82,8 +89,18 @@ enviar.addEventListener('click', async function (e) {
           msj('usuario creado exitosamente! <a href="http://localhost:3000/login/">ir a login</a>', 'exitoso')
         })
       }
+      if (respuesta.status === 400) {
+        const f = f.json();
+        f.then(v => console.log(v))
+      }
     } catch (error) {
+      console.log(typeof(error));
       console.log(error);
+      console.log(error.name);
+      /* console.log(error);
+      console.log(error.value);
+      console.log(error.status); */
+      
     }
   }
 })
