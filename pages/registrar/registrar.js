@@ -27,9 +27,36 @@ const password_rep = document.getElementById('password-rep');
 const enviar = document.querySelector('.enviar')
 const msjContenedor = document.querySelector('.msj-contenedor');
 
+// status ---> exitoso | error ---> determinan el color de fondo "rojo o verde"
+const msj = (texto, status) => {
+  const p = document.createElement('p');
+  const b = document.createElement('button');
+  msjContenedor.classList.add(`msj-contenedor-${status}`);
+  p.innerText = texto;
+  p.classList.add('p-mensaje')
+  b.innerText = 'X'
+  b.classList.add('x')
+
+  msjContenedor.append(p);
+  msjContenedor.append(b);
+}
+
+//msj('test', 'error')
+
 enviar.addEventListener('click', async function (e) {
   e.preventDefault();
-  if (password.value === password_rep.value) {
+
+  console.log(nombre.value.length);
+  if (nombre.value.length === 0) {
+    msj('el campo nombre esta vacio !', 'error')
+  } else if (email.value.length ===  0) {
+    msj('el campo email esta vacio !', 'error')
+  } else if (password.value.length === 0 || password_rep.value.lenght === 0) {
+    msj('rellenar los campos passwords por favor !', 'error')
+  } else if (password.value !== password_rep.value) {
+    msj('los passwords no coinsiden', 'error')
+    console.log("los passwords no coinsiden");
+  } else {
     try {
       const respuesta = await fetch('/api/registrar', {
         method: "POST",
@@ -50,61 +77,13 @@ enviar.addEventListener('click', async function (e) {
           email.value = '';
           password.value = '';
           password_rep.value = '';
-          // add msj
-          msjContenedor.classList.add('good')
-          msjContenedor.innerHTML = `
-          <p>usuario creado, <a href="http://127.0.0.1:5500/pages/login/index.html">ir a login</a></p>
-          <div>
-            <button class="x">X</button>
-          </div>
-          `;
-          const x = document.querySelector('.x');
-          try {
-            setTimeout(()=>{
-              console.log('borrado automatico');
-              x.parentNode.parentNode.classList.remove('good')
-              x.parentElement.children[0].classList.add('hiden');
-              msjContenedor.removeChild(x.parentNode.parentNode.children[0]);
-            }, 4000)
-          } catch (error) {
-            console.log(error);
-          }
-          x.addEventListener('click', function (e) {
-            e.preventDefault();
-            console.log('x clicked');
-        
-            this.parentNode.parentNode.classList.remove('good')
-            this.parentElement.children[0].classList.add('hiden');
-            msjContenedor.removeChild(this.parentNode.parentNode.children[0]);
-          })
-          console.log(data);
-          return 1234
-        })
-        .then((data) =>{
-          console.log('data from then: ', data);
+          
+// cambiar en produccion!----------------------------------------------------------------------------------------
+          msj('usuario creado exitosamente! <a href="http://localhost:3000/login/">ir a login</a>', 'exitoso')
         })
       }
-      // div alert msj
-      console.log('status from respuesta : ',respuesta.status);
-      //await respuesta.json();
-      //console.log(respuesta.json());
-      //return respuesta.json()
     } catch (error) {
       console.log(error);
     }
-  } else{
-    console.log(msjContenedor);
-    const p = document.createElement('p');
-    const b = document.createElement('button');
-    msjContenedor.classList.add('msj-contenedor-error');
-    p.innerText = 'no coinsiden las contrasegnias';
-    p.classList.add('p-mensaje')
-    b.innerText = 'X'
-    b.classList.add('x')
-
-    msjContenedor.append(p);
-    msjContenedor.append(b);
-
-    console.log("los passwords no coinsiden");
   }
 })

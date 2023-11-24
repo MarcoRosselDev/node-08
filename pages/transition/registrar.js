@@ -97,7 +97,7 @@ enviar.addEventListener('click', async function (e) {
     const p = document.createElement('p');
     const b = document.createElement('button');
     msjContenedor.classList.add('msj-contenedor-error');
-    p.innerText = 'no coinsiden las contrasegnias';
+    p.innerText = 'no coinsiden los passwords';
     p.classList.add('p-mensaje')
     b.innerText = 'X'
     b.classList.add('x')

@@ -33,13 +33,13 @@
     <h2>Nuevo Usuario</h2>
     <div class="contenedor">
       <p>nombre</p>
-      <input type="text" id="nombre" placeholder="juan ...">
+      <input type="text" id="nombre" placeholder="juan ..." required>
       <p>email</p>
-      <input type="email" id="email" placeholder="juan@gmail.com">
+      <input type="email" id="email" placeholder="juan@gmail.com" pattern=".+@example\.com" size="30" required>
       <p>password</p>
-      <input type="password" id="password" placeholder="*******">
+      <input type="password" id="password" placeholder="*******" required>
       <p>repetir password</p>
-      <input type="password" id="password-rep" placeholder="*******">
+      <input type="password" id="password-rep" placeholder="*******" required>
       <button class="enviar buttonRegistrar">Registrar</button>
       <div class="msj-contenedor ">
       </div>
