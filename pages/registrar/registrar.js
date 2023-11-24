@@ -47,6 +47,16 @@ const msj = (texto, status) => {
 
   msjContenedor.append(p);
   msjContenedor.append(b);
+
+  const cross = document.querySelector('.x');
+
+  cross.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log('cerrar este div');
+    msjContenedor.classList.remove('msj-contenedor-error');
+    msjContenedor.classList.remove('msj-contenedor-exitoso');
+    msjContenedor.innerHTML = '';
+  })
 }
 
 //msj('test', 'error')
@@ -86,17 +96,22 @@ enviar.addEventListener('click', async function (e) {
           password_rep.value = '';
           
 // cambiar en produccion!----------------------------------------------------------------------------------------
-          msj('usuario creado exitosamente! <a href="http://localhost:3000/login/">ir a login</a>', 'exitoso')
+          msj('usuario creado exitosamente!', 'exitoso')
         })
       }
       if (respuesta.status === 400) {
-        const f = f.json();
-        f.then(v => console.log(v))
+        console.log(respuesta);
+        const f = respuesta.json();
+        f.then(data => {
+          console.log(data);
+          msj(data.mensajeError, 'error')
+        })
       }
     } catch (error) {
       console.log(typeof(error));
       console.log(error);
       console.log(error.name);
+      console.log(error.message, 'error aklsdjfa');
       /* console.log(error);
       console.log(error.value);
       console.log(error.status); */

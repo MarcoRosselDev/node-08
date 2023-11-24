@@ -9,6 +9,7 @@ const nuevoUsuario = new mongoose.Schema({
     type: String,
     require: true,
     unique: true,
+    match: [/.+\@.+\..+/, 'Por favor ingrese un correo válido'] // <- Validación regexp para correo
   },
   password:{
     type: String,
