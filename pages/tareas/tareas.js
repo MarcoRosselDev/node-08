@@ -18,6 +18,96 @@ event.addEventListener('click', function (e) {
   estela.classList.toggle('estelaTgl');
 })
 
+const main = document.querySelector('main');
+
+const getJwtCookie = async () => {
+  try {
+    const respuesta = await fetch('/api/getJwtcookie', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      }
+    })
+
+
+    if (respuesta.status === 200) {
+      const promesa = respuesta.json();
+      promesa.then(data => {
+        const logout = document.querySelector('.login');
+        logout.innerHTML = `<a href="#">logut</a>`;
+
+        logout.addEventListener('click', function (e) {
+          e.preventDefault();
+          console.log('clicked logout');
+          // realizar un delete cookie jwt y redirigir a login
+        })
+
+        main.innerHTML = `
+        <div class="contenedor">
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        <h2>Hola ${data.nombre}</h2>
+        <p>Escribe una nueva tarea</p>
+        <input type="text">
+        <button id='guardar'>guardar</button>
+        </div>
+        `
+
+      })
+    } else{
+      main.innerHTML = `
+      <div class="jwt-fetch-err">
+        <p>no as iniciado session,<a href="http://localhost:3000/login/">ir a login</a> o <a href="http://localhost:3000/registrar/">registrar un nuevo usuario</a></p>
+      </div>
+      `
+    }
+  } catch (error) {
+    console.log('catch error-->', error);
+  }
+}
+
+getJwtCookie();
+
+
 /* --------------------------------------------------------------------------- */
 /* const main = document.querySelector('main');
 const header = document.querySelector('header');

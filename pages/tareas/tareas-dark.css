@@ -38,7 +38,7 @@ body{
   background-color: var(--main-bg-color);
 
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 /* header--------------------------- */
@@ -139,9 +139,10 @@ main{
   justify-content: center;
   align-items: center;
   gap: 20px;
+  border: 1px solid yellow;
 
-  height: 100%;
-  width: 100%;
+  min-height: 200px;
+  width: 70%;
 }
 
 .contenedor{
@@ -161,7 +162,20 @@ input::placeholder{
   color: rgba(0, 0, 0, 0.363);
 }
 
-#login{
+.jwt-fetch-err{
+  width: 80%;
+  text-align: center;
+}
+
+.jwt-fetch-err a{
+  color: var(--blue-text);
+}
+
+a:hover{
+  color: var(--blue-text-2);
+}
+
+#guardar{
   margin-top: 10px;
   padding: 5px;
   background-color: var(--bg-color-header);
@@ -170,7 +184,7 @@ input::placeholder{
   border-radius: 5px;
 }
 
-#login:hover{
+#guardar:hover{
   background-color: var(--bg-color-hover);
 }
 
