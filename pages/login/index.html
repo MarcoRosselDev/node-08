@@ -4,28 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="logo.svg" type="svg">
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="login-dark.css">
+  <script type="module" src="obtenerStyleMode.js" defer></script>
   <script type="module" src="login.js" defer></script>
   <title>login</title>
 </head>
 <body>
-  <header>
+  <!-- <header>
     <p>header</p>
     <a href="http://localhost:3000/registrar/">registrar</a>
+  </header> -->
+  <header>
+    <nav>
+      <div class="logo-div">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-120v-319q-64 0-123-24.5T213-533q-45-45-69-104t-24-123v-80h80q63 0 122 24.5T426-746q31 31 51.5 68t31.5 79q5-7 11-13.5t13-13.5q45-45 104-69.5T760-720h80v80q0 64-24.5 123T746-413q-45 45-103.5 69T520-320v200h-80Zm0-400q0-48-18.5-91.5T369-689q-34-34-77.5-52.5T200-760q0 48 18 92t52 78q34 34 78 52t92 18Zm80 120q48 0 91.5-18t77.5-52q34-34 52.5-78t18.5-92q-48 0-92 18.5T590-569q-34 34-52 77.5T520-400Zm0 0Zm-80-120Z"/></svg>
+        <h4>To do list</h4>
+        <p>| project</p>
+      </div>
+      <div class="directorio">
+        <p class="links light-mode">light mode</p>
+        <p class="links"><a href="http://localhost:3000/registrar/">registrar</a></p>
+        <p class="links goHome"><a href="http://localhost:3000/home/">go home</a></p>
+      </div>
+      <div class="over"></div>
+      <button class="toggleBtn">
+        <svg id="Outline" viewBox="0 0 24 24" width="512" height="512"><rect y="11" width="24" height="2" rx="1"/><rect y="4" width="24" height="2" rx="1"/><rect y="18" width="24" height="2" rx="1"/></svg>
+      </button>
+    </nav>
+    <div class="estela event"></div>
   </header>
   <main>
     <div class="contenedor">
       <p>email</p>
-      <input type="email" id="email" placeholder="email@gmail.com">
+      <input type="email" id="email" placeholder="email@gmail.com" required>
       <p>password</p>
-      <input type="password" id="password">
+      <input type="password" id="password" placeholder="****" required>
       <button id="login">login</button>
-    </div>
-    <div class="msj-contenedor">
+      <div class="msj-contenedor">
+      </div>
     </div>
   </main>
-  <footer>
-    <p>footer</p>
-  </footer>
 </body>
 </html>

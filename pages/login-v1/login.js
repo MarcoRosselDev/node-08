@@ -53,7 +53,6 @@ const msj = (texto, status) => {
 }
 
 
-
 /* const password = document.getElementById('password');
 const email = document.getElementById('email');
 const login = document.getElementById('login');

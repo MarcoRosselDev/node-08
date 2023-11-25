@@ -92,8 +92,35 @@ enviar.addEventListener('click', async function (e) {
         email.value = '';
         password.value = '';
         password_rep.value = '';
-        // cambiar en produccion!----------------------------------------------------------------------------------------
-        msj('usuario creado exitosamente!', 'exitoso')
+        // personalizar msj de usuario creado exitosamente
+        if (msjContenedor.children.length > 1) {
+          //console.log(msjContenedor.classList);
+          msjContenedor.classList.remove('msj-contenedor-error')
+          msjContenedor.classList.remove('msj-contenedor-exitoso')
+          msjContenedor.innerHTML = '';
+        }
+      
+        const p = document.createElement('p');
+        const b = document.createElement('button');
+        msjContenedor.classList.add(`msj-contenedor-exitoso`);
+        // cambiar en produccion------------------------------------------------------------------------------------
+        p.innerHTML = `usuario creado exitosamente, <a href="http://localhost:3000/login/">ir a login</a>`
+        p.classList.add('p-mensaje')
+        b.innerText = 'X'
+        b.classList.add('x')
+      
+        msjContenedor.append(p);
+        msjContenedor.append(b);
+      
+        const cross = document.querySelector('.x');
+      
+        cross.addEventListener('click', function (e) {
+          e.preventDefault();
+          console.log('cerrar este div');
+          msjContenedor.classList.remove('msj-contenedor-error');
+          msjContenedor.classList.remove('msj-contenedor-exitoso');
+          msjContenedor.innerHTML = '';
+        })
       }
       if (respuesta.status === 400) {
         console.log(respuesta);

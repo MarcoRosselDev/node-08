@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="logo.svg" type="svg">
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="login-dark.css">
   <script type="module" src="obtenerStyleMode.js" defer></script>
   <script type="module" src="login.js" defer></script>
   <title>login</title>
@@ -36,16 +36,13 @@
   <main>
     <div class="contenedor">
       <p>email</p>
-      <input type="email" id="email" placeholder="email@gmail.com">
+      <input type="email" id="email" placeholder="email@gmail.com" required>
       <p>password</p>
-      <input type="password" id="password">
+      <input type="password" id="password" placeholder="****" required>
       <button id="login">login</button>
-    </div>
-    <div class="msj-contenedor">
+      <div class="msj-contenedor">
+      </div>
     </div>
   </main>
-  <footer>
-    <p>footer</p>
-  </footer>
 </body>
 </html>

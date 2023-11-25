@@ -20,6 +20,40 @@ event.addEventListener('click', function (e) {
   estela.classList.toggle('estelaTgl');
 })
 
+/* fn error msj*/
+const msj = (texto, status) => {
+
+  if (msjContenedor.children.length > 1) {
+    // eliminamos el mensaje previo si es que existe
+    msjContenedor.classList.remove('msj-contenedor-error')
+    msjContenedor.classList.remove('msj-contenedor-exitoso')
+    msjContenedor.innerHTML = '';
+  }
+  // si esta vacio lo creamos
+  const p = document.createElement('p');
+  const b = document.createElement('button');
+  msjContenedor.classList.add(`msj-contenedor-${status}`);
+  p.innerText = texto;
+  p.classList.add('p-mensaje')
+  b.innerText = 'X'
+  b.classList.add('x')
+
+  msjContenedor.append(p);
+  msjContenedor.append(b);
+
+  // funcionalidad del boton cerrar mensaje
+  const cross = document.querySelector('.x');
+  cross.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log('cerrar este div');
+    msjContenedor.classList.remove('msj-contenedor-error');
+    msjContenedor.classList.remove('msj-contenedor-exitoso');
+    msjContenedor.innerHTML = '';
+  })
+}
+
+
+
 /* const password = document.getElementById('password');
 const email = document.getElementById('email');
 const login = document.getElementById('login');
