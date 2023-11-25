@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="logo.svg" type="svg">
-  <link rel="stylesheet" href="registrar-dark.css">
+  <link rel="stylesheet" href="login.css">
   <script type="module" src="obtenerStyleMode.js" defer></script>
-  <script type="module" src="registrar.js" defer></script>
-  <title>Marco's portfollio | To do list</title>
+  <script type="module" src="login.js" defer></script>
+  <title>login</title>
 </head>
 <body>
+  <!-- <header>
+    <p>header</p>
+    <a href="http://localhost:3000/registrar/">registrar</a>
+  </header> -->
   <header>
     <nav>
       <div class="logo-div">
@@ -19,7 +23,7 @@
       </div>
       <div class="directorio">
         <p class="links light-mode">light mode</p>
-        <p class="links"><a href="http://localhost:3000/login/">login</a></p>
+        <p class="links"><a href="http://localhost:3000/registrar/">registrar</a></p>
         <p class="links goHome"><a href="http://localhost:3000/home/">go home</a></p>
       </div>
       <div class="over"></div>
@@ -30,22 +34,18 @@
     <div class="estela event"></div>
   </header>
   <main>
-    <h2>Nuevo Usuario</h2>
     <div class="contenedor">
-      <p>nombre</p>
-      <input type="text" id="nombre" placeholder="juan ...">
       <p>email</p>
-      <input type="email" id="email" placeholder="juan@gmail.com">
+      <input type="email" id="email" placeholder="email@gmail.com">
       <p>password</p>
-      <input type="password" id="password" placeholder="*******">
-      <p>repetir password</p>
-      <input type="password" id="password-rep" placeholder="*******">
-      <button class="enviar buttonRegistrar">Registrar</button>
-      <div class="msj-contenedor">
-        <p class="p-mensaje">usuario creado, aklsjdf;al aksjd f<a href="http://127.0.0.1:5500/pages/login/index.html">ir a login</a></p>
-        <button class="x">X</button>
-      </div>
+      <input type="password" id="password">
+      <button id="login">login</button>
+    </div>
+    <div class="msj-contenedor">
     </div>
   </main>
+  <footer>
+    <p>footer</p>
+  </footer>
 </body>
 </html>

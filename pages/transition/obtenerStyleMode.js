@@ -1,6 +1,6 @@
 const head = document.querySelector('head');
 import {actualizarStyleMode} from './actualizarStyleMode.js';
-const div = document.querySelector('.divNav');
+const div = document.querySelector('.directorio');
 const modeBtn = document.querySelector('.light-mode');
 
 const obtenerStyleMode = async () =>{
@@ -15,7 +15,7 @@ const obtenerStyleMode = async () =>{
     if (response.status === 200) {
     const a = response.json();
     a.then(data => {
-      head.children[3].href = `http://localhost:3000/registrar/registrar-${data.mode}.css`;
+      head.children[3].href = `http://localhost:3000/login/login-${data.mode}.css`;
       div.classList.add(data.mode);
       if (data.mode === 'light') {
         modeBtn.innerText = 'dark mode';
@@ -27,13 +27,13 @@ const obtenerStyleMode = async () =>{
         e.preventDefault();
         if (div.classList.contains('light') === true) {
           div.classList.remove('light');
-          head.children[3].href = `http://localhost:3000/registrar/registrar-dark.css`;
+          head.children[3].href = `http://localhost:3000/login/login-dark.css`;
           div.classList.add('dark');
           actualizarStyleMode('dark'); //<------------------------light or dark | aplicar toggle fn
           modeBtn.innerText = 'light mode';
         } else{
           div.classList.remove('dark');
-          head.children[3].href = `http://localhost:3000/registrar/registrar-light.css`;
+          head.children[3].href = `http://localhost:3000/login/login-light.css`;
           div.classList.add('light');
           actualizarStyleMode('light');
           modeBtn.innerText = 'dark mode';
