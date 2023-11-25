@@ -36,8 +36,8 @@ body{
   align-items: center;
   background-color: var(--main-bg-color);
 
-  width: 100vw;
-  height: 100vh;
+  max-width: 100vw;
+  min-height: 100vh;
 }
 
 /* header--------------------------- */
@@ -105,8 +105,7 @@ svg{
 .directorio{
   overflow: hidden;
   height: 0;
-  
-  position: fixed;
+  position: absolute;
   top: 55px;
   width: 100%;
   
@@ -117,6 +116,7 @@ svg{
 .directorioTgl{
   display: flex;
   padding: 10px 0 10px 0;
+  position: absolute;
   gap: 5px;
   top: 55px;
   flex-direction: column;
@@ -189,16 +189,19 @@ a:hover{
 .estela{
   overflow: hidden;
   height: 0;
+  position: fixed;
   top: 60px;
+  border: 1px solid green;
 }
 
 .estelaTgl{
   position: fixed;
   margin-top: 5px;
-  height: 100%;
+  height: 600px;
   width: 100%;
   background-color: var(--bg-color-hover);
   z-index: 2;
+  border: 1px solid green;
 }
 
 /* mensaje error style */

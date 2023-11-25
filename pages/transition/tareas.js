@@ -1,4 +1,4 @@
-const main = document.querySelector('main');
+/* const main = document.querySelector('main');
 const header = document.querySelector('header');
 import { getTarea } from "./getTareas.js";
 import { logout } from "./logout.js"
@@ -116,4 +116,4 @@ const cargarCookie = async () =>{
   }
 }
 
-cargarCookie();
+cargarCookie(); */

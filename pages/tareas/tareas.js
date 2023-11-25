@@ -44,6 +44,7 @@ const getJwtCookie = async () => {
         })
 
         main.innerHTML = `
+        <div class="estela event"></div>
         <div class="contenedor">
         <h2>Hola ${data.nombre}</h2>
         <p>Escribe una nueva tarea</p>
