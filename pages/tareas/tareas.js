@@ -1,8 +1,28 @@
-const main = document.querySelector('main');
+const toggleBtn = document.querySelector('.toggleBtn');
+const links = document.querySelectorAll('.links');
+const directorio = document.querySelector('.directorio');
+const estela = document.querySelector('.estela');
+const event = document.querySelector('.event');
+
+toggleBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  links.forEach(i => i.classList.toggle('linksTgl'));
+  directorio.classList.toggle('directorioTgl');
+  estela.classList.toggle('estelaTgl');
+})
+
+event.addEventListener('click', function (e) {
+  e.preventDefault();
+  links.forEach(i => i.classList.toggle('linksTgl'));
+  directorio.classList.toggle('directorioTgl');
+  estela.classList.toggle('estelaTgl');
+})
+
+/* --------------------------------------------------------------------------- */
+/* const main = document.querySelector('main');
 const header = document.querySelector('header');
 import { getTarea } from "./getTareas.js";
 import { logout } from "./logout.js"
-import { msjErrorTareas} from "./msjErrorTareas.js"
 
 const cargarCookie = async () =>{
   try {
@@ -43,8 +63,8 @@ const cargarCookie = async () =>{
 // primero comprobar que los campos no esten vacios
 // para no crear una tarea solo con botones
         guardar.addEventListener('click',async function (e) {
-        if (tituloV.value.length === 0 || contenidoV.value.length === 0) return msjErrorTareas('rellena los campos po concha de tu ...', contenedorTareas);
-        e.preventDefault();
+          e.preventDefault();
+        //if (tituloV.value.length === 0 || contenidoV.value.length === 0) return msjErrorTareas('rellena los campos po concha de tu ...', contenedorTareas);
         try {
 
           const resp = await fetch('/api/tarea', {
@@ -116,4 +136,4 @@ const cargarCookie = async () =>{
   }
 }
 
-cargarCookie();
+cargarCookie(); */
