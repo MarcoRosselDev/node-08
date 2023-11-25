@@ -22,15 +22,14 @@ const postTarea = async (req, res) =>{
 
     res.status(201).json(nuevaTarea)
   } catch (error) {
-    res.status(401).json({errorMesaje: `${error}`})
+    res.status(401).json({errorMesaje: error})
   }
 }
 
 const getTarea = async (req, res) =>{
   try {
     const token = req.cookies.jwt;
-    const auth = jwt.verify(token, key_jwt);
-    console.log('auth jwt',auth);
+    const auth = jwt.verify(token, key_jwt);// retorna info encriptado  == { nombre: 'eduardo', id: '6553098c77778b04f9eb864a', iat: 1700752162 }
     // si el token es invalido se lase al catch
 
     // req.params = { id: '654bd7aad86f68328fdd8820' } from /api/v1/tarea/:id
@@ -41,7 +40,7 @@ const getTarea = async (req, res) =>{
     console.log(error.message);
     if (error.message === "invalid token") return res.status(401).json({msj:"token invalido, por favor logeate denuevo."})
     // redireccionar al login puede ser?
-    res.status(400).json({errorMsj: error})
+    res.status(400).json({errorMesaje: error})
     // para trabajar con el objecto error tenemos a disposicion >
     //  error.name --> JwtMessajeError, o algo por el estilo
     //  error.message --> invalid token, 

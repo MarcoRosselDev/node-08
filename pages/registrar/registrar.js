@@ -88,16 +88,12 @@ enviar.addEventListener('click', async function (e) {
         })
       })
       if (respuesta.status === 201) {
-        const prom = respuesta.json();
-        prom.then(data =>{
-          nombre.value = '';
-          email.value = '';
-          password.value = '';
-          password_rep.value = '';
-          
-// cambiar en produccion!----------------------------------------------------------------------------------------
-          msj('usuario creado exitosamente!', 'exitoso')
-        })
+        nombre.value = '';
+        email.value = '';
+        password.value = '';
+        password_rep.value = '';
+        // cambiar en produccion!----------------------------------------------------------------------------------------
+        msj('usuario creado exitosamente!', 'exitoso')
       }
       if (respuesta.status === 400) {
         console.log(respuesta);
@@ -108,14 +104,7 @@ enviar.addEventListener('click', async function (e) {
         })
       }
     } catch (error) {
-      console.log(typeof(error));
-      console.log(error);
-      console.log(error.name);
-      console.log(error.message, 'error aklsdjfa');
-      /* console.log(error);
-      console.log(error.value);
-      console.log(error.status); */
-      
+      msj(error.message, 'error');
     }
   }
 })

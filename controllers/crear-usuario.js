@@ -20,11 +20,9 @@ const registrarUsuario = async (req, res) =>{
     if (!usuarioNuevo) {
       return res.status(400).json(`error en schema model : ${error}`)
     }
-    res.status(201).json(usuarioNuevo)
+    res.status(201).send('Usuario creado exitosamente!');
   } catch (error) {
-    console.log(error);
     if (error.code === 11000) return res.status(400).json({mensajeError: 'El correo ya se encuentra registrado!'})
-    // error 11000 testeado correctamente.
     if (error._message === 'NuevoUsuario validation failed') return res.status(400).json({mensajeError: 'Por favor ingrese un correo valido'})
     res.status(400).json({mensajeError: error.message});
   }
