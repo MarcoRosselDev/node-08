@@ -1,4 +1,53 @@
 const toggleBtn = document.querySelector('.toggleBtn');
+const directorio = document.querySelector('.directorio');
+const links = document.querySelectorAll('.links');
+const divEstela = document.querySelector('.divEstela');
+
+toggleBtn.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('toggle btn presed');
+  directorio.classList.toggle('directorioTgl');
+  divEstela.classList.toggle('estelaTgl')
+  links.forEach(i => i.classList.toggle('linksTgl'));
+})
+
+divEstela.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('click en estela');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const toggleBtn = document.querySelector('.toggleBtn');
 const links = document.querySelectorAll('.links');
 const directorio = document.querySelector('.directorio');
 const estela = document.querySelector('.estela');
@@ -22,4 +71,4 @@ toggleBtn.addEventListener('click', function (e) {
   })
   
 })
-
+ */
