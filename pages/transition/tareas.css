@@ -40,7 +40,6 @@ body{
   height: auto;
 }
 
-
 /* header--------------------------- */
 
 header{
@@ -137,7 +136,22 @@ svg{
 main{
   display: flex;
   flex-direction: column;
-  
+  justify-content: center;
+  align-items: center;
+}
+
+.estela{
+  overflow: hidden;
+  height: 0;
+  width: 100%;
+}
+
+.estelaTgl{
+  position: absolute;
+  background-color: var(--bg-color-hover);
+  top: 50px;
+  width: 100%;
+  height: 100vmax;
 }
 
 /* main ---------------------------- */

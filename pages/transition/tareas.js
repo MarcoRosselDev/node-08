@@ -3,18 +3,21 @@ const directorio = document.querySelector('.directorio');
 const links = document.querySelectorAll('.links');
 //const divEstela = document.querySelector('.divEstela');
 const evento = document.querySelector('.event');
+const estela = document.querySelector('.estela');
+
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
   directorio.classList.toggle('directorioTgl');
   links.forEach(i => i.classList.toggle('linksTgl'));
-
+  estela.classList.toggle('estelaTgl');
 })
 
 evento.addEventListener('click', function (e) {
   e.preventDefault();
   console.log('click en estela');
-  evento.classList.add('evento-toggle')
+  estela.classList.toggle('estelaTgl');
+  directorio.classList.toggle('directorioTgl')
 })
 
 
