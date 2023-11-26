@@ -1,19 +1,20 @@
 const toggleBtn = document.querySelector('.toggleBtn');
 const directorio = document.querySelector('.directorio');
 const links = document.querySelectorAll('.links');
-const divEstela = document.querySelector('.divEstela');
+//const divEstela = document.querySelector('.divEstela');
+const evento = document.querySelector('.event');
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  console.log('toggle btn presed');
   directorio.classList.toggle('directorioTgl');
-  divEstela.classList.toggle('estelaTgl')
   links.forEach(i => i.classList.toggle('linksTgl'));
+
 })
 
-divEstela.addEventListener('click', function (e) {
+evento.addEventListener('click', function (e) {
   e.preventDefault();
   console.log('click en estela');
+  evento.classList.add('evento-toggle')
 })
 
 

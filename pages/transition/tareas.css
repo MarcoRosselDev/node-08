@@ -36,10 +36,10 @@ body{
   justify-content: start;
   align-items: center;
   background-color: var(--main-bg-color);
-
-  width: 100vw;
-  height: 100vh;
+  width: auto;
+  height: auto;
 }
+
 
 /* header--------------------------- */
 
@@ -136,114 +136,9 @@ svg{
 
 main{
   display: flex;
-  flex-flow: column wrap;
-  gap: 10px;
-  width: 100%;
-  height: auto;
-  border: 1px solid green;
+  flex-direction: column;
+  
 }
-
-input{
-  padding: 5px;
-  border-radius: 5px;
-  border: 1px solid var(--border);
-  color: var(--main-bg-color);
-}
-
-input::placeholder{
-  color: rgba(0, 0, 0, 0.363);
-}
-
-#login{
-  margin-top: 10px;
-  padding: 5px;
-  background-color: var(--bg-color-header);
-  color: var(--main-color);
-  border: 1px solid var(--border);
-  border-radius: 5px;
-}
-
-#login:hover{
-  background-color: var(--bg-color-hover);
-}
-
-.estela{
-  overflow: hidden;
-  height: 0;
-  top: 60px;
-}
-
-.estelaTgl{
-  position: static;
-
-  top: 50px;
-  height: 100%;
-  width: 100%;
-  background-color: var(--bg-color-hover);
-  z-index: 2;
-}
-
-
-/* mensaje error style */
-.msj-contenedor{
-  position: relative;
-
-  width: 270px;
-  height: 60px;
-}
-
-.msj-contenedor-error{
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 0 20px 0 20px;
-
-  height: 60px;
-  width: 270px;
-  background-color: rgb(255, 167, 183);
-  border-radius: 0 0 5px 5px;
-  transition: all 0.3s;
-}
-
-.msj-contenedor-exitoso{
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 0 20px 0 20px;
-
-  height: 60px;
-  width: 270px;
-  background-color: rgb(167, 255, 207);
-  border-radius: 0 0 5px 5px;
-}
-
-.p-mensaje{
-  color: black;
-}
-
-.msj-contenedor a{
-  color: black;
-}
-
-.x{
-  position: absolute;
-  background-color: var(--bg-color-header);
-  color: white;
-
-  padding: 3px;
-  top: 2px;
-  right: 2px;
-}
-
-.x:hover{
-  background-color: var(--bg-color-hover);
-}
-
-/* mensaje error style */
 
 /* main ---------------------------- */
 @media screen and (min-width: 600px) {
