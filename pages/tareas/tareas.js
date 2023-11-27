@@ -2,7 +2,7 @@ const toggleBtn = document.querySelector('.toggleBtn');
 const links = document.querySelectorAll('.links');
 const directorio = document.querySelector('.directorio');
 const estela = document.querySelector('.estela');
-const event = document.querySelector('.event');
+const evento = document.querySelector('.evento');
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
@@ -11,7 +11,7 @@ toggleBtn.addEventListener('click', function (e) {
   estela.classList.toggle('estelaTgl');
 })
 
-event.addEventListener('click', function (e) {
+evento.addEventListener('click', function (e) {
   e.preventDefault();
   links.forEach(i => i.classList.toggle('linksTgl'));
   directorio.classList.toggle('directorioTgl');
@@ -45,51 +45,51 @@ const getJwtCookie = async () => {
 
         main.innerHTML = `
         <div class="estela event"></div>
-        <div class="contenedor">
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
-        <h2>Hola ${data.nombre}</h2>
-        <p>Escribe una nueva tarea</p>
-        <input type="text">
-        <button id='guardar'>guardar</button>
+        <div class="contenedor ">
+          <h2>Hola ${data.nombre}</h2>
+          <p>Escribe una nueva tarea</p>
+          <input type="text" id="input-tarea">
+          <button id="guardar">guardar</button>
+        </div>
+        <div class="mensajes-fetch ">
+          <!-- <p>salio todo bien</p> -->
+        </div>
+        <div class="lista-tareas">
+          <div class="tarea-individual">
+            <p>algo por haasdfasd asdf asdf asdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
+            <div class="botones-edicion">
+              <button class="btn">eliminar</button>
+              <button class="btn">editar</button>
+            </div>
+          </div>
+          <div class="tarea-individual">
+            <p>algo por hacer</p>
+            <div class="botones-edicion">
+              <button class="btn">eliminar</button>
+              <button class="btn">editar</button>
+            </div>
+          </div>
+          <div class="tarea-individual">
+            <p>algo por hacer</p>
+            <div class="botones-edicion">
+              <button class="btn">eliminar</button>
+              <button class="btn">editar</button>
+            </div>
+          </div>
+          <div class="tarea-individual">
+            <p>algo por haasdfasd asdf asdf aasdf asdf asdf asdf asdfsdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
+            <div class="botones-edicion">
+              <button class="btn">eliminar</button>
+              <button class="btn">editar</button>
+            </div>
+          </div>
+          <div class="tarea-individual">
+            <p>algo por haasdfasd asdf asdf asdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
+            <div class="botones-edicion">
+              <button class="btn">eliminar</button>
+              <button class="btn">editar</button>
+            </div>
+          </div>
         </div>
         `
 
