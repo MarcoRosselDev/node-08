@@ -1,5 +1,29 @@
 const main = document.querySelector('main');
 
+const cargarEstela = ()=> {
+  const toggleBtn = document.querySelector('.toggleBtn');
+  const links = document.querySelectorAll('.links');
+  const directorio = document.querySelector('.directorio');
+  const estela = document.querySelector('.estela');
+  const evento = document.querySelector('.evento');
+
+  toggleBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    links.forEach(i => i.classList.toggle('linksTgl'));
+    directorio.classList.toggle('directorioTgl');
+    estela.classList.toggle('estelaTgl');
+  })
+
+  evento.addEventListener('click', function (e) {
+    e.preventDefault();
+    links.forEach(i => i.classList.toggle('linksTgl'));
+    directorio.classList.toggle('directorioTgl');
+    estela.classList.toggle('estelaTgl');
+  })
+}
+
+//cargarEstela()
+
 const getJwtCookie = async () => {
   try {
     const respuesta = await fetch('/api/getJwtcookie', {
@@ -35,68 +59,45 @@ const getJwtCookie = async () => {
         <div class="mensajes-fetch ">
           <!-- <p>salio todo bien</p> -->
         </div>
-        <div class="lista-tareas">
-          <div class="tarea-individual">
-            <p>algo por haasdfasd asdf asdf asdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
-            <div class="botones-edicion">
-              <button class="btn">eliminar</button>
-              <button class="btn">editar</button>
-            </div>
-          </div>
-          <div class="tarea-individual">
-            <p>algo por hacer</p>
-            <div class="botones-edicion">
-              <button class="btn">eliminar</button>
-              <button class="btn">editar</button>
-            </div>
-          </div>
-          <div class="tarea-individual">
-            <p>algo por hacer</p>
-            <div class="botones-edicion">
-              <button class="btn">eliminar</button>
-              <button class="btn">editar</button>
-            </div>
-          </div>
-          
-          <div class="tarea-individual">
-            <p>algo por haasdfasd asdf asdf asdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
-            <div class="botones-edicion">
-              <button class="btn">eliminar</button>
-              <button class="btn">editar</button>
-            </div>
-          </div>
-          <div class="tarea-individual">
-            <p>algo por haasdfasd asdfasdf asdf asdfasdf asdf asdf asdf asdf asdf asdf asdf asd asdf asdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
-            <div class="botones-edicion">
-              <button class="btn">eliminar</button>
-              <button class="btn">editar</button>
-            </div>
-          </div>
-        </div>
-      
         `
-
+        return data;
       })
-      .then(()=>{
-        const toggleBtn = document.querySelector('.toggleBtn');
-        const links = document.querySelectorAll('.links');
-        const directorio = document.querySelector('.directorio');
-        const estela = document.querySelector('.estela');
-        const evento = document.querySelector('.evento');
-
-        toggleBtn.addEventListener('click', function (e) {
-          e.preventDefault();
-          links.forEach(i => i.classList.toggle('linksTgl'));
-          directorio.classList.toggle('directorioTgl');
-          estela.classList.toggle('estelaTgl');
+      .then(async (data)=>{
+        /* fetch tareas de este usuario */
+        const fetchTareas = await fetch(`/api/tarea/${data.id}`, {
+          method: 'GET',
+          headers:{
+            'Authorization': `Bearer ${data.cookie.jwt}`,
+            'Content-Type': 'application/json'
+          }
         })
+        if (fetchTareas.status === 200) {
+          const fetchTareasPromesa = fetchTareas.json();
+          fetchTareasPromesa.then( dataTareas => {
+            console.log(dataTareas);
+            let print = '';
 
-        evento.addEventListener('click', function (e) {
-          e.preventDefault();
-          links.forEach(i => i.classList.toggle('linksTgl'));
-          directorio.classList.toggle('directorioTgl');
-          estela.classList.toggle('estelaTgl');
-        })
+            dataTareas.map( iteracion => {
+              print += `
+              <div class="lista-tareas">
+                <div class="tarea-individual">
+                  <p>${iteracion.contenido}</p>
+                  <div class="botones-edicion">
+                    <button class="btn">eliminar</button>
+                    <button class="btn">editar</button>
+                  </div>
+                </div>
+              </div>
+              `
+            })
+            // al final agregar al final de un elemento del dom
+            main.innerHTML += print;
+            cargarEstela();
+          })
+        }
+        console.log('algun problema');
+        console.log(fetchTareas);
+        console.log(fetchTareas.status);
       })
     } else{
       main.innerHTML = `
