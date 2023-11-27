@@ -228,7 +228,6 @@ a:hover{
 /* estilo tareas----------------------- */
 
 .lista-tareas{
-  
   display: flex;
   flex-direction: column;
 
@@ -240,26 +239,25 @@ a:hover{
 .tarea-individual{
   display: flex;
   justify-content: space-between;
+  gap: 10px;
 
+  width: 100%;
   margin-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
 }
 
-.tarea-individual p{
-  width: 70%;
-}
-
 .botones-edicion{
   display: flex;
-  flex-flow: column wrap;
-  width: 20%;
+  flex-direction: column;
 }
 
 .btn{
   background-color: var(--bg-color-header);
   color: var(--main-color);
   border: 1px solid var(--border);
+  min-width: 80px;
+  max-width: 120px;
 }
 
 .btn:hover{

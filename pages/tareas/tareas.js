@@ -22,11 +22,12 @@ const getJwtCookie = async () => {
           console.log('clicked logout');
           // realizar un delete cookie jwt y redirigir a login
         })
+        console.log(data);
 
         main.innerHTML = `
         <div class="estela evento"></div>
         <div class="contenedor ">
-          <h2>Hola marco</h2>
+          <h2>Hola ${data.nombre}</h2>
           <p>Escribe una nueva tarea</p>
           <input type="text" id="input-tarea">
           <button id="guardar">guardar</button>
@@ -56,15 +57,16 @@ const getJwtCookie = async () => {
               <button class="btn">editar</button>
             </div>
           </div>
+          
           <div class="tarea-individual">
-            <p>algo por haasdfasd asdf asdf aasdf asdf asdf asdf asdfsdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
+            <p>algo por haasdfasd asdf asdf asdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
             <div class="botones-edicion">
               <button class="btn">eliminar</button>
               <button class="btn">editar</button>
             </div>
           </div>
           <div class="tarea-individual">
-            <p>algo por haasdfasd asdf asdf asdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
+            <p>algo por haasdfasd asdfasdf asdf asdfasdf asdf asdf asdf asdf asdf asdf asdf asd asdf asdfasdfasdf asdf asd fasdf asd fas df asdfas dfasd f asdf asdfasdf  asdf asdfcer</p>
             <div class="botones-edicion">
               <button class="btn">eliminar</button>
               <button class="btn">editar</button>
