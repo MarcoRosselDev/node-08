@@ -93,23 +93,73 @@ const getJwtCookie = async () => {
             const mensajeElement = document.querySelector('.mensajes-fetch');
             console.log(mensajeElement);
 
-            guardar.addEventListener('click', function (e) {
+            guardar.addEventListener('click', async function (e) {
               e.preventDefault();
               console.log(inputTarea.value);
               console.log('guardar btn clicked');
-              if (inputTarea.value.lenght > 0) {
-                const p = document.createElement('p');
-                p.innerText = inputTarea.value;
-                mensajeElement.classList.add('tarea-exito')
-                mensajeElement.append(p)
-              } else{
+              if (inputTarea.value.length === 0) {
                 const p = document.createElement('p');
                 p.innerText = 'El input esta vacio';
                 p.classList.add('p-mensaje');
                 mensajeElement.classList.add('tarea-error')
-                mensajeElement.append(p)
+                mensajeElement.append(p);
+                setTimeout(()=>{
+                  mensajeElement.classList.remove('tarea-error')
+                  mensajeElement.innerHTML = '';
+                },1500)
               }
+              const postTask = await fetch('/api/tarea', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${data.cookie.jwt}`,
+                  // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body:JSON.stringify({
+                  contenido: inputTarea.value
+                })
+              })
+              console.log(postTask.status);
+              if (postTask.status === 201) {
+                const p = document.createElement('p');
+                p.innerText = 'tarea guardada exitosamente';
+                p.classList.add('p-mensaje');
+                mensajeElement.classList.add('tarea-exito')
+                mensajeElement.append(p);
+                inputTarea.value = '';
 
+                setTimeout(()=>{
+                  mensajeElement.classList.remove('tarea-exito')
+                  mensajeElement.innerHTML = '';
+                },1500)
+              } else{
+                const p = document.createElement('p');
+                p.innerText = 'algo salio mal';
+                p.classList.add('p-mensaje');
+                mensajeElement.classList.add('tarea-error')
+                mensajeElement.append(p);
+                inputTarea.value = '';
+
+                setTimeout(()=>{
+                  mensajeElement.classList.remove('tarea-exito')
+                  mensajeElement.innerHTML = '';
+                },1500)
+              }
+              // realizamos un fetch post new task
+              /* mensaje de exito si el fetch post.status === 201 
+
+                const p = document.createElement('p');
+                p.innerText = 'tarea guardada exitosamente';
+                p.classList.add('p-mensaje');
+                mensajeElement.classList.add('tarea-exito')
+                mensajeElement.append(p);
+                inputTarea.value = '';
+
+                setTimeout(()=>{
+                  mensajeElement.classList.remove('tarea-exito')
+                  mensajeElement.innerHTML = '';
+                },1500)
+              */
             })
           })
           .catch(error => console.log(error))
