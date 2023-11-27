@@ -87,17 +87,33 @@ const getJwtCookie = async () => {
             main.innerHTML += print;
             cargarEstela();
           })
+          .then(()=>{
+            const inputTarea = document.querySelector('.input-nueva-tarea');
+            const guardar = document.querySelector('.btn-guardar-nueva-tarea');
+            const mensajeElement = document.querySelector('.mensajes-fetch');
+            console.log(mensajeElement);
+
+            guardar.addEventListener('click', function (e) {
+              e.preventDefault();
+              console.log(inputTarea.value);
+              console.log('guardar btn clicked');
+              if (inputTarea.value.lenght > 0) {
+                const p = document.createElement('p');
+                p.innerText = inputTarea.value;
+                mensajeElement.classList.add('tarea-exito')
+                mensajeElement.append(p)
+              } else{
+                const p = document.createElement('p');
+                p.innerText = 'El input esta vacio';
+                p.classList.add('p-mensaje');
+                mensajeElement.classList.add('tarea-error')
+                mensajeElement.append(p)
+              }
+
+            })
+          })
           .catch(error => console.log(error))
         }
-      }).then(()=>{
-        const inputTarea = document.querySelector('.input-nueva-tarea');
-        const guardar = document.querySelector('.btn-guardar-nueva-tarea');
-
-        guardar.addEventListener('click', function (e) {
-          e.preventDefault();
-          console.log(inputTarea.value);
-          console.log('guardar btn clicked');
-        })
       })
       .catch(error => console.log(error))
     } else{

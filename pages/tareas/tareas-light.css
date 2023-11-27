@@ -156,7 +156,7 @@ input{
   padding: 5px;
   border-radius: 5px;
   border: 1px solid var(--border);
-  color: var(--main-bg-color);
+  color: var(--main-color);
   width: 100%;
 }
 
@@ -202,17 +202,18 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
+  margin-top: 20px;
   position: relative;
 
   border-bottom: 1px solid var(--border);
   width: 100%;
   text-align: center;
-  height: 40px;
+  height: 30px;
+  border-radius: 5px;
 }
 
-.tarea-exito p{
-  color: var(--bg-color-header);
+.p-mensaje{
+  color: var(--main-color);
 }
 
 .tarea-exito{
@@ -222,6 +223,7 @@ a:hover{
 .tarea-error{
   background-color: pink;
 }
+
 
 /* estilo mensajes fetch */
 
