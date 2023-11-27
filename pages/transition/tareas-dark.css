@@ -146,7 +146,7 @@ main{
   margin-top: 10px;
   flex-flow: column wrap;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 
   width: 100%;
 
@@ -196,15 +196,45 @@ a:hover{
   background-color: var(--bg-color-hover);
   z-index: 2;
 }
+/* estilo mensajes fetch */
+
+.mensajes-fetch{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  position: relative;
+
+  border-bottom: 1px solid var(--border);
+  width: 100%;
+  text-align: center;
+  height: 40px;
+}
+
+.tarea-exito p{
+  color: var(--bg-color-header);
+}
+
+.tarea-exito{
+  background-color: lightgreen;
+}
+
+.tarea-error{
+  background-color: pink;
+}
+
+/* estilo mensajes fetch */
 
 /* estilo tareas----------------------- */
 
 .lista-tareas{
+  
   display: flex;
   flex-direction: column;
 
   width: 100%;
   margin-top: 10px;
+  margin-bottom: 40px;
 }
 
 .tarea-individual{
@@ -214,6 +244,26 @@ a:hover{
   margin-top: 20px;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border);
+}
+
+.tarea-individual p{
+  width: 70%;
+}
+
+.botones-edicion{
+  display: flex;
+  flex-flow: column wrap;
+  width: 20%;
+}
+
+.btn{
+  background-color: var(--bg-color-header);
+  color: var(--main-color);
+  border: 1px solid var(--border);
+}
+
+.btn:hover{
+  background-color: var(--bg-color-hover);
 }
 
 /* estilo tareas----------------------- */
