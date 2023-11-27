@@ -1,23 +1,3 @@
-const toggleBtn = document.querySelector('.toggleBtn');
-const links = document.querySelectorAll('.links');
-const directorio = document.querySelector('.directorio');
-const estela = document.querySelector('.estela');
-const evento = document.querySelector('.evento');
-
-toggleBtn.addEventListener('click', function (e) {
-  e.preventDefault();
-  links.forEach(i => i.classList.toggle('linksTgl'));
-  directorio.classList.toggle('directorioTgl');
-  estela.classList.toggle('estelaTgl');
-})
-
-evento.addEventListener('click', function (e) {
-  e.preventDefault();
-  links.forEach(i => i.classList.toggle('linksTgl'));
-  directorio.classList.toggle('directorioTgl');
-  estela.classList.toggle('estelaTgl');
-})
-
 const main = document.querySelector('main');
 
 const getJwtCookie = async () => {
@@ -44,9 +24,9 @@ const getJwtCookie = async () => {
         })
 
         main.innerHTML = `
-        <div class="estela event"></div>
+        <div class="estela evento"></div>
         <div class="contenedor ">
-          <h2>Hola ${data.nombre}</h2>
+          <h2>Hola marco</h2>
           <p>Escribe una nueva tarea</p>
           <input type="text" id="input-tarea">
           <button id="guardar">guardar</button>
@@ -91,8 +71,30 @@ const getJwtCookie = async () => {
             </div>
           </div>
         </div>
+      
         `
 
+      })
+      .then(()=>{
+        const toggleBtn = document.querySelector('.toggleBtn');
+        const links = document.querySelectorAll('.links');
+        const directorio = document.querySelector('.directorio');
+        const estela = document.querySelector('.estela');
+        const evento = document.querySelector('.evento');
+
+        toggleBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          links.forEach(i => i.classList.toggle('linksTgl'));
+          directorio.classList.toggle('directorioTgl');
+          estela.classList.toggle('estelaTgl');
+        })
+
+        evento.addEventListener('click', function (e) {
+          e.preventDefault();
+          links.forEach(i => i.classList.toggle('linksTgl'));
+          directorio.classList.toggle('directorioTgl');
+          estela.classList.toggle('estelaTgl');
+        })
       })
     } else{
       main.innerHTML = `
