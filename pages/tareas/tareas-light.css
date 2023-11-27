@@ -225,6 +225,13 @@ a:hover{
 
 /* estilo mensajes fetch */
 
+/* estilo mensaje cookie error found */
+.mensaje-not-login{
+  margin-top: 150px;
+}
+
+/* estilo mensaje cookie error found */
+
 /* estilo tareas----------------------- */
 
 .lista-tareas{

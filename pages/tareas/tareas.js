@@ -22,8 +22,6 @@ const cargarEstela = ()=> {
   })
 }
 
-//cargarEstela()
-
 const getJwtCookie = async () => {
   try {
     const respuesta = await fetch('/api/getJwtcookie', {
@@ -33,8 +31,6 @@ const getJwtCookie = async () => {
         // 'Content-Type': 'application/x-www-form-urlencoded',
       }
     })
-
-
     if (respuesta.status === 200) {
       const promesa = respuesta.json();
       promesa.then(data => {
@@ -46,20 +42,18 @@ const getJwtCookie = async () => {
           console.log('clicked logout');
           // realizar un delete cookie jwt y redirigir a login
         })
-        console.log(data);
-
         main.innerHTML = `
         <div class="estela evento"></div>
         <div class="contenedor ">
           <h2>Hola ${data.nombre}</h2>
           <p>Escribe una nueva tarea</p>
-          <input type="text" id="input-tarea">
-          <button id="guardar">guardar</button>
+          <input type="text" class="input-nueva-tarea" id="input-tarea">
+          <button id="guardar" class="btn-guardar-nueva-tarea">guardar</button>
         </div>
         <div class="mensajes-fetch ">
           <!-- <p>salio todo bien</p> -->
-        </div>
-        `
+        </div>`; // cargar una nueva tarea ya que esto esta en el dom, antes de cargar las tareas
+
         return data;
       })
       .then(async (data)=>{
@@ -87,24 +81,32 @@ const getJwtCookie = async () => {
                     <button class="btn">editar</button>
                   </div>
                 </div>
-              </div>
-              `
+              </div>`;
             })
             // al final agregar al final de un elemento del dom
             main.innerHTML += print;
             cargarEstela();
           })
+          .catch(error => console.log(error))
         }
-        console.log('algun problema');
-        console.log(fetchTareas);
-        console.log(fetchTareas.status);
+      }).then(()=>{
+        const inputTarea = document.querySelector('.input-nueva-tarea');
+        const guardar = document.querySelector('.btn-guardar-nueva-tarea');
+
+        guardar.addEventListener('click', function (e) {
+          e.preventDefault();
+          console.log(inputTarea.value);
+          console.log('guardar btn clicked');
+        })
       })
+      .catch(error => console.log(error))
     } else{
       main.innerHTML = `
-      <div class="jwt-fetch-err">
-        <p>no as iniciado session,<a href="http://localhost:3000/login/">ir a login</a> o <a href="http://localhost:3000/registrar/">registrar un nuevo usuario</a></p>
-      </div>
-      `
+      <div class="estela evento"></div>
+      <div class="mensaje-not-login">
+        <p>no has iniciado session,<a href="http://localhost:3000/login/">ir a login</a> o <a href="http://localhost:3000/registrar/">registrar un nuevo usuario</a></p>
+      </div>`;
+      cargarEstela();
     }
   } catch (error) {
     console.log('catch error-->', error);
