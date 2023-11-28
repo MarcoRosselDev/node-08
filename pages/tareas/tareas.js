@@ -67,7 +67,7 @@ const getJwtCookie = async () => {
               /* console.log(i);
               console.log(i.parentElement);
               console.log(i.parentElement.children); */
-              const tarea_id = i.parentElement.parentElement.children[1].innerText
+              const tarea_id = i.parentElement.parentElement.children[2].innerText
               // id de la tarea
               try {
                 const eliminar_tarea = await fetch(`/api/tarea/${tarea_id}`, {
