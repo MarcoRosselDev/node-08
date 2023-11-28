@@ -22,6 +22,19 @@ const cargarEstela = ()=> {
   })
 }
 
+const eliminarFn = () =>{
+  const botonesEliminar = document.querySelectorAll('.eliminar');
+  botonesEliminar.forEach(i => {
+    i.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log(i);
+      console.log(i.parentElement);
+      console.log(i.parentElement.children);
+      console.log(i.parentElement.parentElement.children);
+    })
+  })
+}
+
 const getJwtCookie = async () => {
   try {
     const respuesta = await fetch('/api/getJwtcookie', {
@@ -67,7 +80,6 @@ const getJwtCookie = async () => {
         if (fetchTareas.status === 200) {
           const fetchTareasPromesa = fetchTareas.json();
           fetchTareasPromesa.then( dataTareas => {
-            console.log(dataTareas);
             const divLista = document.createElement('div');
             divLista.classList.add('lista-tareas');
             
@@ -82,8 +94,8 @@ const getJwtCookie = async () => {
                 <!-- id de la tarea -->
                 <p class="ocultar">${iteracion._id}</p>
                 <div class="botones-edicion">
-                  <button class="btn">eliminar</button>
-                  <button class="btn">editar</button>
+                  <button class="btn eliminar">eliminar</button>
+                  <button class="btn editar">editar</button>
                 </div>
               </div>`;
             })
@@ -91,6 +103,7 @@ const getJwtCookie = async () => {
             // al final agregar al final de un elemento del dom
             main.append(divLista);
             cargarEstela();
+            eliminarFn();
           })
           .then(()=>{
             const inputTarea = document.querySelector('.input-nueva-tarea');
@@ -109,6 +122,7 @@ const getJwtCookie = async () => {
                   mensajeElement.classList.remove('tarea-error')
                   mensajeElement.innerHTML = '';
                 },1500)
+                return false
               }
               const postTask = await fetch('/api/tarea', {
                 method: 'POST',
@@ -145,10 +159,11 @@ const getJwtCookie = async () => {
                   <p class="ocultar">${tareaData.user_id}</p>
                   <p class="ocultar">${tareaData._id}</p>
                   <div class="botones-edicion">
-                  <button class="btn">eliminar</button>
-                  <button class="btn">editar</button>
+                  <button class="btn eliminar">eliminar</button>
+                  <button class="btn editar">editar</button>
                   </div>`;
                   listaTarea.append(divTarea);
+                  eliminarFn();
                 })
                 .catch(err => console.log(err))
 

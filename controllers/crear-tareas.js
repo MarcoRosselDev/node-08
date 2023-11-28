@@ -48,7 +48,26 @@ const getTarea = async (req, res) =>{
   }
 }
 
+const eliminarTarea = async (req, res) =>{
+  try {
+    // verificamos el jwt de la cookie con la llave .env
+    const token = req.cookies.jwt;
+    jwt.verify(token, key_jwt);
+    // peticion delete a mongodb
+    const tareaDel = await Tarea.deleteOne({ _id: req.params.id });
+    // podriamos incluir mas info como el id del usuario extraido del jwt<---
+    console.log(tareaDel);
+    if (!tareaDel) return res.status(404).json({msj: 'No se elimino la tarea'})
+
+    res.status(200).json({msj: 'tarea eliminada exitosamente'})
+  } catch (error) {
+    console.log(error.message);
+    res.status(404).json({msj: error.message})
+  }
+}
+
 module.exports = {
   postTarea,
-  getTarea
+  getTarea,
+  eliminarTarea
 }
