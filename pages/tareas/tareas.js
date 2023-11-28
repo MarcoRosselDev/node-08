@@ -22,19 +22,6 @@ const cargarEstela = ()=> {
   })
 }
 
-const eliminarFn = () =>{
-  const botonesEliminar = document.querySelectorAll('.eliminar');
-  botonesEliminar.forEach(i => {
-    i.addEventListener('click', function (e) {
-      e.preventDefault();
-      console.log(i);
-      console.log(i.parentElement);
-      console.log(i.parentElement.children);
-      console.log(i.parentElement.parentElement.children);
-    })
-  })
-}
-
 const getJwtCookie = async () => {
   try {
     const respuesta = await fetch('/api/getJwtcookie', {
@@ -69,6 +56,40 @@ const getJwtCookie = async () => {
         return data;
       })
       .then(async (data)=>{
+
+        
+        /* funcionalidad de eliminar tarea */
+        const eliminarFn = () =>{
+          const botonesEliminar = document.querySelectorAll('.eliminar');
+          botonesEliminar.forEach(i => {
+            i.addEventListener('click', async function (e) {
+              e.preventDefault();
+              /* console.log(i);
+              console.log(i.parentElement);
+              console.log(i.parentElement.children); */
+              const tarea_id = i.parentElement.parentElement.children[1].innerText
+              // id de la tarea
+              try {
+                const eliminar_tarea = await fetch(`/api/tarea/${tarea_id}`, {
+                  method: 'DELETE',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${data.cookie.jwt}`,
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                  }
+                })
+        
+                console.log('eliminar_tarea log', eliminar_tarea);
+                // if eliminar tarea successful
+                // quitar del dom el elemento div
+              } catch (error) {
+                console.log('error en fetch eliminar tarea', error);
+              }
+            })
+          })
+        }
+
+
         /* fetch tareas de este usuario */
         const fetchTareas = await fetch(`/api/tarea/${data.id}`, {
           method: 'GET',
