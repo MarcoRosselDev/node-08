@@ -50,8 +50,7 @@ const getJwtCookie = async () => {
           <input type="text" class="input-nueva-tarea" id="input-tarea">
           <button id="guardar" class="btn-guardar-nueva-tarea">guardar</button>
         </div>
-        <div class="mensajes-fetch ">
-          <!-- <p>salio todo bien</p> -->
+        <div class="mensajes-fetch">
         </div>`; // cargar una nueva tarea ya que esto esta en el dom, antes de cargar las tareas
 
         return data;
@@ -69,34 +68,37 @@ const getJwtCookie = async () => {
           const fetchTareasPromesa = fetchTareas.json();
           fetchTareasPromesa.then( dataTareas => {
             console.log(dataTareas);
+            const divLista = document.createElement('div');
+            divLista.classList.add('lista-tareas');
+            
             let print = '';
-
             dataTareas.map( iteracion => {
               print += `
-              <div class="lista-tareas">
-                <div class="tarea-individual">
-                  <p>${iteracion.contenido}</p>
-                  <div class="botones-edicion">
-                    <button class="btn">eliminar</button>
-                    <button class="btn">editar</button>
-                  </div>
+              
+              <div class="tarea-individual">
+                <p>${iteracion.contenido}</p>
+                <!-- user id -->
+                <p class="ocultar">${iteracion.user_id}</p>
+                <!-- id de la tarea -->
+                <p class="ocultar">${iteracion._id}</p>
+                <div class="botones-edicion">
+                  <button class="btn">eliminar</button>
+                  <button class="btn">editar</button>
                 </div>
               </div>`;
             })
+            divLista.innerHTML = print;
             // al final agregar al final de un elemento del dom
-            main.innerHTML += print;
+            main.append(divLista);
             cargarEstela();
           })
           .then(()=>{
             const inputTarea = document.querySelector('.input-nueva-tarea');
             const guardar = document.querySelector('.btn-guardar-nueva-tarea');
             const mensajeElement = document.querySelector('.mensajes-fetch');
-            console.log(mensajeElement);
 
             guardar.addEventListener('click', async function (e) {
               e.preventDefault();
-              console.log(inputTarea.value);
-              console.log('guardar btn clicked');
               if (inputTarea.value.length === 0) {
                 const p = document.createElement('p');
                 p.innerText = 'El input esta vacio';
@@ -119,7 +121,6 @@ const getJwtCookie = async () => {
                   contenido: inputTarea.value
                 })
               })
-              console.log(postTask.status);
               if (postTask.status === 201) {
                 const p = document.createElement('p');
                 p.innerText = 'tarea guardada exitosamente';
@@ -132,7 +133,27 @@ const getJwtCookie = async () => {
                   mensajeElement.classList.remove('tarea-exito')
                   mensajeElement.innerHTML = '';
                 },1500)
-              } else{
+
+                const taskPromes = postTask.json()
+                taskPromes.then(tareaData =>{
+                  console.log(tareaData);
+                  const listaTarea = document.querySelector('.lista-tareas')
+                  const divTarea = document.createElement('div');
+                  divTarea.classList.add('tarea-individual')
+                  divTarea.innerHTML = `
+                  <p>${tareaData.contenido}</p>
+                  <p class="ocultar">${tareaData.user_id}</p>
+                  <p class="ocultar">${tareaData._id}</p>
+                  <div class="botones-edicion">
+                  <button class="btn">eliminar</button>
+                  <button class="btn">editar</button>
+                  </div>`;
+                  listaTarea.append(divTarea);
+                })
+                .catch(err => console.log(err))
+
+                
+              } else {
                 const p = document.createElement('p');
                 p.innerText = 'algo salio mal';
                 p.classList.add('p-mensaje');
@@ -145,21 +166,6 @@ const getJwtCookie = async () => {
                   mensajeElement.innerHTML = '';
                 },1500)
               }
-              // realizamos un fetch post new task
-              /* mensaje de exito si el fetch post.status === 201 
-
-                const p = document.createElement('p');
-                p.innerText = 'tarea guardada exitosamente';
-                p.classList.add('p-mensaje');
-                mensajeElement.classList.add('tarea-exito')
-                mensajeElement.append(p);
-                inputTarea.value = '';
-
-                setTimeout(()=>{
-                  mensajeElement.classList.remove('tarea-exito')
-                  mensajeElement.innerHTML = '';
-                },1500)
-              */
             })
           })
           .catch(error => console.log(error))
