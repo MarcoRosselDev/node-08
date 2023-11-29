@@ -40,8 +40,9 @@ export const jwt_user = async () =>{
           mensajes('el input esta vacio', 'error')
         } else{
           guardar_tarea(infoCookie.cookie.jwt, input_tarea.value)
+          input_tarea.value = '';
           // cargar las fns editar y eliminar btns
-          cargar_botones(infoCookie.cookie.jwt);
+          // cargar_botones(infoCookie.cookie.jwt);
         }
       })
 
