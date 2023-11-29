@@ -20,3 +20,6 @@ export const mensajes = (mensaje, status) => {
     mensajes_fetch.innerHTML = '';
   }, 1500)
 }
+
+//mensajes('random text msj', 'error')
+//mensajes('random text msj', 'exito')

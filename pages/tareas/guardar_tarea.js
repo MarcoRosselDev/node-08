@@ -13,7 +13,6 @@ export const guardar_tarea = async (jwt, contenido) => {
       })
     })
     if (respuesta.status === 201) {
-      mensajes('tarea guardada con exito', 'exito');
       const promesa = respuesta.json();
       promesa.then(data_tarea_guardada => {
         const lista_tareas = document.querySelector('.lista-tareas');
@@ -32,6 +31,7 @@ export const guardar_tarea = async (jwt, contenido) => {
         </div>`;
         console.log(data_tarea_guardada);
         lista_tareas.append(div);
+        mensajes('tarea guardada con exito', 'exito');
       })
       // imprimir un mensaje de exito
     } else{

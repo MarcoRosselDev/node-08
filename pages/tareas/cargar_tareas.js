@@ -1,4 +1,5 @@
 import { cargar_estela } from "./cargar-estela.js";
+import { cargar_botones } from "./cargar_botones.js";
 const main = document.querySelector('main');
 
 export const cargar_tareas = async (jwt, id_usuario) =>{
@@ -37,6 +38,7 @@ export const cargar_tareas = async (jwt, id_usuario) =>{
         div.innerHTML = elemento_final;
         main.append(div);
         cargar_estela();
+        cargar_botones(jwt);
       })
     } else {
       console.log('fetch GET fallido, respuesta:', respuesta);
