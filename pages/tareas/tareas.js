@@ -92,6 +92,9 @@ const getJwtCookie = async () => {
             main.append(divLista);
             cargarEstela();
 
+            const fnEliminar_tarea = () =>{
+
+            
             const eliminarBtns = document.querySelectorAll('.eliminar')
             eliminarBtns.forEach(i =>{
               i.addEventListener('click', async function (e) {
@@ -119,6 +122,9 @@ const getJwtCookie = async () => {
 
               })
             })
+          }
+
+          fnEliminar_tarea()
             // cargar la funcionalidad de eliminar y editar en todas las tareas cargadas
           })
           .then(()=>{
@@ -179,17 +185,18 @@ const getJwtCookie = async () => {
                   </div>`;
                   listaTarea.append(divTarea);
                   // aplicar la funcionalidad de eliminar y editar esta tarea
+                  // fnEliminar_tarea();
 
-                  const eliminar_this_tarea = document.querySelector('.eliminar_this')
+                  const eliminarBtns = document.querySelectorAll('.eliminar')
+                  eliminarBtns.forEach(i =>{
+                    i.addEventListener('click', async function (e) {
+                      e.preventDefault();
+                      console.log(i.parentElement.parentElement.classList);
+                      console.log(i.parentElement.parentElement.children);
+                      const id_tarea = i.parentElement.parentElement.children[2].innerText;
+                      console.log(data.cookie.jwt);
 
-                  eliminar_this_tarea.addEventListener('click', async function (e) {
-                    e.preventDefault();
-                    console.log(this.parentElement.parentElement);
-                    console.log('click en la tarea nueva, recien creada');
-                    const id_tarea_this = this.parentElement.parentElement.children[2].innerText
-                    
-                    try {
-                      const fetch_delete_this_task = await fetch(`/api/tarea/${id_tarea_this}`, {
+                      const fetch_eliminar_tarea = await fetch(`/api/tarea/${id_tarea}`, {
                         method: 'DELETE',
                         headers: {
                           'Content-Type': 'application/json',
@@ -197,17 +204,16 @@ const getJwtCookie = async () => {
                           // 'Content-Type': 'application/x-www-form-urlencoded',
                         }
                       })
-                      if (fetch_delete_this_task.status === 200) {
-                        this.parentElement.parentElement.classList.remove('tarea-individual')
-                        this.parentElement.parentElement.innerHTML = '';
-                        // deveriamos enviar un mensaje de exito
+                      if (fetch_eliminar_tarea.status === 200) {
+                        i.parentElement.parentElement.classList.remove('tarea-individual')
+                        i.parentElement.parentElement.innerHTML = '';
                       } else{
-                        console.log('algo salio mal');
+                        console.log('algo salio mal', fetch_eliminar_tarea);
+                        console.log('algo salio mal, status = ', fetch_eliminar_tarea.status);
                       }
-                    } catch (error) {
-                      console.log(error, 'error en el fetch DELETE, de la tarea recien creada');
-                    }
-                  })
+
+                    })
+                  })// asta aqui
                 })
                 .catch(err => console.log(err))
               } else {
