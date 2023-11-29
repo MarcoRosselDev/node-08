@@ -30,10 +30,11 @@ export const jwt_user = async () =>{
       const input_tarea = document.getElementById('input-tarea');
       guardar.addEventListener('click', function (e) {
         e.preventDefault();
-        if (input_tarea.value.length > 0) {
+        if (input_tarea.value.length === 0) {
+          mensajes('el input esta vacio', 'error')
+        } else{
           guardar_tarea(infoCookie.cookie.jwt, input_tarea.value)
         }
-        mensajes('error en jwt_user fn', 'error')
       })
       })
     }
