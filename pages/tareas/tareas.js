@@ -181,6 +181,33 @@ const getJwtCookie = async () => {
                   // aplicar la funcionalidad de eliminar y editar esta tarea
 
                   const eliminar_this_tarea = document.querySelector('.eliminar_this')
+
+                  eliminar_this_tarea.addEventListener('click', async function (e) {
+                    e.preventDefault();
+                    console.log(this.parentElement.parentElement);
+                    console.log('click en la tarea nueva, recien creada');
+                    const id_tarea_this = this.parentElement.parentElement.children[2].innerText
+                    
+                    try {
+                      const fetch_delete_this_task = await fetch(`/api/tarea/${id_tarea_this}`, {
+                        method: 'DELETE',
+                        headers: {
+                          'Content-Type': 'application/json',
+                          'Authorization': `Bearer ${data.cookie.jwt}`,
+                          // 'Content-Type': 'application/x-www-form-urlencoded',
+                        }
+                      })
+                      if (fetch_delete_this_task.status === 200) {
+                        this.parentElement.parentElement.classList.remove('tarea-individual')
+                        this.parentElement.parentElement.innerHTML = '';
+                        // deveriamos enviar un mensaje de exito
+                      } else{
+                        console.log('algo salio mal');
+                      }
+                    } catch (error) {
+                      console.log(error, 'error en el fetch DELETE, de la tarea recien creada');
+                    }
+                  })
                 })
                 .catch(err => console.log(err))
               } else {
