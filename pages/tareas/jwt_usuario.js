@@ -1,4 +1,6 @@
 import { cargar_tareas } from "./cargar_tareas.js";
+import { guardar_tarea } from "./guardar_tarea.js"; // jwt, contenido
+import { mensajes } from "./mensajes.js";
 const main = document.querySelector('main');
 
 export const jwt_user = async () =>{
@@ -23,7 +25,16 @@ export const jwt_user = async () =>{
       </div>
       <div class="mensajes-fetch">
       </div>`;
-      cargar_tareas(infoCookie.cookie.jwt, infoCookie.id)
+      cargar_tareas(infoCookie.cookie.jwt, infoCookie.id);
+      const guardar = document.getElementById('guardar');
+      const input_tarea = document.getElementById('input-tarea');
+      guardar.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (input_tarea.value.length > 0) {
+          guardar_tarea(infoCookie.cookie.jwt, input_tarea.value)
+        }
+        mensajes('error en jwt_user fn', 'error')
+      })
       })
     }
   } catch (error) {
