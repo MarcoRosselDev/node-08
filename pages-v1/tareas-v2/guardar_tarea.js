@@ -1,3 +1,5 @@
+import { mensajes } from "./mensajes.js";
+
 export const guardar_tarea = async (jwt, contenido) => {
   try {
     const respuesta = await fetch('/api/tarea', {
@@ -11,6 +13,7 @@ export const guardar_tarea = async (jwt, contenido) => {
       })
     })
     if (respuesta.status === 201) {
+      mensajes('tarea guardada con exito', 'exito');
       // imprimir un mensaje de exito
     }
 
