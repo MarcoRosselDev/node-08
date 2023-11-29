@@ -1,5 +1,8 @@
-export function eliminar(jwtoken) {
-  const eliminarBtns =  document.querySelectorAll('.eliminar');
+export function eliminar(jwtoken, elem) {
+
+  console.log(elem, 'elemento para eliminar del dom');
+  console.log(jwtoken, 'jwt de cookie');
+  /* const eliminarBtns =  document.querySelectorAll('.eliminar');
 
   eliminarBtns.forEach(btn => {
     btn.addEventListener('click', async function (e) {
@@ -36,5 +39,5 @@ export function eliminar(jwtoken) {
         console.log('error en la linea 17 de eliminar.js, frontend--->', error);
       }
     })
-  })
+  }) */
 }

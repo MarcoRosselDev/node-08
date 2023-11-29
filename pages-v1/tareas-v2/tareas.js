@@ -1,4 +1,4 @@
-
+import { eliminar } from "./eliminar.js";   // jwt, elem 
 const main = document.querySelector('main');
 
 const cargarEstela = ()=> {
@@ -91,8 +91,7 @@ const getJwtCookie = async () => {
             // al final agregar al final de un elemento del dom
             main.append(divLista);
             cargarEstela();
-
-            const eliminarBtns = 'a';
+            eliminar(data.cookie.jwt, this)
             // cargar la funcionalidad de eliminar y editar en todas las tareas cargadas
           })
           .then(()=>{
@@ -140,6 +139,7 @@ const getJwtCookie = async () => {
 
                 const taskPromes = postTask.json()
                 taskPromes.then(tareaData =>{
+                  console.log(tareaData);
                   const listaTarea = document.querySelector('.lista-tareas')
                   const divTarea = document.createElement('div');
                   divTarea.classList.add('tarea-individual')
@@ -153,6 +153,7 @@ const getJwtCookie = async () => {
                   </div>`;
                   listaTarea.append(divTarea);
                   // aplicar la funcionalidad de eliminar y editar esta tarea
+                  eliminar(data.cookie.jwt, this)
                 })
                 .catch(err => console.log(err))
               } else {
