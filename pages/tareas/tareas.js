@@ -2,7 +2,6 @@ import { jwt_user } from "./jwt_usuario.js";
 
 const funcion_global = () =>{
   try {
-    console.log('dom');
     jwt_user();
   } catch (error) {
     console.log('error en la funcion_global:', error);

@@ -1,4 +1,3 @@
-import { cargar_estela } from "./cargar-estela.js";
 import { cargar_tareas } from "./cargar_tareas.js";
 const main = document.querySelector('main');
 
