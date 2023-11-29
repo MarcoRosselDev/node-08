@@ -1,5 +1,6 @@
+import { cargar_estela } from "./cargar-estela.js";
 import { cargar_tareas } from "./cargar_tareas.js";
-const main = document.querySelector('main')
+const main = document.querySelector('main');
 
 export const jwt_user = async () =>{
   try {
@@ -24,7 +25,6 @@ export const jwt_user = async () =>{
       <div class="mensajes-fetch">
       </div>`;
       cargar_tareas(infoCookie.cookie.jwt, infoCookie.id)
-
       })
     }
   } catch (error) {

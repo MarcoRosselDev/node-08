@@ -1,13 +1,9 @@
-import { cargar_estela } from "./cargar-estela.js";
 import { jwt_user } from "./jwt_usuario.js";
-import { cargar_tareas } from "./cargar_tareas.js";
 
 const funcion_global = () =>{
   try {
     console.log('dom');
-    cargar_estela();
     jwt_user();
-    cargar_tareas();
   } catch (error) {
     console.log('error en la funcion_global:', error);
   }
