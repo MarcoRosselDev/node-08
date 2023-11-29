@@ -92,7 +92,33 @@ const getJwtCookie = async () => {
             main.append(divLista);
             cargarEstela();
 
-            const eliminarBtns = 'a';
+            const eliminarBtns = document.querySelectorAll('.eliminar')
+            eliminarBtns.forEach(i =>{
+              i.addEventListener('click', async function (e) {
+                e.preventDefault();
+                console.log(i.parentElement.parentElement.classList);
+                console.log(i.parentElement.parentElement.children);
+                const id_tarea = i.parentElement.parentElement.children[2].innerText;
+                console.log(data.cookie.jwt);
+
+                const fetch_eliminar_tarea = await fetch(`/api/tarea/${id_tarea}`, {
+                  method: 'DELETE',
+                  headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${data.cookie.jwt}`,
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                  }
+                })
+                if (fetch_eliminar_tarea.status === 200) {
+                  i.parentElement.parentElement.classList.remove('tarea-individual')
+                  i.parentElement.parentElement.innerHTML = '';
+                } else{
+                  console.log('algo salio mal', fetch_eliminar_tarea);
+                  console.log('algo salio mal, status = ', fetch_eliminar_tarea.status);
+                }
+
+              })
+            })
             // cargar la funcionalidad de eliminar y editar en todas las tareas cargadas
           })
           .then(()=>{
@@ -148,11 +174,13 @@ const getJwtCookie = async () => {
                   <p class="ocultar">${tareaData.user_id}</p>
                   <p class="ocultar">${tareaData._id}</p>
                   <div class="botones-edicion">
-                  <button class="btn eliminar">eliminar</button>
-                  <button class="btn editar">editar</button>
+                  <button class="btn eliminar_this">eliminar</button>
+                  <button class="btn editar_this">editar</button>
                   </div>`;
                   listaTarea.append(divTarea);
                   // aplicar la funcionalidad de eliminar y editar esta tarea
+
+                  const eliminar_this_tarea = document.querySelector('.eliminar_this')
                 })
                 .catch(err => console.log(err))
               } else {
