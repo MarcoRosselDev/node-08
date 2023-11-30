@@ -2,11 +2,12 @@ import {eliminar_tarea} from './eliminar_tarea.js'
 
 //jwt, id_tarea, elem
 export const cargar_botones = (jwt) => {
-  let bottones = document.querySelectorAll('.eliminar');
+  let bottones = [];
+  bottones = document.querySelectorAll('.eliminar');
   console.log(bottones);
 
-  bottones.forEach((i) =>{
-    i.addEventListener('click', function (e) {
+  bottones.forEach((btn) =>{
+    btn.addEventListener('click', function (e) {
       e.preventDefault();
       console.log('eliminar btn clicked');
       const elem = this.parentElement.parentElement;

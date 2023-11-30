@@ -31,8 +31,8 @@ export const guardar_tarea = async (jwt, contenido) => {
           <button class="btn editar">editar</button>
         </div>`;
         lista_tareas.append(div);
-        cargar_botones();
         mensajes('tarea guardada con exito', 'exito');
+        cargar_botones(jwt)
       })
     } else{
       mensajes('error en guardar_tarea fn', 'error')

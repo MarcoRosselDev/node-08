@@ -1,4 +1,4 @@
-const toggleBtn = document.querySelector('.toggleBtn');
+/* const toggleBtn = document.querySelector('.toggleBtn');
 const directorio = document.querySelector('.directorio');
 const links = document.querySelectorAll('.links');
 //const divEstela = document.querySelector('.divEstela');
@@ -20,6 +20,7 @@ evento.addEventListener('click', function (e) {
   directorio.classList.toggle('directorioTgl')
 })
 
+ */
 
 
 
@@ -50,8 +51,7 @@ evento.addEventListener('click', function (e) {
 
 
 
-
-/* const toggleBtn = document.querySelector('.toggleBtn');
+const toggleBtn = document.querySelector('.toggleBtn');
 const links = document.querySelectorAll('.links');
 const directorio = document.querySelector('.directorio');
 const estela = document.querySelector('.estela');
@@ -75,4 +75,4 @@ toggleBtn.addEventListener('click', function (e) {
   })
   
 })
- */
+
