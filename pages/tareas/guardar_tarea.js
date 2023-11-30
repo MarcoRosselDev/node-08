@@ -1,3 +1,4 @@
+import { cargar_botones } from "./cargar_botones.js";
 import { mensajes } from "./mensajes.js";
 
 export const guardar_tarea = async (jwt, contenido) => {
@@ -30,9 +31,9 @@ export const guardar_tarea = async (jwt, contenido) => {
           <button class="btn editar">editar</button>
         </div>`;
         lista_tareas.append(div);
+        cargar_botones();
         mensajes('tarea guardada con exito', 'exito');
       })
-      // imprimir un mensaje de exito
     } else{
       mensajes('error en guardar_tarea fn', 'error')
     }

@@ -1,3 +1,4 @@
+import { cargar_botones } from "./cargar_botones.js";
 import { cargar_tareas } from "./cargar_tareas.js";
 import { guardar_tarea } from "./guardar_tarea.js"; // jwt, contenido
 import { mensajes } from "./mensajes.js";
@@ -14,7 +15,7 @@ export const jwt_user = async () =>{
     if (respuesta.status === 200) {
       const promesa = respuesta.json();
 
-      promesa.then(infoCookie => { // inicio .then--------------------------------------------
+      promesa.then( infoCookie => { // inicio .then--------------------------------------------
       // invocar la fn logout ---------------------------
       main.innerHTML = `
       <div class="estela evento"></div>
@@ -40,6 +41,7 @@ export const jwt_user = async () =>{
         } else{
           guardar_tarea(infoCookie.cookie.jwt, input_tarea.value)
           input_tarea.value = '';
+          cargar_botones(infoCookie.cookie.jwt);
           // cargar las fns editar y eliminar btns
           // cargar_botones(infoCookie.cookie.jwt);
         }

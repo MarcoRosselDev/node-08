@@ -1,9 +1,79 @@
 import {eliminar_tarea} from './eliminar_tarea.js'
 
+//jwt, id_tarea, elem
+export const cargar_botones = (jwt) => {
+  let bottones = document.querySelectorAll('.eliminar');
+  console.log(bottones);
+
+  bottones.forEach((i) =>{
+    i.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log('eliminar btn clicked');
+      const elem = this.parentElement.parentElement;
+      const id_tarea = this.parentElement.parentElement.children[2].innerText;
+      eliminar_tarea(jwt, id_tarea, elem)
+    })
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* import {eliminar_tarea} from './eliminar_tarea.js'
+
 export const cargar_botones = (jwt) => {
 
-  const botones_eliminar = document.querySelectorAll('.eliminar');
-  const botones_editar = document.querySelectorAll('.editar');
+  let botones_eliminar = document.querySelectorAll('.eliminar');
+  let botones_editar = document.querySelectorAll('.editar');
 
   botones_eliminar.forEach(iteracion =>{
     iteracion.addEventListener('click', function (e) {
@@ -25,4 +95,4 @@ export const cargar_botones = (jwt) => {
       // funcionalidad de editar tarea
     })
   })
-}
+} */

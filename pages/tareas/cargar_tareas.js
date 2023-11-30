@@ -38,7 +38,7 @@ export const cargar_tareas = async (jwt, id_usuario) =>{
         div.innerHTML = elemento_final;
         main.append(div);
         cargar_estela();
-        cargar_botones(jwt);
+        cargar_botones();
       })
     } else {
       console.log('fetch GET fallido, respuesta:', respuesta);
