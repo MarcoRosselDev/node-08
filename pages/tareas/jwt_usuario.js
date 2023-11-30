@@ -30,25 +30,16 @@ export const jwt_user = async () =>{
       // fetch cargar tareas dom
       cargar_tareas(infoCookie.cookie.jwt, infoCookie.id);
       // input.value
-      const guardar = document.getElementById('guardar');
-      const input_tarea = document.getElementById('input-tarea');
-      
-      // guardar tarea fn
-      guardar.addEventListener('click', function (e) {
+      const guardar_id = document.getElementById('guardar');
+      const input = document.getElementById('input-tarea');
+      guardar_id.addEventListener('click', function (e) {
         e.preventDefault();
-        if (input_tarea.value.length === 0) {
-          mensajes('el input esta vacio', 'error')
-        } else{
-          guardar_tarea(infoCookie.cookie.jwt, input_tarea.value)
-          input_tarea.value = '';
-          cargar_botones(infoCookie.cookie.jwt);
-          // cargar las fns editar y eliminar btns
-          // cargar_botones(infoCookie.cookie.jwt);
-        }
+        console.log('click guardar');
+        guardar_tarea(infoCookie.cookie.jwt, input.value)
       })
 
       })// final .then------------------------------------------------------------------------
-      .catch(err => console.log(err)) 
+      .catch(err => console.log(err))
     } else {
       // esto significa que se encontro una cookie pero la respuesta es diferente a la esperada
       // en ese caso trabajar la nueva respuesta

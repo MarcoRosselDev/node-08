@@ -1,4 +1,3 @@
-import { cargar_botones } from "./cargar_botones.js";
 import { mensajes } from "./mensajes.js";
 
 export const guardar_tarea = async (jwt, contenido) => {
@@ -16,6 +15,7 @@ export const guardar_tarea = async (jwt, contenido) => {
     if (respuesta.status === 201) {
       const promesa = respuesta.json();
       promesa.then(data_tarea_guardada => {
+        console.log(data_tarea_guardada);
         const lista_tareas = document.querySelector('.lista-tareas');
 
         const div = document.createElement('div');
@@ -32,8 +32,12 @@ export const guardar_tarea = async (jwt, contenido) => {
         </div>`;
         lista_tareas.append(div);
         mensajes('tarea guardada con exito', 'exito');
-        cargar_botones(jwt)
       })
+      .then(()=> {
+        console.log('guarar tarea ...');
+        //setTimeout(()=> location.reload(), 1500)
+      })
+      .catch(err => console.log('error en guardar_tarea catch :', err))
     } else{
       mensajes('error en guardar_tarea fn', 'error')
     }
