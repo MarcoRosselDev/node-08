@@ -1,4 +1,3 @@
-import { cargar_botones } from "./cargar_botones.js";
 import { cargar_tareas } from "./cargar_tareas.js";
 import { guardar_tarea } from "./guardar_tarea.js"; // jwt, contenido
 import { mensajes } from "./mensajes.js";
