@@ -15,7 +15,6 @@ export const guardar_tarea = async (jwt, contenido) => {
     if (respuesta.status === 201) {
       const promesa = respuesta.json();
       promesa.then(data_tarea_guardada => {
-        console.log(data_tarea_guardada);
         const lista_tareas = document.querySelector('.lista-tareas');
 
         const div = document.createElement('div');
@@ -27,19 +26,23 @@ export const guardar_tarea = async (jwt, contenido) => {
         <!-- id de la tarea -->
         <p class="ocultar">${data_tarea_guardada._id}</p>
         <div class="botones-edicion">
-          <button class="btn eliminar dell">eliminar</button>
+          <button class="btn eliminar">eliminar</button>
           <button class="btn editar">editar</button>
         </div>`;
         lista_tareas.append(div);
         mensajes('tarea guardada con exito', 'exito');
       })
-      .then(()=> {
+      /* .then(()=> {
         console.log('guarar tarea ...');
         //setTimeout(()=> location.reload(), 1500)
-      })
+      }) */
       .catch(err => console.log('error en guardar_tarea catch :', err))
+
+      return 'mensaje from guardar tarea fn';
+
     } else{
       mensajes('error en guardar_tarea fn', 'error')
+      return 'no se guardo nada';
     }
 
   } catch (error) {

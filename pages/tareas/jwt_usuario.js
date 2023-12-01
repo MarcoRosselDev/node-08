@@ -1,7 +1,4 @@
-import { cargar_botones } from "./cargar_botones.js";
 import { cargar_tareas } from "./cargar_tareas.js";
-import { guardar_tarea } from "./guardar_tarea.js"; // jwt, contenido
-import { mensajes } from "./mensajes.js";
 const main = document.querySelector('main');
 
 export const jwt_user = async () =>{
@@ -30,26 +27,7 @@ export const jwt_user = async () =>{
       // fetch cargar tareas dom
       cargar_tareas(infoCookie.cookie.jwt, infoCookie.id);
       // input.value
-      const guardar_id = document.getElementById('guardar');
-      const input = document.getElementById('input-tarea');
-      guardar_id.addEventListener('click', async function (e) {
-        e.preventDefault();
-        console.log('click guardar');
-        await guardar_tarea(infoCookie.cookie.jwt, input.value)
-        console.log('click guardar id');
-        cargar_tareas(infoCookie.cookie.jwt, infoCookie.id);
-      })
-
       })// final .then------------------------------------------------------------------------
-      .then(() =>{
-        const btns = document.querySelectorAll('dell');
-        btns.forEach(btn =>{
-          btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            console.log('click btn out');
-          })
-        })
-      })
       .catch(err => console.log(err))
     } else {
       // esto significa que se encontro una cookie pero la respuesta es diferente a la esperada

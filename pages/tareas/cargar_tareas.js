@@ -1,5 +1,6 @@
 import { cargar_estela } from "./cargar-estela.js";
 import { cargar_botones } from "./cargar_botones.js";
+import { guardar_tarea } from "./guardar_tarea.js"
 const main = document.querySelector('main');
 
 export const cargar_tareas = async (jwt, id_usuario) =>{
@@ -38,6 +39,17 @@ export const cargar_tareas = async (jwt, id_usuario) =>{
         div.innerHTML = elemento_final;
         main.append(div);
         cargar_estela();
+
+        const input = document.getElementById('input-tarea');
+        const guardar = document.getElementById('guardar');
+
+        guardar.addEventListener('click', function (e) {
+          e.preventDefault();
+          console.log(input.value);
+          guardar_tarea(jwt, input.value)
+
+        })
+
       })
       .then(()=> cargar_botones(jwt, document.querySelectorAll('.eliminar')))
       .catch(err => console.log('error en catch cargar_tareas :', err))
