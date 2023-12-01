@@ -27,7 +27,7 @@ export const guardar_tarea = async (jwt, contenido) => {
         <!-- id de la tarea -->
         <p class="ocultar">${data_tarea_guardada._id}</p>
         <div class="botones-edicion">
-          <button class="btn eliminar">eliminar</button>
+          <button class="btn eliminar dell">eliminar</button>
           <button class="btn editar">editar</button>
         </div>`;
         lista_tareas.append(div);
