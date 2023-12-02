@@ -37,7 +37,7 @@ export const cargar_tareas = async (jwt, id_usuario) =>{
         cargar_estela()
 
         const input = document.getElementById('input-tarea');
-        const guardar = document.getElementById('guardar');
+        const guardar = document.querySelector('.btn-guardar-nueva-tarea')
 
         guardar.addEventListener('click', function (e) {
           e.preventDefault();

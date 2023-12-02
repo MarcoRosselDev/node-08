@@ -2,9 +2,10 @@ import {eliminar_tarea} from './eliminar_tarea.js'
 
 //jwt, id_tarea, elem
 export const cargar_botones = (jwt) => {
-  let botones = document.querySelectorAll('.eliminar');
+  let botones_eliminar = document.querySelectorAll('.eliminar');
+  let botones_editar = document.querySelectorAll('.editar')
   
-  botones.forEach((btn) =>{
+  botones_eliminar.forEach((btn) =>{
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       const elem = this.parentElement.parentElement;
@@ -15,6 +16,39 @@ export const cargar_botones = (jwt) => {
       eliminar_tarea(jwt, id_tarea)
     })
   })
+
+  const input = document.getElementById('input-tarea');
+  const guardar = document.getElementById('guardar');
+
+  botones_editar.forEach( btn =>{
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const elem = this.parentElement.parentElement;
+      const id_tarea = this.parentElement.parentElement.children[2].innerText;
+      const p = this.parentElement.parentElement.children[0].innerText;
+        
+      //console.log(p);
+      input.value = p
+      //console.log(input.value);
+      guardar.classList.remove('btn-guardar-nueva-tarea')
+      guardar.innerText = 'editar';
+
+      // try catch editar
+      // if success
+
+      guardar.addEventListener('click', async function (e) {
+        e.preventDefault();
+        try {
+          const respuesta = await fetch('/url', {
+            method: 'PATCH'
+          })
+        } catch (error) {
+          console.log('error en la edicion de la tarea', error);
+        }
+      })
+    })
+    }
+  )
 }
 
 
