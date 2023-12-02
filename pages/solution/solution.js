@@ -14,10 +14,13 @@ guardar.addEventListener('click', function (e) {
     <button class="eliminar">eliminar</button>
     <button class="editar">editar</button>
   </div>`;
-
   div.append(elemento);
+  cargar_btns();
+  console.log('guardar clicked');
+})
 
-  const botones_guardar = document.querySelectorAll('.eliminar');
+const cargar_btns = () =>{
+  let botones_guardar = document.querySelectorAll('.eliminar');
   botones_guardar.forEach(btn =>{
     btn.addEventListener('click', function (e) {
       e.preventDefault();
@@ -25,4 +28,6 @@ guardar.addEventListener('click', function (e) {
       console.log(this.parentElement);
     })
   })
-})
+}
+
+
