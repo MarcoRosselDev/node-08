@@ -64,11 +64,10 @@ export const cargar_tareas = async (jwt, id_usuario) =>{
           e.preventDefault();
           console.log(input.value);
           guardar_tarea(jwt, input.value)
-
         })
 
       })
-      .then(()=> cargar_botones(jwt, document.querySelectorAll('.eliminar')))
+      .then(()=> cargar_botones(jwt))
       .catch(err => console.log('error en catch cargar_tareas :', err))
     } else {
       console.log('fetch GET fallido, respuesta:', respuesta);

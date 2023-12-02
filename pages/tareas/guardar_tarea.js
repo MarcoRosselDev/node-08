@@ -19,18 +19,20 @@ export const guardar_tarea = async (jwt, contenido) => {
         let lista_tareas = document.querySelector('.lista-tareas');
 
         const nueva_tarea = `
-        <p>${data_tarea_guardada.contenido}</p>
-        <!-- user id -->
-        <p class="ocultar">${data_tarea_guardada.user_id}</p>
-        <!-- id de la tarea -->
-        <p class="ocultar">${data_tarea_guardada._id}</p>
-        <div class="botones-edicion">
-          <button class="btn eliminar">eliminar</button>
-          <button class="btn editar">editar</button>
+        <div class="tarea-individual">
+          <p>${data_tarea_guardada.contenido}</p>
+          <!-- user id -->
+          <p class="ocultar">${data_tarea_guardada.user_id}</p>
+          <!-- id de la tarea -->
+          <p class="ocultar">${data_tarea_guardada._id}</p>
+          <div class="botones-edicion">
+            <button class="btn eliminar">eliminar</button>
+            <button class="btn editar">editar</button>
+          </div>
         </div>
         `;
         lista_tareas.innerHTML += nueva_tarea;
-        cargar_botones(jwt, document.querySelectorAll('.eliminar'))
+        cargar_botones(jwt)
         /* const lista_tareas = document.querySelector('.lista-tareas');
 
         const div = document.createElement('div');

@@ -1,6 +1,6 @@
 import { mensajes } from "./mensajes.js";
 
-export const eliminar_tarea = async (jwt, id_tarea, elem) =>{
+export const eliminar_tarea = async (jwt, id_tarea) =>{
   try {
     const respuesta = await fetch(`/api/tarea/${id_tarea}`, {
       method: 'DELETE',
@@ -12,8 +12,8 @@ export const eliminar_tarea = async (jwt, id_tarea, elem) =>{
     if (respuesta.status === 200) {
       // elimnar el elem del dom
       mensajes('eliminacion exitosa', 'exito');
-      elem.innerHTML = '';
-      elem.classList.remove('tarea-individual');
+/*       elem.innerHTML = '';
+      elem.classList.remove('tarea-individual'); */
     } else{
       mensajes('no se elimino', 'error')
       console.log(respuesta);
