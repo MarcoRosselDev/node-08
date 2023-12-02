@@ -1,3 +1,4 @@
+import { cargar_botones } from "./cargar_botones.js";
 import { mensajes } from "./mensajes.js";
 
 export const guardar_tarea = async (jwt, contenido) => {
@@ -15,7 +16,22 @@ export const guardar_tarea = async (jwt, contenido) => {
     if (respuesta.status === 201) {
       const promesa = respuesta.json();
       promesa.then(data_tarea_guardada => {
-        const lista_tareas = document.querySelector('.lista-tareas');
+        let lista_tareas = document.querySelector('.lista-tareas');
+
+        const nueva_tarea = `
+        <p>${data_tarea_guardada.contenido}</p>
+        <!-- user id -->
+        <p class="ocultar">${data_tarea_guardada.user_id}</p>
+        <!-- id de la tarea -->
+        <p class="ocultar">${data_tarea_guardada._id}</p>
+        <div class="botones-edicion">
+          <button class="btn eliminar">eliminar</button>
+          <button class="btn editar">editar</button>
+        </div>
+        `;
+        lista_tareas.innerHTML += nueva_tarea;
+        cargar_botones(jwt, document.querySelectorAll('.eliminar'))
+        /* const lista_tareas = document.querySelector('.lista-tareas');
 
         const div = document.createElement('div');
         div.classList.add('tarea-individual')
@@ -29,8 +45,9 @@ export const guardar_tarea = async (jwt, contenido) => {
           <button class="btn eliminar">eliminar</button>
           <button class="btn editar">editar</button>
         </div>`;
-        lista_tareas.append(div);
+        lista_tareas.innerHTML += div.innerHTML;
         mensajes('tarea guardada con exito', 'exito');
+        cargar_botones(jwt, document.querySelectorAll('.eliminar')); */
       })
       /* .then(()=> {
         console.log('guarar tarea ...');

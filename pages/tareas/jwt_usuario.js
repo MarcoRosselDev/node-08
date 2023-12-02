@@ -23,7 +23,10 @@ export const jwt_user = async () =>{
         <button id="guardar" class="btn-guardar-nueva-tarea">guardar</button>
       </div>
       <div class="mensajes-fetch">
-      </div>`;
+      </div>
+      <div class="lista-tareas">
+      </div>
+      `;
       // fetch cargar tareas dom
       cargar_tareas(infoCookie.cookie.jwt, infoCookie.id);
       // input.value

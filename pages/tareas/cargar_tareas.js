@@ -1,7 +1,6 @@
 import { cargar_estela } from "./cargar-estela.js";
 import { cargar_botones } from "./cargar_botones.js";
 import { guardar_tarea } from "./guardar_tarea.js"
-const main = document.querySelector('main');
 
 export const cargar_tareas = async (jwt, id_usuario) =>{
   try {
@@ -17,7 +16,7 @@ export const cargar_tareas = async (jwt, id_usuario) =>{
       const promesa = respuesta.json();
       promesa.then(objeto_tareas =>{
         // iteramos por el objeto con las tareas lo agregamos al dom
-        const div = document.createElement('div');
+        /* const div = document.createElement('div');
         div.classList.add('lista-tareas');
 
         // para no manipular el dom en cada iteracion
@@ -38,7 +37,25 @@ export const cargar_tareas = async (jwt, id_usuario) =>{
         })
         div.innerHTML = elemento_final;
         main.append(div);
-        cargar_estela();
+        cargar_estela(); */
+        let lista_tareas = document.querySelector('.lista-tareas');
+
+        let final = '';
+        objeto_tareas.map(i =>{
+          final += `
+          <div class="tarea-individual">
+            <p>${i.contenido}</p>
+            <!-- user id -->
+            <p class="ocultar">${i.user_id}</p>
+            <!-- id de la tarea -->
+            <p class="ocultar">${i._id}</p>
+            <div class="botones-edicion">
+              <button class="btn eliminar">eliminar</button>
+              <button class="btn editar">editar</button>
+            </div>
+          </div>`
+        })
+        lista_tareas.innerHTML = final;
 
         const input = document.getElementById('input-tarea');
         const guardar = document.getElementById('guardar');

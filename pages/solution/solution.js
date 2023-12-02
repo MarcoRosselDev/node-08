@@ -14,7 +14,7 @@ guardar.addEventListener('click', function (e) {
     <button class="eliminar">eliminar</button>
     <button class="editar">editar</button>
   </div>`;
-  div.append(elemento);
+  div.innerHTML += elemento.innerHTML;
   cargar_btns();
   console.log('guardar clicked');
 })
