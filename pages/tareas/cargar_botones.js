@@ -8,14 +8,11 @@ export const cargar_botones = (jwt) => {
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       const elem = this.parentElement.parentElement;
-      console.log(elem);
       const id_tarea = this.parentElement.parentElement.children[2].innerText;
-      console.log(id_tarea);
-      console.log(EventTarget.parentElement);
       elem.classList.remove('tarea-individual')
       elem.innerHTML = '';
 
-      eliminar_tarea(jwt, id_tarea, elem)
+      eliminar_tarea(jwt, id_tarea)
     })
   })
 }

@@ -1,5 +1,15 @@
 export const mensajes = (mensaje, status) => {
   const mensajes_fetch = document.querySelector('.mensajes-fetch');
+
+/*   console.log(mensajes_fetch.classList.contains('tarea-error'));
+  console.log(mensajes_fetch.classList.contains('tarea-exito')); */
+
+  if (mensajes_fetch.classList.contains('tarea-error') === true || mensajes_fetch.classList.contains('tarea-error') === true) {
+    mensajes_fetch.classList.remove('tarea-error');
+    mensajes_fetch.classList.remove('tarea-exito');
+    mensajes_fetch.innerHTML = '';
+  }
+
   if (status === 'error') {
     const p = document.createElement('p');
     p.innerText = mensaje;
