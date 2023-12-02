@@ -68,8 +68,30 @@ const eliminarTarea = async (req, res) =>{
   }
 }
 
+const actualizarTarea = async (req, res) => {
+  try {
+    const token = req.cookies.jwt;
+    const a = jwt.verify(token, key_jwt);
+    const p_nuevo = req.body.contenido;
+
+    const id_tarea = req.params.id;
+    const tarea = await Tarea.findOneAndUpdate({_id: id_tarea}, p_nuevo, { new: true })
+
+    if (!tarea) {
+      return res.status(404).json({msj: 'no se actualizo'})
+    } else {
+      return res.status(201).json(tarea)
+    }
+
+  } catch (error) {
+    console.log(error.message);
+    res.status(404).json({msj: error.message})
+  }
+}
+
 module.exports = {
   postTarea,
   getTarea,
-  eliminarTarea
+  eliminarTarea,
+  actualizarTarea
 }

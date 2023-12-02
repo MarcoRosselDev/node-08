@@ -3,10 +3,10 @@ const express = require('express');
 const app = express();
 const connect = require('./db.js');
 const path = require('path');
-const {registrarUsuario, loginUsuario} = require('./controllers/crear-usuario.js');
-const {getTarea, postTarea, eliminarTarea} = require('./controllers/crear-tareas.js');
+const { registrarUsuario, loginUsuario } = require('./controllers/crear-usuario.js');
+const { getTarea, postTarea, eliminarTarea, actualizarTarea } = require('./controllers/crear-tareas.js');
 const cookieParser = require('cookie-parser');
-const {crearCookie, eliminarCookie, obtenerJwtCookie, cookieStyleMode} = require('./controllers/cookies.js');
+const { crearCookie, eliminarCookie, obtenerJwtCookie, cookieStyleMode } = require('./controllers/cookies.js');
 // cookies
 app.use(cookieParser())
 
@@ -25,6 +25,7 @@ app.post('/api/login', loginUsuario);
 app.post('/api/tarea', postTarea);
 app.get('/api/tarea/:id', getTarea);
 app.delete('/api/tarea/:id', eliminarTarea)
+app.put('/api/tarea/:id', actualizarTarea)
 
 // api cookies
 app.post('/api/crearCookie', crearCookie)

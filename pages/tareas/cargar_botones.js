@@ -39,8 +39,23 @@ export const cargar_botones = (jwt) => {
       guardar.addEventListener('click', async function (e) {
         e.preventDefault();
         try {
-          const respuesta = await fetch('/url', {
-            method: 'PATCH'
+          const respuesta = await fetch(`/api/tarea/${id_tarea}`, {
+            method: 'PUT',
+            headers: {
+              'Authorization': `Bearer ${jwt}`,
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              contenido: input.value
+            })
+          })
+          console.log(respuesta);
+          const prom = respuesta.json();
+          prom.then(data =>{
+            console.log(p);
+            p.innerText = data.contenido;
+            guardar.classList.add('btn-guardar-nueva-tarea')
+            guardar.innerText = 'guardar'
           })
         } catch (error) {
           console.log('error en la edicion de la tarea', error);
