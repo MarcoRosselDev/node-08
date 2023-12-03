@@ -44,6 +44,7 @@ body{
 header{
   display: flex;
   align-items: center;
+  justify-content: center;
   
   background-color: var(--bg-color-header);
   width: 100%;
@@ -53,6 +54,7 @@ header{
 }
 
 header nav{
+  max-width: 900px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -138,6 +140,7 @@ main{
   justify-content: center;
   align-items: center;
   width: 70%;
+  max-width: 900px;
 }
 
 .contenedor{

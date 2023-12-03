@@ -77,6 +77,7 @@ export const cargar_botones = (jwt) => {
               guardar.addEventListener('click', function (e) {
                 e.preventDefault();
                 guardar_tarea(jwt, input_v.value);
+                input_v.value = '';
               })
               // devolver el input y boton guardar al contenedor
               // aplicar estilos

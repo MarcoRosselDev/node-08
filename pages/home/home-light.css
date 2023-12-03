@@ -46,6 +46,7 @@ body{
 header{
   display: flex;
   align-items: center;
+  justify-content: center;
   
   background-color: var(--bg-color-header);
   width: 100%;
@@ -59,7 +60,9 @@ header nav{
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  max-width: 900px;
 }
+
 
 .logo-div{
   display: flex;
@@ -136,6 +139,8 @@ svg{
 /* main ---------------------------- */
 main{
   height: 100%;
+  width: 100%;
+  max-width: 900px;
 }
 
 .estela{
