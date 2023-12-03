@@ -17,34 +17,30 @@ export const cargar_botones = (jwt) => {
     })
   })
 
-  const input = document.getElementById('input-tarea');
-  const guardar = document.getElementById('guardar');
-
   botones_editar.forEach( btn =>{
     btn.addEventListener('click', function (e) {
       e.preventDefault();
       const elem = this.parentElement.parentElement;
       const id_tarea = this.parentElement.parentElement.children[2].innerText;
       const p = this.parentElement.parentElement.children[0].innerText;
+      console.log(typeof(p), '?');
+      const contenedor = document.querySelector('.contenedor');
+      contenedor.innerHTML = `
+      <h2>Editar Tarea</h2>
+      <p>Modifica la tarea</p>
+      <input type="text" class="input-editar"></input>
+      <button id="editar-send">Editar</button>
+      `;
+
+      const input_editar = document.querySelector('.input-editar');
+      const editar_send = document.getElementById('editar-send');
+      input_editar.value = p;
+
+      editar_send.addEventListener('click', async function (e) {
         
-      //console.log(p);
-      input.value = p
-      //console.log(input.value);
-      guardar.classList.remove('btn-guardar-nueva-tarea')
-      guardar.innerText = 'editar';
-
-      // try catch editar
-      // if success
-
-      
-      const btn = document.getElementById('guardar');
-      btn.addEventListener('click', async function (e) {
-        const value = document.getElementById('input-tarea');
-        console.log(value.value);
         e.preventDefault();
         try {
-          console.log(value.value, 'value try');
-          //console.log(input.value, 'input.value try');
+          console.log(input_editar.value);
           const respuesta = await fetch(`/api/tarea/${id_tarea}`, {
             method: 'PUT',
             headers: {
@@ -52,16 +48,19 @@ export const cargar_botones = (jwt) => {
               'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-              contenido: value.value
+              contenido: input_editar.value
             })
           })
           console.log(respuesta);
           const prom = respuesta.json();
           prom.then(data =>{
             console.log(p);
-            p.innerText = data.contenido;
-            guardar.classList.add('btn-guardar-nueva-tarea')
-            guardar.innerText = 'guardar'
+            //p.innerText = input_editar.value;
+            console.log(this.parentElement.parentElement.children);
+            console.log(elem);
+            elem.children[0].innerText = input_editar.value;
+            // devolver el input y boton guardar al contenedor
+            // aplicar estilos
           })
           .catch(err => console.log(err, 'error en el catch de editar btn'))
         } catch (error) {
