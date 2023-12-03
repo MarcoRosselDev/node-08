@@ -1,3 +1,4 @@
+import { cargar_estela } from "./cargar-estela.js";
 import { cargar_tareas } from "./cargar_tareas.js";
 const main = document.querySelector('main');
 
@@ -36,6 +37,14 @@ export const jwt_user = async () =>{
       // esto significa que se encontro una cookie pero la respuesta es diferente a la esperada
       // en ese caso trabajar la nueva respuesta
       // por ahora todo sale como se espera
+      main.innerHTML = `
+      <div class="estela evento"></div>
+      <div class="contenedor ">
+        <h2>No estas logeado</h2>
+        <p>por favor <a href="http://localhost:3000/login/">ir a login</a> o <a href="http://localhost:3000/registrar/">crea una cuenta</a></p>
+      </div>
+      `;
+      cargar_estela()
       console.log('status respuesta !== 200:', respuesta);
     }
   } catch (error) {

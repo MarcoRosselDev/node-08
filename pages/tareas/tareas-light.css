@@ -26,7 +26,7 @@ p{
 }
 a{
   list-style: none;
-  color: var(--main-color);
+  color: var(--blue-text);
   text-decoration: none;
 }
 
