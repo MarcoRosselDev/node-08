@@ -32,6 +32,31 @@ export const jwt_user = async () =>{
       cargar_tareas(infoCookie.cookie.jwt, infoCookie.id);
       // input.value
       })// final .then------------------------------------------------------------------------
+      .then(()=>{
+      const directorio = document.querySelector('.directorio');
+      directorio.children[1].innerHTML = '<p class="logout-btn">logout</p>';
+      const eliminar_elemento = directorio.children[2];
+      directorio.removeChild(eliminar_elemento);
+
+      const logout = document.querySelector('.logout-btn');
+      logout.addEventListener('click', async function (e) {
+        e.preventDefault();
+        console.log('logout clicked');
+        try {
+          const eliminar_cookie = await fetch('/api/delcookie', {
+            method: 'GET',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          })
+
+          if (eliminar_cookie.status === 200) return window.location.href = `http://localhost:3000/login/`;
+          console.log('cookie no eliminada');
+        } catch (error) {
+          
+        }
+      })
+      })
       .catch(err => console.log(err))
     } else {
       // esto significa que se encontro una cookie pero la respuesta es diferente a la esperada
