@@ -65,7 +65,7 @@ export const cargar_botones = (jwt) => {
               console.log(elem);
               elem.children[0].innerText = input_editar.value;
               contenedor.innerHTML = `
-              <h2>Editar Tarea</h2>
+              <h2>Lista usuario</h2>
               <p>Escribe una nueva tarea</p>
               <input type="text" class="input-nueva-tarea" id="input-tarea">
               <button id="guardar" class="btn-guardar-nueva-tarea">guardar</button>
