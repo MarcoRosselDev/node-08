@@ -17,6 +17,7 @@ app.use('/login', express.static(path.join(__dirname, 'pages', 'login')));
 app.use('/registrar', express.static(path.join(__dirname, 'pages', 'registrar')));
 app.use('/tareas', express.static(path.join(__dirname, 'pages', 'tareas')));
 app.use('/home', express.static(path.join(__dirname, 'pages', 'home')));
+app.use('/cv', express.static(path.join(__dirname, 'pages', 'cv')));
 
 // api usuario
 app.post('/api/registrar', registrarUsuario);
