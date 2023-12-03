@@ -1,5 +1,6 @@
 import { cargar_estela } from "./cargar-estela.js";
 import { cargar_tareas } from "./cargar_tareas.js";
+import { logout_fn } from "./logout_fn.js";
 const main = document.querySelector('main');
 
 export const jwt_user = async () =>{
@@ -39,22 +40,9 @@ export const jwt_user = async () =>{
       directorio.removeChild(eliminar_elemento);
 
       const logout = document.querySelector('.logout-btn');
-      logout.addEventListener('click', async function (e) {
+      logout.addEventListener('click', function (e) {
         e.preventDefault();
-        console.log('logout clicked');
-        try {
-          const eliminar_cookie = await fetch('/api/delcookie', {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json'
-            }
-          })
-
-          if (eliminar_cookie.status === 200) return window.location.href = `http://localhost:3000/login/`;
-          console.log('cookie no eliminada');
-        } catch (error) {
-          
-        }
+        logout_fn();
       })
       })
       .catch(err => console.log(err))
