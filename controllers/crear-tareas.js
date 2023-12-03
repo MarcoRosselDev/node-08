@@ -75,7 +75,7 @@ const actualizarTarea = async (req, res) => {
     const p_nuevo = req.body.contenido;
 
     const id_tarea = req.params.id;
-    const tarea = await Tarea.findOneAndUpdate({_id: id_tarea}, p_nuevo, { new: true })
+    const tarea = await Tarea.findOneAndUpdate({_id: id_tarea}, {contenido: p_nuevo }, { new: true })
 
     if (!tarea) {
       return res.status(404).json({msj: 'no se actualizo'})
