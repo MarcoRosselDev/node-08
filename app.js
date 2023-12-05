@@ -3,10 +3,8 @@ const express = require('express');
 const app = express();
 const connect = require('./db.js');
 const path = require('path');
-const { registrarUsuario, loginUsuario } = require('./controllers/crear-usuario.js');
-const { getTarea, postTarea, eliminarTarea, actualizarTarea } = require('./controllers/crear-tareas.js');
 const cookieParser = require('cookie-parser');
-const { crearCookie, eliminarCookie, obtenerJwtCookie, cookieStyleMode } = require('./controllers/cookies.js');
+const todo_project = require('./router/todo-project.js');
 // cookies
 app.use(cookieParser())
 
@@ -19,20 +17,7 @@ app.use('/tareas', express.static(path.join(__dirname, 'pages', 'tareas')));
 app.use('/home', express.static(path.join(__dirname, 'pages', 'home')));
 app.use('/cv', express.static(path.join(__dirname, 'pages', 'cv')));
 
-// api usuario
-app.post('/api/registrar', registrarUsuario);
-app.post('/api/login', loginUsuario);
-// api tareas
-app.post('/api/tarea', postTarea);
-app.get('/api/tarea/:id', getTarea);
-app.delete('/api/tarea/:id', eliminarTarea)
-app.put('/api/tarea/:id', actualizarTarea)
-
-// api cookies
-app.post('/api/crearCookie', crearCookie)
-app.get('/api/getJwtcookie', obtenerJwtCookie)
-app.get('/api/delcookie', eliminarCookie)
-app.get('/api/getStylecookie', cookieStyleMode)
+app.use('/api', todo_project);
 
 
 
