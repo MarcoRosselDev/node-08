@@ -37,8 +37,7 @@ body{
   align-items: center;
   background-color: var(--main-bg-color);
 
-  width: 100vw;
-  height: 100vh;
+
 }
 
 /* header--------------------------- */
@@ -155,19 +154,40 @@ main{
   z-index: 2;
 }
 
+.projects{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  border: 1px solid pink;
+}
+
 .project-div{
   border: 1px solid orange;
+  background-color: var(--bg-color-header);
   display: flex;
   flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.project-div svg{
+  width: 40px;
+  height: 40px;
 }
 
 .project-div-logos{
   display: flex;
   flex-flow: row wrap;
-}
-.logo-mongodb{
-  border: 1px solid yellowgreen;
-  fill: white;
+  gap: 10px;
 }
 /* main ---------------------------- */
 @media screen and (min-width: 600px) {
