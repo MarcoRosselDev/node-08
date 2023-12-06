@@ -162,11 +162,13 @@ main{
   gap: 20px;
 
   width: 100%;
+  padding: 20px;
   border: 1px solid pink;
 }
 
 .project-div{
-  border: 1px solid orange;
+  border: 1px solid var(--border);
+  border-radius: 5px;
   background-color: var(--bg-color-header);
   display: flex;
   flex-flow: column wrap;
