@@ -154,6 +154,21 @@ main{
   background-color: var(--bg-color-hover);
   z-index: 2;
 }
+
+.project-div{
+  border: 1px solid orange;
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.project-div-logos{
+  display: flex;
+  flex-flow: row wrap;
+}
+.logo-mongodb{
+  border: 1px solid yellowgreen;
+  fill: white;
+}
 /* main ---------------------------- */
 @media screen and (min-width: 600px) {
   /* solo como ejemplo momentaneo */
