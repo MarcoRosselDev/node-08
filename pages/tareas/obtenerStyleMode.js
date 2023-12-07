@@ -9,7 +9,7 @@ const obtenerStyleMode = async () =>{
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
-        // 'Content-Type': 'application/x-www-form-urlencoded',
+        //'Content-Type': 'application/x-www-form-urlencoded',
       }
     });
     if (response.status === 200) {
