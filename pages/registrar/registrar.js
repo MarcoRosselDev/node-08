@@ -3,8 +3,6 @@ const links = document.querySelectorAll('.links');
 const directorio = document.querySelector('.directorio');
 const estela = document.querySelector('.estela');
 const event = document.querySelector('.event');
-require('dotenv').config();
-const URL_PRODUCTION = process.env.URL_PRODUCTION;
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
@@ -106,7 +104,7 @@ enviar.addEventListener('click', async function (e) {
         const b = document.createElement('button');
         msjContenedor.classList.add(`msj-contenedor-exitoso`);
         // cambiar en produccion------------------------------------------------------------------------------------
-        p.innerHTML = `usuario creado exitosamente, <a href="${URL_PRODUCTION}/login/">ir a login</a>`
+        p.innerHTML = `usuario creado exitosamente, <a href="https://marcorossel.com/login/">ir a login</a>`
         p.classList.add('p-mensaje')
         b.innerText = 'X'
         b.classList.add('x')

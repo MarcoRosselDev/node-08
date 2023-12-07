@@ -3,8 +3,6 @@ const links = document.querySelectorAll('.links');
 const directorio = document.querySelector('.directorio');
 const estela = document.querySelector('.estela');
 const event = document.querySelector('.event');
-require('dotenv').config();
-const URL_PRODUCTION = process.env.URL_PRODUCTION;
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
@@ -95,7 +93,7 @@ login.addEventListener('click', async function (e) {
             })
           })
           // este es para trabajo local 
-          if (cookie.status === 200) return window.location.href = `${URL_PRODUCTION}/tareas/`;
+          if (cookie.status === 200) return window.location.href = `https://marcorossel.com/tareas/`;
           // return window.location.href = `https://node-08-portfolio.onrender.com/tareas/`;
         } catch (error) {
           console.log('error en crear-cookie', error);
