@@ -2,6 +2,8 @@ import { cargar_estela } from "./cargar-estela.js";
 import { cargar_tareas } from "./cargar_tareas.js";
 import { logout_fn } from "./logout_fn.js";
 const main = document.querySelector('main');
+require('dotenv').config();
+const URL_PRODUCTION = process.env.URL_PRODUCTION;
 
 export const jwt_user = async () =>{
   try {
@@ -54,7 +56,7 @@ export const jwt_user = async () =>{
       <div class="estela evento"></div>
       <div class="contenedor ">
         <h2>No estas logeado</h2>
-        <p>por favor <a href="http://localhost:3000/login/">ir a login</a> o <a href="http://localhost:3000/registrar/">crea una cuenta</a></p>
+        <p>por favor <a href="${URL_PRODUCTION}/login/">ir a login</a> o <a href="${URL_PRODUCTION}/registrar/">crea una cuenta</a></p>
       </div>
       `;
       cargar_estela()
