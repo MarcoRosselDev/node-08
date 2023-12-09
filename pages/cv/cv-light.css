@@ -1,0 +1,77 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+:root{
+  --main-color:rgb(30, 31, 32);
+  --color-2:rgb(71, 72, 73);
+  --color-3:rgb(139, 142, 145);
+  --main-bg-color: rgb(233, 236, 241);
+  --bg-color-header:rgb(28 33 40);
+  --green-color:rgb(81 157 85);
+  --blue-text:rgb(83 155 245);
+  --blue-text-2:rgb(79 146 228);
+  --bg-color-hover:rgba(99, 110, 123, 0.384);
+  --border: rgba(78, 78, 78, 0.697);
+  --transition: all 0.3s linear;
+}
+h1,h2,h3,h4{
+  color: var(--main-color);
+}
+p{
+  color: var(--color-3);
+
+}
+a{
+  list-style: none;
+  color: var(--main-color);
+  text-decoration: none;
+}
+
+body{
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
+
+header{
+  display: flex;
+  flex-flow: column wrap;
+  align-items: start;
+  width: 100%;
+  max-width: 600px;
+ /*  padding: 10px; */
+
+  padding: 10px 0 10px 10px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+main{
+  display: flex;
+  flex-flow: column wrap;
+  
+  width: 100%;
+  max-width: 600px;
+}
+
+.main-educacion{
+/*   padding: 10px; */
+  border-bottom: 1px solid var(--border);
+  padding: 10px 10px 10px 10px;
+}
+
+.educacion-div{
+  display: flex;
+  flex-flow: column wrap;
+  padding: 10px 0 0 0;
+}
