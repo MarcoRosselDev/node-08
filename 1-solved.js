@@ -25,6 +25,10 @@ var twoSum = function(nums, target) {
   nums.forEach(i => {
     let comparacion = i + nums[i+1];
     console.log(nums);
+    let suma = i++
+    console.log(typeof(i));
+    console.log(suma);
+    console.log(nums[suma], 'suma log');
     console.log(`i + el siguiente = ${nums[i+1]}`);
     console.log(`comparacion ${comparacion}`);
     // condicional si se cumple la peticion
