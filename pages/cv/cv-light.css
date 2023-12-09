@@ -27,8 +27,16 @@ p{
 }
 a{
   list-style: none;
-  color: var(--main-color);
+  color: var(--blue-text);
   text-decoration: none;
+}
+
+a:hover{
+  color: var(--main-color);
+}
+
+li{
+  margin-left: 40px;
 }
 
 body{
@@ -47,6 +55,7 @@ header{
   display: flex;
   flex-flow: column wrap;
   align-items: start;
+
   width: 100%;
   max-width: 600px;
  /*  padding: 10px; */
@@ -74,4 +83,8 @@ main{
   display: flex;
   flex-flow: column wrap;
   padding: 10px 0 0 0;
+}
+
+.div-experiencia{
+  padding: 10px 10px 10px 0;
 }
