@@ -24,7 +24,8 @@ eventt.addEventListener('click', function (e) {
 
 cv.addEventListener('click', function (e) {
   e.preventDefault();
-  main.innerHTML = `
+  window.location.href = `https://marcorossel.com/cv/`;
+  /* main.innerHTML = `
   <main class="center">
     <div class="estela event"></div>
     <div class="cv-div">
@@ -38,4 +39,25 @@ cv.addEventListener('click', function (e) {
   directorio.children[1].classList.add('proyectos');
   directorio.children[1].classList.remove('cv');
   console.log(directorio.children);
+  const cv_web = document.querySelector('.cv-web');
+  const cv_eng = document.querySelector('.cv-eng');
+  const cv_spa = document.querySelector('.cv-spa');
+  const proyectos = document.querySelector('.proyectos');
+  cv_web.addEventListener('click', function () {
+    window.location.href = `https://marcorossel.com/cv/`;
+  })
+
+  cv_spa.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log('click on cv spa');
+  })
+  cv_eng.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log('click on cv eng');
+  })
+  proyectos.addEventListener('click', function (e) {
+    e.preventDefault();
+    console.log('manipular el dom denuevo y mostrar los proyectos');
+  })
+ */
 })
