@@ -55,7 +55,8 @@ header{
   display: flex;
   flex-flow: column wrap;
   align-items: start;
-
+  
+  margin-top: 40px;
   width: 100%;
   max-width: 600px;
  /*  padding: 10px; */
@@ -71,6 +72,7 @@ main{
   
   width: 100%;
   max-width: 600px;
+  margin-bottom: 80px;
 }
 
 .main-educacion{
