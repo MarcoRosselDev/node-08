@@ -51,6 +51,7 @@ header{
   width: 100%;
   height: 60px;
   border-bottom: 1px solid var(--border);
+  z-index: 10;
 }
 
 header nav{
@@ -104,11 +105,23 @@ svg{
   background-color: var(--bg-color-hover);
 }
 
-.directorio{
+/* .directorio{
   overflow: hidden;
   height: 0;
   
   position: fixed;
+  top: 55px;
+  width: 100%;
+  
+  background-color: var(--bg-color-header);
+  transition: height 0.3s;
+} */
+
+.directorio{
+  overflow: hidden;
+  height: 0;
+  
+  position: absolute;
   top: 55px;
   width: 100%;
   
@@ -131,6 +144,8 @@ svg{
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.473);
   transition: height 0.3s;
 }
+
+
 /* header--------------------------- */
 
 /* main ---------------------------- */
@@ -138,16 +153,20 @@ main{
   height: 100%;
   width: 100%;
   max-width: 900px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .estela{
   overflow: hidden;
   height: 0;
+  
 }
 
 .estelaTgl{
   position: fixed;
-  margin-top: 5px;
+  top: 0;
   height: 100%;
   width: 100%;
   background-color: var(--bg-color-hover);

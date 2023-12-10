@@ -37,8 +37,7 @@ body{
   align-items: center;
   background-color: var(--main-bg-color);
 
-  width: 100vw;
-  height: 100vh;
+
 }
 
 /* header--------------------------- */
@@ -47,11 +46,12 @@ header{
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   background-color: var(--bg-color-header);
   width: 100%;
   height: 60px;
   border-bottom: 1px solid var(--border);
+  z-index: 10;
 }
 
 header nav{
@@ -62,7 +62,6 @@ header nav{
   width: 100%;
   max-width: 900px;
 }
-
 
 .logo-div{
   display: flex;
@@ -106,11 +105,23 @@ svg{
   background-color: var(--bg-color-hover);
 }
 
-.directorio{
+/* .directorio{
   overflow: hidden;
   height: 0;
   
   position: fixed;
+  top: 55px;
+  width: 100%;
+  
+  background-color: var(--bg-color-header);
+  transition: height 0.3s;
+} */
+
+.directorio{
+  overflow: hidden;
+  height: 0;
+  
+  position: absolute;
   top: 55px;
   width: 100%;
   
@@ -130,10 +141,11 @@ svg{
   
   height: 180px;
   border-radius: 0px 0px 10px 10px;
-  border: 1px solid var(--border);
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.473);
   transition: height 0.3s;
 }
+
+
 /* header--------------------------- */
 
 /* main ---------------------------- */
@@ -141,23 +153,64 @@ main{
   height: 100%;
   width: 100%;
   max-width: 900px;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .estela{
   overflow: hidden;
   height: 0;
+  
 }
 
 .estelaTgl{
   position: fixed;
-  margin-top: 5px;
+  top: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.103);
+  background-color: var(--bg-color-hover);
   z-index: 2;
 }
-/* main ---------------------------- */
 
+.projects{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  width: 100%;
+  padding: 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-div{
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  background-color: var(--bg-color-header);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.project-div svg{
+  width: 40px;
+  height: 40px;
+}
+
+.project-div-logos{
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+}
+/* main ---------------------------- */
 @media screen and (min-width: 600px) {
   /* solo como ejemplo momentaneo */
   .directorio{
@@ -193,3 +246,4 @@ main{
   }
 
 }
+

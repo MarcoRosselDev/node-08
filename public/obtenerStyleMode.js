@@ -18,9 +18,9 @@ const obtenerStyleMode = async () =>{
       head.children[3].href = `home-${data.mode}.css`;
       div.classList.add(data.mode);
       if (data.mode === 'light') {
-        modeBtn.innerText = 'dark mode';
+        modeBtn.innerText = 'modo oscuro';
       } else{
-        modeBtn.innerText = 'light mode';
+        modeBtn.innerText = 'modo claro';
       }
 
       modeBtn.addEventListener('click',function (e) {
@@ -30,13 +30,13 @@ const obtenerStyleMode = async () =>{
           head.children[3].href = `home-dark.css`;
           div.classList.add('dark');
           actualizarStyleMode('dark'); //<------------------------light or dark | aplicar toggle fn
-          modeBtn.innerText = 'light mode';
+          modeBtn.innerText = 'modo claro';
         } else{
           div.classList.remove('dark');
           head.children[3].href = `home-light.css`;
           div.classList.add('light');
           actualizarStyleMode('light');
-          modeBtn.innerText = 'dark mode';
+          modeBtn.innerText = 'modo oscuro';
         }
       })
 
