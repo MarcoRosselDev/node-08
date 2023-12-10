@@ -18,6 +18,7 @@
   --border: rgba(247, 247, 247, 0.205);
   --transition: all 0.3s linear;
 }
+
 h1,h2,h3,h4{
   color: var(--main-color);
 }
@@ -37,7 +38,8 @@ body{
   align-items: center;
   background-color: var(--main-bg-color);
 
-
+  height: 100vh;
+  max-height: 200vh;
 }
 
 /* header--------------------------- */
@@ -150,6 +152,11 @@ svg{
 
 /* main ---------------------------- */
 main{
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+
   height: 100%;
   width: 100%;
   max-width: 900px;
@@ -210,6 +217,40 @@ main{
   gap: 10px;
 }
 /* main ---------------------------- */
+
+/* cv secction */
+.cv-div{
+  display: flex;
+  flex-flow: column wrap;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+
+}
+
+.btn-cv{
+  background-color: var(--bg-color-header);
+  height: 30px;
+  width: 100%;
+  max-width: 300px;
+  border-radius: 5px;
+  color: var(--main-color);
+  border: 1px solid var(--border);
+}
+
+.btn-cv:hover{
+  background-color: var(--bg-color-hover);
+
+}
+
+.center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* cv secction */
 @media screen and (min-width: 600px) {
   /* solo como ejemplo momentaneo */
   .directorio{
