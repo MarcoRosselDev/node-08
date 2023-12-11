@@ -8,11 +8,16 @@ const main = document.querySelector('main');
 const idioma = document.querySelector('.idioma');
 
 
+const spa = document.querySelector('.spa');
+const eng = document.querySelector('.eng');
+
 idioma.addEventListener('click' , function (e) {
   e.preventDefault();
   console.log('hover idioma');
   // mostrar una lista de idiomas
   // 
+  spa.classList.toggle('hidden')
+  eng.classList.toggle('hidden')
 })
 
 

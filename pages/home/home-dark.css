@@ -131,9 +131,16 @@ svg{
   display: flex;
   flex-direction: column;
   border: 1px solid yellowgreen;
-
-  
+  margin-top: 50px;
+  background-color: var(--bg-color-header);
 }
+
+.hidden{
+  display: none;
+  /*  visibility: hidden;*/
+}
+
+
 /* idiomas div */
 /* header--------------------------- */
 
