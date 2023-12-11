@@ -4,7 +4,55 @@ const directorio = document.querySelector('.directorio');
 const estela = document.querySelector('.estela');
 const eventt = document.querySelector('.event');
 const cv = document.querySelector('.cv');
-const main = document.querySelector('main')
+const main = document.querySelector('main');
+const idioma = document.querySelector('.idioma');
+
+idioma.addEventListener('onmouseover' , function (e) {
+  e.preventDefault();
+  console.log('hover idioma');
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 toggleBtn.addEventListener('click', function (e) {
   e.preventDefault();
