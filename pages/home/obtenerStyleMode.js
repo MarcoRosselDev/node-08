@@ -15,7 +15,7 @@ const obtenerStyleMode = async () =>{
     if (response.status === 200) {
     const a = response.json();
     a.then(data => {
-      head.children[3].href = `/home-${data.mode}.css`;
+      head.children[3].href = `home-${data.mode}.css`;
       div.classList.add(data.mode);
       if (data.mode === 'light') {
         modeBtn.innerText = 'modo oscuro';
