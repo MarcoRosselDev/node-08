@@ -42,7 +42,6 @@ body{
 }
 
 /* header--------------------------- */
-
 header{
   display: flex;
   align-items: center;
@@ -54,7 +53,6 @@ header{
   border-bottom: 1px solid var(--border);
   z-index: 10;
 }
-
 header nav{
   display: flex;
   flex-direction: row;
@@ -63,13 +61,11 @@ header nav{
   width: 100%;
   max-width: 900px;
 }
-
 .logo-div{
   display: flex;
   gap: 5px;
   margin-left: 10px;
 }
-
 /* toggle btn */
 svg{
   width: 20px;
@@ -77,7 +73,6 @@ svg{
   background-color: transparent;
   fill: var(--main-color);
 }
-
 .toggleBtn{
   background-color: transparent;
   border: 1px solid var(--border);
@@ -91,7 +86,6 @@ svg{
   height: 0;
   overflow: hidden;
 }
-
 .linksTgl{
   display: flex;
   justify-content: center;
@@ -101,23 +95,9 @@ svg{
   border-radius: 5px;
   padding: 4px;
 }
-
 .linksTgl:hover{
   background-color: var(--bg-color-hover);
 }
-
-/* .directorio{
-  overflow: hidden;
-  height: 0;
-  
-  position: fixed;
-  top: 55px;
-  width: 100%;
-  
-  background-color: var(--bg-color-header);
-  transition: height 0.3s;
-} */
-
 .directorio{
   overflow: hidden;
   height: 0;
@@ -129,7 +109,6 @@ svg{
   background-color: var(--bg-color-header);
   transition: height 0.3s;
 }
-
 .directorioTgl{
   display: flex;
   padding: 10px 0 10px 0;
@@ -145,8 +124,13 @@ svg{
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.473);
   transition: height 0.3s;
 }
-
-
+/* idiomas div */
+.div-idiomas{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid yellowgreen;
+}
+/* idiomas div */
 /* header--------------------------- */
 
 /* main ---------------------------- */
