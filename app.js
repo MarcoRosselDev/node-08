@@ -16,6 +16,7 @@ app.use('/registrar', express.static(path.join(__dirname, 'pages', 'registrar'))
 app.use('/tareas', express.static(path.join(__dirname, 'pages', 'tareas')));
 app.use('/home', express.static(path.join(__dirname, 'pages', 'home')));
 app.use('/cv', express.static(path.join(__dirname, 'pages', 'cv')));
+app.use('/cveng', express.static(path.join(__dirname, 'pages', 'cv-eng')));
 
 app.use('/api', todo_project);
 
