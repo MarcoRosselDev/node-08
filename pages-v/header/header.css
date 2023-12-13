@@ -4,7 +4,27 @@
   box-sizing: border-box;
 }
 
+:root{
+  --main-color:rgb(205 217 229);
+  --color-2:rgb(205 217 229);
+  --color-3:rgb(99 110 123);
+  --main-bg-color: rgb(45 51 59);
+  --bg-color-header:rgb(28 33 40);
+  --green-color:rgb(81 157 85);
+  --blue-text:rgb(83 155 245);
+  --blue-text-2:rgb(79 146 228);
+  --bg-color-hover:rgba(99, 110, 123, 0.384);
+  --border: rgba(247, 247, 247, 0.205);
+  --transition: all 0.3s linear;
+}
+
+body{
+  background-color: var(--main-bg-color);
+  color: var(--main-color);
+}
+
 header{
+  background-color: var(--bg-color-header);
   border: 1px solid blue;
   display: flex;
   justify-content: space-between;
@@ -12,13 +32,24 @@ header{
   height: 50px;
 }
 
-header div{
+.listas{
   display: flex;
-  gap: 20px;
+  flex-direction: row;
+  gap: 30px;
+  border: 1px solid green;
 }
 
-nav{
-  border: 1px solid red;
+.lista-header{
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  border: 1px solid red;
+  gap: 10px;
+  background-color: var(--bg-color-header);
+
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
