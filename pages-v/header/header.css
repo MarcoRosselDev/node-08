@@ -53,3 +53,42 @@ header{
   justify-content: center;
   align-items: center;
 }
+
+.hidden{
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main p{
+  color: var(--blue-text);
+}
